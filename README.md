@@ -1,2 +1,2 @@
-qualquer coisa# projeto-semestral
+projeto-semestral
 repositório do projeto semestral da disciplina de Front-End
