@@ -1,4 +1,5 @@
 import { Banner } from "../../components/Banner";
+import { Button } from "../../components/Button";
 
 import banner1 from "./../../assets/png/banner1.jpg";
 import banner2 from "./../../assets/png/banner2.png";
@@ -12,6 +13,10 @@ export function Home() {
     <div>
       <Banner image={banner1} height="792px">
         <h1>Home</h1>
+        <Button variant="primary" width="500px">
+          Primary
+        </Button>
+        <Button variant="secondary">Secondary</Button>
       </Banner>
       <Banner image={banner2} height="600px">
         <h1>Home</h1>
