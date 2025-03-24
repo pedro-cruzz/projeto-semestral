@@ -1,5 +1,6 @@
 import { Banner } from "../../components/Banner";
 import { Button } from "../../components/Button";
+import { UserForm } from "../../components/UserForm";
 
 import banner1 from "./../../assets/png/banner1.jpg";
 import banner2 from "./../../assets/png/banner2.png";
@@ -9,6 +10,14 @@ import banner5 from "./../../assets/png/banner5.png";
 import banner6 from "./../../assets/png/banner6.png";
 
 export function Home() {
+  const handleUserSubmit = (data: {
+    name: string;
+    phone: string;
+    email: string;
+  }) => {
+    console.log("Usuário cadastrado:", data);
+    alert(`Usuário ${data.name} cadastrado com sucesso!`);
+  };
   return (
     <>
       <div>
@@ -41,17 +50,8 @@ export function Home() {
           Ofereça seu apoio voluntário, faça a diferença na conunidade e ajude a
           promover <br></br> a saúde mental para todos.
         </p>
-        <form>
-          <h1>Cadastro de usuários</h1>
-          <label className="name">Nome</label>
-          <input type="name" />
-          <label className="telefone">telefone</label>
-          <input type="tel"/>
-          <label className="e-mail">
-            <input type="email" />
-          </label>
-          <button type="button">Cadastrar</button>
-        </form>
+
+        <UserForm onSubmit={handleUserSubmit} />
       </div>
     </>
   );

@@ -7,6 +7,7 @@ export function Button({
   variant,
   width,
   height,
+  type,
 }: IButtonProps) {
   return (
     <StyledButton
@@ -14,6 +15,7 @@ export function Button({
       onClick={onClick}
       width={width}
       height={height}
+      type={type}
     >
       {children}
     </StyledButton>

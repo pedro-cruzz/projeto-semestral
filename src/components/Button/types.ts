@@ -6,4 +6,5 @@ export interface IButtonProps {
   onClick?: () => void;
   width?: string;
   height?: string;
+  type?: "button" | "submit" | "reset";
 }
