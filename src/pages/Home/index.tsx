@@ -10,39 +10,49 @@ import banner6 from "./../../assets/png/banner6.png";
 
 export function Home() {
   return (
-    <><div>
-      <Banner image={banner1} height="792px">
-        <h1>Home</h1>
-        <Button variant="primary" width="500px">
-          Primary
-        </Button>
-        <Button variant="secondary">Secondary</Button>
-      </Banner>
-      <Banner image={banner2} height="600px">
-        <h1>Home</h1>
-      </Banner>
-      <Banner image={banner3} height="634px">
-        <h1>Home</h1>
-      </Banner>
-      <Banner image={banner4} height="711px">
-        <h1>Home</h1>
-      </Banner>
-      <Banner image={banner5} height="641px">
-        <h1>Home</h1>
-      </Banner>
-      <Banner image={banner6} height="641px">
-        <h1>Home</h1>
-      </Banner>
-    </div><div>
+    <>
+      <div>
+        <Banner image={banner1} height="792px">
+          <h1>Home</h1>
+          <Button variant="primary" width="500px">
+            Primary
+          </Button>
+          <Button variant="secondary">Secondary</Button>
+        </Banner>
+        <Banner image={banner2} height="600px">
+          <h1>Home</h1>
+        </Banner>
+        <Banner image={banner3} height="634px">
+          <h1>Home</h1>
+        </Banner>
+        <Banner image={banner4} height="711px">
+          <h1>Home</h1>
+        </Banner>
+        <Banner image={banner5} height="641px">
+          <h1>Home</h1>
+        </Banner>
+        <Banner image={banner6} height="641px">
+          <h1>Home</h1>
+        </Banner>
+      </div>
+      <div>
         <h1>Psicólogos, juntem-se a Mente Saudável</h1>
-        <p>Ofereça seu apoio voluntário, faça a diferença na conunidade e ajude a promover <br></br> a saúde mental para todos.</p>
+        <p>
+          Ofereça seu apoio voluntário, faça a diferença na conunidade e ajude a
+          promover <br></br> a saúde mental para todos.
+        </p>
         <form>
           <h1>Cadastro de usuários</h1>
-          <input type="text" value="nome" />
-          <input type="tel" value="telefone" />
-          <input type="email" value="e-mail" />
+          <label className="name">Nome</label>
+          <input type="name" />
+          <label className="telefone">telefone</label>
+          <input type="tel"/>
+          <label className="e-mail">
+            <input type="email" />
+          </label>
           <button type="button">Cadastrar</button>
         </form>
-      </div></>
+      </div>
+    </>
   );
 }
