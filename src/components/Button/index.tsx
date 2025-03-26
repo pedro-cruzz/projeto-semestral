@@ -4,10 +4,11 @@ import { IButtonProps } from "./types";
 export function Button({
   children,
   onClick,
-  variant,
+  variant = "primary",
   width,
   height,
-  type,
+  type = "button",
+  disabled = false,
 }: IButtonProps) {
   return (
     <StyledButton
@@ -16,6 +17,7 @@ export function Button({
       width={width}
       height={height}
       type={type}
+      disabled={disabled}
     >
       {children}
     </StyledButton>

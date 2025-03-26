@@ -7,4 +7,5 @@ export interface IButtonProps {
   width?: string;
   height?: string;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }

@@ -18,6 +18,7 @@ export function Home() {
     console.log("Usuário cadastrado:", data);
     alert(`Usuário ${data.name} cadastrado com sucesso!`);
   };
+
   return (
     <>
       <div>
