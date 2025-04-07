@@ -1,6 +1,8 @@
 import { Banner } from "../../components/Banner";
 import { Button } from "../../components/Button";
+import { Card } from "../../components/Card";
 import { UserForm } from "../../components/UserForm";
+import { cards } from "../../consts/cards";
 
 import banner1 from "./../../assets/png/banner1.jpg";
 import banner2 from "./../../assets/png/banner2.png";
@@ -31,9 +33,30 @@ export function Home() {
         </Banner>
         <Banner image={banner2} height="600px">
           <h1>Home</h1>
+          {cards.map((card, index) =>
+            card.haveImage === false ? (
+              <Card
+                key={index}
+                title={card.title}
+                description={card.description}
+                haveImage={card.haveImage}
+                icon={card.icon}
+              />
+            ) : null
+          )}
         </Banner>
         <Banner image={banner3} height="634px">
           <h1>Home</h1>
+          {cards.map((card, index) =>
+            card.haveImage === true ? (
+              <Card
+                key={index}
+                title={card.title}
+                description={card.description}
+                haveImage={card.haveImage}
+              />
+            ) : null
+          )}
         </Banner>
         <Banner image={banner4} height="711px">
           <h1>Home</h1>

@@ -132,7 +132,6 @@ export function useUserForm({
   };
 }
 
-// Helper function para formatação de telefone
 function formatPhoneNumber(value: string): string {
   const numbers = value.replace(/\D/g, "");
   if (numbers.length > 11) return value.substring(0, 15);

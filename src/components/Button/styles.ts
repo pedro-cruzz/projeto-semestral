@@ -24,6 +24,7 @@ export const StyledButton = styled.button<{
     `
     background-color: ${theme.colors.WHITE};
     color: ${theme.colors.DARK_GREEN};
+    opacity: 1;
 
     &:hover {
       background-color:${theme.colors.DARK_GREEN};
@@ -37,6 +38,7 @@ export const StyledButton = styled.button<{
     `
       background-color:${theme.colors.DARK_GREEN};
       color: ${theme.colors.WHITE};
+      opacity: 1;
     &:hover {
        background-color: ${theme.colors.WHITE};
        color: ${theme.colors.DARK_GREEN};

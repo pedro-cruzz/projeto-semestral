@@ -7,7 +7,7 @@ export const theme = {
   },
   fonts: {
     boska: "Boska",
-    switzer: "Switzer",
+    switzer: "Switzer, sans-serif",
   },
   media: {
     mobile: "@media (max-width: 768px)",
