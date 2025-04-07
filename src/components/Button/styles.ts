@@ -17,6 +17,7 @@ export const StyledButton = styled.button<{
   width: ${({ width }) => width || "auto"};
   height: ${({ height }) => height || "auto"};
   font-family: ${theme.fonts.switzer};
+  margin-top: 1rem;
 
   // Estilos para a variante primary
   ${({ variant }) =>
@@ -24,6 +25,7 @@ export const StyledButton = styled.button<{
     `
     background-color: ${theme.colors.WHITE};
     color: ${theme.colors.DARK_GREEN};
+    opacity: 1;
 
     &:hover {
       background-color:${theme.colors.DARK_GREEN};
@@ -37,6 +39,7 @@ export const StyledButton = styled.button<{
     `
       background-color:${theme.colors.DARK_GREEN};
       color: ${theme.colors.WHITE};
+      opacity: 1;
     &:hover {
        background-color: ${theme.colors.WHITE};
        color: ${theme.colors.DARK_GREEN};
