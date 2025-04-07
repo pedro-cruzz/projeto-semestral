@@ -26,7 +26,7 @@ export function UserForm({
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <h2>Cadastro de Usuário</h2>
+      <h2>Cadastre-se e faça parte dessa rede de acolhimento</h2>
 
       <InputField
         label="Nome"
@@ -69,6 +69,7 @@ export function UserForm({
         variant="secondary"
         type="submit"
         disabled={!isValid || isSubmitting}
+        width="285px"
       >
         {isSubmitting ? "Cadastrando..." : "Cadastrar"}
       </Button>

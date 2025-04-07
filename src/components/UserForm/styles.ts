@@ -1,32 +1,50 @@
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 export const FormContainer = styled.form`
   width: 100%;
-  max-width: 400px;
+  max-width: 800px;
   background: #ffffff;
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 40px;
+  height437px;
+  border-radius: 26px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 25px 5px rgba(0, 0, 0, 0.35);
+  margin: 0 auto;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  
+  
 
   h2 {
     margin: 0 0 1rem 0;
-    color: #333;
+    color: var();
     text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px
+    font-weight: 700;
+    font-family: ${theme.fonts.boska};
+    color: ${theme.colors.DARK_GREEN};
   }
 `;
 
 export const InputContainer = styled.div<{ $hasError: boolean }>`
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  margin-bottom: 1rem;
+  border: none;
 
   label {
     font-weight: 500;
     color: #444;
     font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    transition: color 0.2s;
+    width: 700px;
   }
 
   input {
@@ -35,6 +53,11 @@ export const InputContainer = styled.div<{ $hasError: boolean }>`
     border-radius: 4px;
     font-size: 1rem;
     transition: border-color 0.2s;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.28);
+    border-left: transparent;
+    border-right: transparent;
+    border-top: transparent;
+    width: 700px;
 
     &:focus {
       outline: none;
@@ -54,4 +77,5 @@ export const InputContainer = styled.div<{ $hasError: boolean }>`
     font-size: 0.8rem;
     margin: 0;
   }
+
 `;

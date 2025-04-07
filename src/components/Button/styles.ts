@@ -17,6 +17,7 @@ export const StyledButton = styled.button<{
   width: ${({ width }) => width || "auto"};
   height: ${({ height }) => height || "auto"};
   font-family: ${theme.fonts.switzer};
+  margin-top: 1rem;
 
   // Estilos para a variante primary
   ${({ variant }) =>
