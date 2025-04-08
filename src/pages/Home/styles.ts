@@ -59,7 +59,7 @@ export const TextBanner6 = styled.p`
     text-align: left;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 3px;
+    gap: 15px;
     color: ${theme.colors.WHITE};
 `;
 

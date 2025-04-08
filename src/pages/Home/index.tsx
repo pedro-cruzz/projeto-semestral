@@ -3,7 +3,8 @@ import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
 import { UserForm } from "../../components/UserForm";
 import { cards } from "../../consts/cards";
-import { TitleForm, TextForm , TitleBanner6 , TextBanner6} from "./styles";
+import { TitleForm, TextForm, TitleBanner6, TextBanner6} from "./styles";
+import { ToolTip } from "../../components/ToolTip";
 
 import banner1 from "./../../assets/png/banner1.jpg";
 import banner2 from "./../../assets/png/banner2.png";
@@ -65,14 +66,24 @@ export function Home() {
         <Banner image={banner5} height="641px">
           <h1>Home</h1>
         </Banner>
+        <ToolTip  />
         <Banner image={banner6} height="641px">
           <div>
-          <TitleBanner6>Junte-se à Mente Saudável!</TitleBanner6>
-          <TextBanner6>
-          Na Mente Saudável, todos têm um papel importante na construção de uma comunidade mais acolhedora e consciente sobre a saúde mental. Se você é um profissional de saúde mental, junte-se a nós oferecendo seus serviços voluntários e fazendo a diferença na vida de muitas pessoas.
-          <br />
-          Se você busca apoio ou deseja aprender mais sobre autocuidado e bem-estar emocional, explore nossos conteúdos e encontre o suporte necessário..
-          </TextBanner6>
+            <TitleBanner6>Junte-se à Mente Saudável!</TitleBanner6>
+            <TextBanner6>
+              <p>
+                Na Mente Saudável, todos têm um papel importante na construção
+                de uma comunidade mais acolhedora e consciente sobre a saúde
+                mental. Se você é um profissional de saúde mental, junte-se a
+                nós oferecendo seus serviços voluntários e fazendo a diferença
+                na vida de muitas pessoas.
+              </p>
+              <p>
+                Se você busca apoio ou deseja aprender mais sobre autocuidado e
+                bem-estar emocional, explore nossos conteúdos e encontre o
+                suporte necessário..
+              </p>
+            </TextBanner6>
           </div>
         </Banner>
       </div>
