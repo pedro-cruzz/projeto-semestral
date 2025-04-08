@@ -3,7 +3,7 @@ import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
 import { UserForm } from "../../components/UserForm";
 import { cards } from "../../consts/cards";
-import { TitleForm } from "./styles";
+import { TitleForm, TextForm} from "./styles";
 
 import banner1 from "./../../assets/png/banner1.jpg";
 import banner2 from "./../../assets/png/banner2.png";
@@ -71,10 +71,10 @@ export function Home() {
       </div>
       <div>
         <TitleForm>Psicólogos, juntem-se a Mente Saudável</TitleForm>
-        <p>
+        <TextForm>
           Ofereça seu apoio voluntário, faça a diferença na conunidade e ajude a
-          promover <br></br> a saúde mental para todos.
-        </p>
+          promover <br></br>a saúde mental para todos.
+        </TextForm>
 
         <UserForm onSubmit={handleUserSubmit} />
       </div>
