@@ -3,7 +3,7 @@ import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
 import { UserForm } from "../../components/UserForm";
 import { cards } from "../../consts/cards";
-import { TitleForm, TextForm, TitleBanner6, TextBanner6} from "./styles";
+import { TitleForm, TextForm, TitleBanner6, TextBanner6, ChatAlert, TextChat, TitleChat} from "./styles";
 import { ToolTip } from "../../components/ToolTip";
 
 import banner1 from "./../../assets/png/banner1.jpg";
@@ -66,7 +66,15 @@ export function Home() {
         <Banner image={banner5} height="641px">
           <h1>Home</h1>
         </Banner>
-        <ToolTip  />
+        <ChatAlert>
+          <TitleChat>Precisa conversar</TitleChat>
+          <TextChat>
+            Nosso chat de acolhimento com voluntários está disponível para ouvir
+            você. Não guarde suas emoções para si. Fale com a gente agora mesmo!
+          </TextChat>
+          <Button width="300px" variant="primary">Fale conosco</Button>
+        </ChatAlert>
+        <ToolTip />
         <Banner image={banner6} height="641px">
           <div>
             <TitleBanner6>Junte-se à Mente Saudável!</TitleBanner6>
@@ -88,7 +96,7 @@ export function Home() {
         </Banner>
       </div>
       <div></div>
-      <div>
+      <div id="#form">
         <TitleForm>Psicólogos, juntem-se a Mente Saudável</TitleForm>
         <TextForm>
           Ofereça seu apoio voluntário, faça a diferença na conunidade e ajude a

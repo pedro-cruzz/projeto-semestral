@@ -33,7 +33,7 @@ export const TitleBanner6 = styled.h1`
     max-width: 530px;
     width: 100%;
     position: absolute;
-    margin-left: 800px;
+    margin-left: 820px;
     color: ${theme.colors.WHITE};
     font-size: 40px;
     font-weight: 700;
@@ -49,7 +49,7 @@ export const TextBanner6 = styled.p`
     max-width: 500px;
     width: 100%;
     position: absolute;
-    margin-left: 800px;
+    margin-left: 820px;
     margin-top: 15rem;
     font-size: 20px;
     font-weight: 400;
@@ -61,5 +61,43 @@ export const TextBanner6 = styled.p`
     flex-direction: column;
     gap: 15px;
     color: ${theme.colors.WHITE};
+`;
+
+export const ChatAlert = styled.div`
+    background-color: ${theme.colors.DARK_GREEN};
+    color: ${theme.colors.WHITE};
+    height: 450px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2rem;
+`;
+
+export const TitleChat = styled.h1`
+    font-size: 40px;
+    font-weight: 700;
+    color: ${theme.colors.WHITE};
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 2rem auto;
+    width: 100%;
+    max-width: 882px;
+    font-family: ${theme.fonts.boska};
+`;
+
+export const TextChat = styled.p`
+    font-size: 20px;
+    font-weight: 400;
+    color: ${theme.colors.WHITE};
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 1rem auto;
+    width: 100%;
+    max-width: 800px;
+    font-family: ${theme.fonts.switzer};
 `;
 
