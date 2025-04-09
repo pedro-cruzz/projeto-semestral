@@ -26,6 +26,17 @@ export const TextForm = styled.p`
   width: 100%;
   max-width: 882px;
   font-family: ${theme.fonts.switzer};
+  display: flex;
+  font-size: 24px;
+  font-weight: 400;
+  color: ${theme.colors.DARK_GREEN};
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto 4rem auto;
+  width: 100%;
+  max-width: 882px;
+  font-family: ${theme.fonts.switzer};
 `;
 
 export const TitleBanner6 = styled.h1`
@@ -59,7 +70,7 @@ export const TextBanner6 = styled.p`
   text-align: left;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 3px;
+  gap: 15px;
   color: ${theme.colors.WHITE};
 `;
 
