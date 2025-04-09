@@ -1,4 +1,11 @@
-import { CardContainer, CardDescription, CardTitle, Container } from "./styles";
+import {
+  CardContainer,
+  CardDescription,
+  CardTitle,
+  Container,
+  Icon,
+  Image,
+} from "./styles";
 import { ICardProps } from "./types";
 
 export function Card({
@@ -10,11 +17,16 @@ export function Card({
 }: ICardProps) {
   return (
     <Container>
-      <CardContainer>
-        {haveImage === false ? (
-          <img src={icon} alt={title} />
+      <CardContainer $hasIcon={!!icon}>
+        {/* {haveImage === false ? (
+          <Icon src={icon} alt={title} />
         ) : (
-          <img src={image} alt={title} />
+          <Image src={image} alt={title} />
+        )} */}
+        {haveImage ? (
+          <Image src={image} alt={title} />
+        ) : (
+          <Icon src={icon} alt={title} />
         )}
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
