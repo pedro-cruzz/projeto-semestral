@@ -3,6 +3,9 @@ import { Card } from "./types";
 import chat from "./../assets/png/chat.png";
 import blog from "./../assets/png/blog.png";
 import medicos from "./../assets/png/médicos.png";
+import jovensAdultos from "./../assets/png/jovens-e-adultos.png";
+import familias from "./../assets/png/familias.png";
+import profissionais from "./../assets/png/profissionais.png";
 
 export const cards: Card[] = [
   {
@@ -31,20 +34,20 @@ export const cards: Card[] = [
     description:
       "Que enfrentam ansiedade, depressão ou buscam autoconhecimento.",
     haveImage: true,
-    image: `${medicos}`,
+    image: `${jovensAdultos}`,
   },
   {
     title: "Famílias",
     description:
       "Que precisam de apoio emocional e orientação para ajudar entes queridos.",
     haveImage: true,
-    image: `${medicos}`,
+    image: `${familias}`,
   },
   {
     title: "Profissionais de Saúde Mental",
     description:
       "Psicólogos e terapeutas interessados em contribuir para a comunidade.",
     haveImage: true,
-    image: `${medicos}`,
+    image: `${profissionais}`,
   },
 ];

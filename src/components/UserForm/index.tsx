@@ -66,7 +66,7 @@ export function UserForm({
       />
 
       <Button
-        variant="secondary"
+        $variant="secondary"
         type="submit"
         disabled={!isValid || isSubmitting}
         width="285px"

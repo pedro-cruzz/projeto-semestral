@@ -3,7 +3,7 @@ import { IButtonVariant } from "./types";
 import { theme } from "../../styles/theme";
 
 export const StyledButton = styled.button<{
-  variant?: IButtonVariant;
+  $variant?: IButtonVariant;
   width?: string;
   height?: string;
 }>`
@@ -20,8 +20,8 @@ export const StyledButton = styled.button<{
   margin-top: 1rem;
 
   // Estilos para a variante primary
-  ${({ variant }) =>
-    variant === "primary" &&
+  ${({ $variant }) =>
+    $variant === "primary" &&
     `
     background-color: ${theme.colors.WHITE};
     color: ${theme.colors.DARK_GREEN};
@@ -34,8 +34,8 @@ export const StyledButton = styled.button<{
   `}
 
   // Estilos para a variante secondary
-  ${({ variant }) =>
-    variant === "secondary" &&
+  ${({ $variant }) =>
+    $variant === "secondary" &&
     `
       background-color:${theme.colors.DARK_GREEN};
       color: ${theme.colors.WHITE};

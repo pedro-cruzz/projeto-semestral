@@ -4,7 +4,7 @@ import { IButtonProps } from "./types";
 export function Button({
   children,
   onClick,
-  variant = "primary",
+  $variant = "primary",
   width,
   height,
   type = "button",
@@ -12,7 +12,7 @@ export function Button({
 }: IButtonProps) {
   return (
     <StyledButton
-      variant={variant}
+      $variant={$variant}
       onClick={onClick}
       width={width}
       height={height}

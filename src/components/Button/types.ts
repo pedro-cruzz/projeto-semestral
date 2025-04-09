@@ -1,7 +1,7 @@
 export type IButtonVariant = "primary" | "secondary";
 
 export interface IButtonProps {
-  variant?: IButtonVariant;
+  $variant?: IButtonVariant;
   children: React.ReactNode;
   onClick?: () => void;
   width?: string;
