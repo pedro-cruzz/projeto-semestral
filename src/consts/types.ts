@@ -5,3 +5,7 @@ export interface Card {
   haveImage: boolean;
   icon?: string;
 }
+export interface TooltipItem {
+  label: string;
+  title: string;
+}
