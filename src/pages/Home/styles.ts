@@ -145,3 +145,9 @@ export const TextBanner1 = styled.p`
   width: 100%;
   max-width: 380px;
 `;
+
+export const Separator = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${theme.colors.WHITE};
+`;

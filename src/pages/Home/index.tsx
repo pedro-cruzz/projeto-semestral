@@ -15,6 +15,7 @@ import {
   TitleBanner1,
   TextBanner1,
   ContainerBanner1,
+  Separator,
 
 } from "./styles";
 import { ToolTip } from "../../components/ToolTip";
@@ -89,6 +90,7 @@ export function Home() {
         <Banner image={banner5} height="641px">
           <h1>Home</h1>
         </Banner>
+        <Separator></Separator>
         <ChatAlert>
           <TitleChat>Precisa conversar</TitleChat>
           <TextChat>
@@ -99,9 +101,12 @@ export function Home() {
             <Button width="300px" $variant="primary">
               Fale conosco
             </Button>
+            
           </a>
         </ChatAlert>
+        <Separator></Separator>
         <ToolTip />
+        <Separator></Separator>
         <Banner image={banner6} height="641px">
           <div>
             <TitleBanner6>Junte-se à Mente Saudável!</TitleBanner6>
@@ -122,7 +127,6 @@ export function Home() {
           </div>
         </Banner>
       </div>
-      <div></div>
       <div id="#form">
         <TitleForm>Psicólogos, juntem-se a Mente Saudável</TitleForm>
         <TextForm>
