@@ -12,6 +12,10 @@ import {
   TitleChat,
   TextChat,
   ChatAlert,
+  TitleBanner1,
+  TextBanner1,
+  ContainerBanner1,
+
 } from "./styles";
 import { ToolTip } from "../../components/ToolTip";
 
@@ -21,6 +25,7 @@ import banner3 from "./../../assets/png/banner3.png";
 import banner4 from "./../../assets/png/banner4.png";
 import banner5 from "./../../assets/png/banner5.png";
 import banner6 from "./../../assets/png/banner6.png";
+import logo from "./../../assets/png/logo.png";
 
 export function Home() {
   const handleUserSubmit = (data: {
@@ -36,11 +41,15 @@ export function Home() {
     <>
       <div>
         <Banner image={banner1} height="792px">
-          <h1>Home</h1>
-          <Button $variant="primary" width="500px">
-            Primary
-          </Button>
-          <Button $variant="secondary">Secondary</Button>
+          <ContainerBanner1>
+            <img src={logo} alt="Logo" width="200px" height="auto" />
+            <TitleBanner1>Cuidando da sua mente</TitleBanner1>
+            <TextBanner1>Apoio, informação e acolhimento para
+            sua saúde mental</TextBanner1>
+            <Button $variant="primary" width="300px">
+              Fale conosco
+            </Button>
+          </ContainerBanner1>
         </Banner>
         <Banner image={banner2} height="600px">
           <h1>Home</h1>
