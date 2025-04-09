@@ -29,7 +29,7 @@ export const CardTitle = styled.h2`
 `;
 
 export const CardDescription = styled.p`
-  font-size: 14px;
+  font-size: 10px;
   color: ${theme.colors.WHITE};
   font-family: ${theme.fonts.switzer};
   font: small-caption;
@@ -48,9 +48,6 @@ export const Icon = styled.img`
 `;
 
 export const Image = styled.img`
-  width: 50px;
-  height: 50px;
-  background-color: ${theme.colors.WHITE};
-  padding: 6px;
-  border-radius: 20px;
+  width: 200px;
+  height: 170px;
 `;

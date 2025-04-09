@@ -68,6 +68,7 @@ export function Home() {
                   title={card.title}
                   description={card.description}
                   haveImage={card.haveImage}
+                  image={card.image}
                 />
               ) : null
             )}
@@ -85,7 +86,9 @@ export function Home() {
             Nosso chat de acolhimento com voluntários está disponível para ouvir
             você. Não guarde suas emoções para si. Fale com a gente agora mesmo!
           </TextChat>
-          <Button width="300px" $variant="primary">Fale conosco</Button>
+          <Button width="300px" $variant="primary">
+            Fale conosco
+          </Button>
         </ChatAlert>
         <ToolTip />
         <Banner image={banner6} height="641px">
