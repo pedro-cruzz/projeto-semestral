@@ -86,9 +86,11 @@ export function Home() {
             Nosso chat de acolhimento com voluntários está disponível para ouvir
             você. Não guarde suas emoções para si. Fale com a gente agora mesmo!
           </TextChat>
-          <Button width="300px" $variant="primary">
-            Fale conosco
-          </Button>
+          <a href="https://wa.me/5535998603656" target="_blank">
+            <Button width="300px" $variant="primary">
+              Fale conosco
+            </Button>
+          </a>
         </ChatAlert>
         <ToolTip />
         <Banner image={banner6} height="641px">
