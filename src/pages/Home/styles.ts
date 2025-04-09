@@ -110,3 +110,24 @@ export const Cards = styled.div`
   align-items: center;
   gap: 26px;
 `;
+
+export const ContainerBanner1 = styled.div`
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2rem;
+  align-items: left;
+  justify-content: center;
+  margin-left: 200px;
+  margin-top: 250px;
+`;
+
+export const TextBanner1 = styled.p`
+
+`;
+
+export const TitleBanner1 = styled.h1`
+
+`;
+
