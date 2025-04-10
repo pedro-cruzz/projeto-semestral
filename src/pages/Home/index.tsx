@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Banner } from "../../components/Banner";
 import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
@@ -14,6 +15,9 @@ import banner5 from "./../../assets/png/banner5.png";
 import banner6 from "./../../assets/png/banner6.png";
 import logo from "./../../assets/png/logo.png";
 
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+
 import {
   Cards,
   ChatAlert,
@@ -27,13 +31,29 @@ import {
 } from "./styles";
 
 export function Home() {
-  const handleUserSubmit = (data: {
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const handleUserSubmit = async (data: {
     name: string;
     phone: string;
     email: string;
   }) => {
+    console.log("Iniciando cadastro...");
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     console.log("Usuário cadastrado:", data);
-    alert(`Usuário ${data.name} cadastrado com sucesso!`);
+    setAlertMessage(`Usuário ${data.name} cadastrado com sucesso!`);
+    setAlertOpen(true);
+  };
+
+  const handleAlertClose = (
+    _event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setAlertOpen(false);
   };
 
   const scrollToContact = () => {
@@ -157,11 +177,7 @@ export function Home() {
             <p>
               Além disso, trabalhamos ativamente para quebrar o estigma em torno
               dos transtornos psicológicos, promovendo o diálogo aberto e
-              criando um espaço de acolhimento e empatia. Acreditamos que, ao
-              oferecer informações confiáveis, apoio emocional e oportunidades
-              de orientação, podemos contribuir para uma sociedade mais
-              consciente, saudável e solidária, onde todos se sintam ouvidos e
-              amparados.
+              criando um espaço de acolhimento e empatia.
             </p>
           </TextBanner>
         </ContentContainer>
@@ -218,6 +234,18 @@ export function Home() {
         </TextForm>
         <UserForm onSubmit={handleUserSubmit} />
       </div>
+
+      {/* Snackbar com Alert */}
+      <Snackbar
+        open={alertOpen}
+        autoHideDuration={3000}
+        onClose={handleAlertClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <Alert onClose={handleAlertClose} severity="success">
+          {alertMessage}
+        </Alert>
+      </Snackbar>
     </>
   );
 }

@@ -6,7 +6,7 @@ export const FormContainer = styled.form`
   max-width: 800px;
   background: #ffffff;
   padding: 40px;
-  height437px;
+  height: 437px;
   border-radius: 26px;
   display: flex;
   flex-direction: column;
@@ -17,15 +17,13 @@ export const FormContainer = styled.form`
   align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  
-  
 
   h2 {
     margin: 0 0 1rem 0;
     color: var();
     text-align: center;
     margin-bottom: 30px;
-    font-size: 26px
+    font-size: 26px;
     font-weight: 700;
     font-family: ${theme.fonts.boska};
     color: ${theme.colors.DARK_GREEN};
@@ -77,5 +75,4 @@ export const InputContainer = styled.div<{ $hasError: boolean }>`
     font-size: 0.8rem;
     margin: 0;
   }
-
 `;
