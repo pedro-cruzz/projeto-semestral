@@ -10,6 +10,7 @@ export function Banner({ children, image, height }: IBannerProps) {
         backgroundRepeat: "no-repeat",
         width: "100%",
         height: `${height}`,
+        position: "relative",
       }}
     >
       {children}

@@ -18,11 +18,6 @@ export function Card({
   return (
     <Container>
       <CardContainer $hasIcon={!!icon}>
-        {/* {haveImage === false ? (
-          <Icon src={icon} alt={title} />
-        ) : (
-          <Image src={image} alt={title} />
-        )} */}
         {haveImage ? (
           <Image src={image} alt={title} />
         ) : (

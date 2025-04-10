@@ -3,7 +3,7 @@ import { theme } from "../../styles/theme";
 
 export const Container = styled.div`
   background-color: ${theme.colors.DARK_GREEN};
-  width: 238px;
+  width: 280px;
   border-radius: 20px;
   padding: 20px;
   position: relative;
@@ -18,7 +18,7 @@ export const CardContainer = styled.div<{ $hasIcon: boolean }>`
   position: relative;
   width: 100%;
   height: ${({ $hasIcon }) => ($hasIcon ? "230px" : "340px")};
-  padding-top: ${({ $hasIcon }) => ($hasIcon ? "20px" : "0px")};
+  padding-top: ${({ $hasIcon }) => ($hasIcon ? "30px" : "0px")};
 `;
 
 export const CardTitle = styled.h2`
@@ -26,6 +26,7 @@ export const CardTitle = styled.h2`
   color: ${theme.colors.WHITE};
   font-family: ${theme.fonts.switzer};
   font-weight: bold;
+  margin-top: 6px;
 `;
 
 export const CardDescription = styled.p`
@@ -48,6 +49,6 @@ export const Icon = styled.img`
 `;
 
 export const Image = styled.img`
-  width: 200px;
-  height: 170px;
+  width: 230px;
+  height: 190px;
 `;
