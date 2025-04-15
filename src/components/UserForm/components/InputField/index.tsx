@@ -1,31 +1,18 @@
-import { ChangeEvent, FocusEvent } from "react";
 import { InputContainer } from "../../styles";
 
-interface InputFieldProps {
+interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  id: string;
-  name: string;
-  type: string;
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   error?: string;
-  required?: boolean;
-  maxLength?: number;
 }
 
 export function InputField({
   label,
-  id,
-  name,
-  type,
-  value,
-  onChange,
-  onBlur,
   error,
-  required,
-  maxLength,
+  type = "text",
+  ...rest
 }: InputFieldProps) {
+  const { id, required } = rest;
+
   return (
     <InputContainer $hasError={!!error}>
       <label htmlFor={id}>
@@ -33,13 +20,8 @@ export function InputField({
         {required && " *"}
       </label>
       <input
-        id={id}
-        name={name}
+        {...rest}
         type={type}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-        maxLength={maxLength}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
       />

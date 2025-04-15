@@ -30,9 +30,7 @@ export function UserForm({
 
       <InputField
         label="Nome"
-        id="name"
         name="name"
-        type="text"
         value={formData.name}
         onChange={handleChange}
         onBlur={handleBlur}
@@ -42,7 +40,6 @@ export function UserForm({
 
       <InputField
         label="Telefone"
-        id="phone"
         name="phone"
         type="tel"
         value={formData.phone}
@@ -55,7 +52,6 @@ export function UserForm({
 
       <InputField
         label="E-mail"
-        id="email"
         name="email"
         type="email"
         value={formData.email}

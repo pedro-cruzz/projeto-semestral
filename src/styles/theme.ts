@@ -6,8 +6,8 @@ export const theme = {
     DARK_BLUE: "#181E5A",
   },
   fonts: {
-    boska: "Boska",
-    switzer: "Switzer, sans-serif",
+    playfair: "Playfair Display, serif",
+    mulish: "Mulish, sans-serif",
   },
   media: {
     mobile: "@media (max-width: 768px)",

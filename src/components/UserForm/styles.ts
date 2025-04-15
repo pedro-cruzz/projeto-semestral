@@ -25,7 +25,7 @@ export const FormContainer = styled.form`
     margin-bottom: 30px;
     font-size: 26px;
     font-weight: 700;
-    font-family: ${theme.fonts.boska};
+    font-family: ${theme.fonts.playfair};
     color: ${theme.colors.DARK_GREEN};
   }
 `;

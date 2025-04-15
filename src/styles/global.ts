@@ -2,38 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Boska';
-    src: url('/assets/fonts/boska/Boska-Regular.woff2') format('woff2'),
-         url('/assets/fonts/boska/Boska-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Boska';
-    src: url('/assets/fonts/boska/Boska-Bold.woff2') format('woff2'),
-         url('/assets/fonts/boska/Boska-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Switzer';
-    src: url('/assets/fonts/switzer/Switzer-Regular.woff2') format('woff2'),
-         url('/assets/fonts/switzer/Switzer-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Switzer';
-    src: url('/assets/fonts/switzer/Switzer-Bold.woff2') format('woff2'),
-         url('/assets/fonts/switzer/Switzer-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-  }
-
   * {
     margin: 0;
     padding: 0;
@@ -44,14 +12,14 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-size: 100%;
     -webkit-font-smoothing: antialiased;
-     font-family: ${theme.fonts.switzer}, sans-serif; // Aplicando Switzer como fonte padrão
+     font-family: ${theme.fonts.mulish}, sans-serif; // Aplicando mulish como fonte padrão
   }
 
   // font-size: 16px (padrao-Desktop)
   html {
     p {
       font-size: 18px !important;
-       font-family: ${theme.fonts.switzer}, sans-serif;
+       font-family: ${theme.fonts.mulish}, sans-serif;
     }
 
     @media (max-width: 720px) {
@@ -65,12 +33,12 @@ export const GlobalStyle = createGlobalStyle`
 
   /* Sobreescrevendo a fonte de todos eles */
   body, input, textarea, button, p, span {
-     font-family: ${theme.fonts.switzer}, sans-serif; // Aplicando Switzer para todos os elementos
+     font-family: ${theme.fonts.mulish}, sans-serif; // Aplicando mulish para todos os elementos
   }
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 600;
-    font-family: ${theme.fonts.boska}; // Aplicando Boska para títulos
+    font-family: ${theme.fonts.playfair}; // Aplicando playfair para títulos
   }
 
   button {

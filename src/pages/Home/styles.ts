@@ -10,7 +10,7 @@ export const TitleForm = styled.h1`
   text-align: center;
   justify-content: center;
   margin: 4rem auto;
-  font-family: ${theme.fonts.boska};
+  font-family: ${theme.fonts.playfair};
   width: 100%;
   max-width: 850px;
 `;
@@ -26,7 +26,7 @@ export const TextForm = styled.p`
   margin: 2rem auto 4rem auto;
   width: 100%;
   max-width: 882px;
-  font-family: ${theme.fonts.switzer};
+  font-family: ${theme.fonts.mulish};
 `;
 
 export const ChatAlert = styled.div`
@@ -50,7 +50,7 @@ export const TitleChat = styled.h1`
   align-items: center;
   width: 100%;
   max-width: 882px;
-  font-family: ${theme.fonts.boska};
+  font-family: ${theme.fonts.playfair};
 `;
 
 export const TextChat = styled.p`
@@ -63,7 +63,7 @@ export const TextChat = styled.p`
   margin: 2rem auto 1rem auto;
   width: 100%;
   max-width: 800px;
-  font-family: ${theme.fonts.switzer};
+  font-family: ${theme.fonts.mulish};
 `;
 
 export const Cards = styled.div`
@@ -90,14 +90,14 @@ export const ContentContainer = styled.div<ContentContainerProps>`
 export const TitleBanner = styled.h1`
   font-size: 40px;
   font-weight: 700;
-  font-family: ${theme.fonts.boska};
+  font-family: ${theme.fonts.playfair};
   color: ${({ color }) => color || theme.colors.WHITE};
 `;
 
 export const TextBanner = styled.p`
   font-size: 20px;
   font-weight: 400;
-  font-family: ${theme.fonts.switzer};
+  font-family: ${theme.fonts.mulish};
   color: ${({ color }) => color || theme.colors.WHITE};
   display: flex;
   flex-direction: column;

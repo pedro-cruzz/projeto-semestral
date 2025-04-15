@@ -16,7 +16,7 @@
 //   transition: background-color 0.3s ease, color 0.3s ease;
 //   width: ${({ width }) => width || "auto"};
 //   height: ${({ height }) => height || "auto"};
-//   font-family: ${theme.fonts.switzer};
+//   font-family: ${theme.fonts.mulish};
 //   margin-top: 1rem;
 
 //   // Estilos para a variante primary
@@ -65,7 +65,7 @@ export const StyledButton = styled.button<{
   transition: background-color 0.3s ease, color 0.3s ease;
   width: ${({ width }) => width || "auto"};
   height: ${({ height }) => height || "auto"};
-  font-family: ${theme.fonts.switzer};
+  font-family: ${theme.fonts.mulish};
   margin-top: 1rem;
 
   // Estilo para quando estiver desabilitado

@@ -24,7 +24,7 @@ export const CardContainer = styled.div<{ $hasIcon: boolean }>`
 export const CardTitle = styled.h2`
   font-size: 22px;
   color: ${theme.colors.WHITE};
-  font-family: ${theme.fonts.switzer};
+  font-family: ${theme.fonts.mulish};
   font-weight: bold;
   margin-top: 6px;
 `;
@@ -32,7 +32,7 @@ export const CardTitle = styled.h2`
 export const CardDescription = styled.p`
   font-size: 10px;
   color: ${theme.colors.WHITE};
-  font-family: ${theme.fonts.switzer};
+  font-family: ${theme.fonts.mulish};
   font: small-caption;
 `;
 

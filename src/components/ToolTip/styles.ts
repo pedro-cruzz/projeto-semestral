@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { theme } from '../../styles/theme';
+import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 export const ToolTipContainer = styled.nav`
   display: flex;
@@ -16,7 +16,7 @@ export const ToolTipText = styled.p`
   margin: 0;
   cursor: pointer;
   transition: opacity 0.2s ease-in-out;
-  font-family: ${theme.fonts.switzer};
+  font-family: ${theme.fonts.mulish};
   font-size: 20px;
 
   &:hover {
