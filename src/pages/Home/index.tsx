@@ -29,6 +29,7 @@ import {
   TitleBanner,
   TextBanner,
 } from "./styles";
+import { Header } from "../../components/Header";
 
 export function Home() {
   const [alertOpen, setAlertOpen] = useState(false);
@@ -65,6 +66,7 @@ export function Home() {
 
   return (
     <>
+      <Header />
       {/* Banner 1 */}
       <Banner image={banner1} height="792px">
         <ContentContainer $align="flex-start" $top="250px" $left="150px">
