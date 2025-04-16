@@ -1,3 +1,4 @@
+import Tooltip from "@mui/material/Tooltip";
 import {
   FooterContainer,
   FooterContent,
@@ -8,6 +9,8 @@ import {
   Privacity,
   RightSide,
   LeftSide,
+  Title,
+  Text,
 } from "./styles";
 
 export function Footer() {
@@ -16,19 +19,19 @@ export function Footer() {
       <FooterContent>
         <LeftSide>
           <Address>
-            <h2>Endereço</h2>
-            <p>Rua das Acácias, 123 – Bairro Jardim das Pedras</p>
-            <p>Itajubá – MG, CEP 37500-000</p>
+            <Title>Endereço</Title>
+            <Text>Rua das Acácias, 123 – Bairro Jardim das Pedras</Text>
+            <Text>Itajubá – MG, CEP 37500-000</Text>
           </Address>
           <Contact>
-            <h2>contato</h2>
-            <p>Telefone: +55(35) 99876-2345</p>
-            <p>Email: mentesaudavel014@gmail.com</p>
+            <Title>Contato</Title>
+            <Text>Telefone: +55(35) 99876-2345</Text>
+            <Text>Email: mentesaudavel014@gmail.com</Text>
           </Contact>
         </LeftSide>
         <RightSide>
           <SocialMedia>
-            <h2>Nos acompanhe pelas redes</h2>
+            <Title>Nos acompanhe pelas redes</Title>
             <div
               style={{
                 display: "flex",
@@ -37,27 +40,37 @@ export function Footer() {
                 color: "${({ color }) => color || theme.colors.DARK_GREEN};",
               }}
             >
-              <img
-                src="src\assets\png\facebook_footer.png"
-                alt="logo instagram"
-                width="20px"
-              />
-              <img
-                src="src\assets\png\linkedin_footer.png"
-                alt="logo linkedin"
-                width="20px"
-              />
+              <a
+                href="https://www.instagram.com/_mentesaudavel_14"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="src\assets\png\instagram.png" alt="logo instagram" />
+              </a>
+
+              <Tooltip title="Em breve">
+                <span style={{ opacity: 0.6 }}>
+                  <a
+                    href=""
+                    style={{ cursor: "default", pointerEvents: "none" }}
+                  >
+                    <img
+                      src="src\assets\png\linkedin.png"
+                      alt="logo linkedin"
+                    />
+                  </a>
+                </span>
+              </Tooltip>
             </div>
           </SocialMedia>
           <Privacity>
-            <p style={{ fontSize: "20px" }}>
-              políticas e termos de privacidade
-            </p>
+            <Text style={{ fontSize: "20px" }}>
+              Políticas e termos de privacidade
+            </Text>
           </Privacity>
         </RightSide>
-        </FooterContent>
-        <Copy>&copy; 2025 Mente Saudável. Todos os direitos reservados.</Copy>
-      
+      </FooterContent>
+      <Copy>&copy; 2025 Mente Saudável. Todos os direitos reservados.</Copy>
     </FooterContainer>
   );
 }
