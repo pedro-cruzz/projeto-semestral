@@ -39,6 +39,7 @@ import {
   TextBanner,
 } from "./styles";
 import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
 
 export function Home() {
   const [alertOpen, setAlertOpen] = useState(false);
@@ -271,6 +272,7 @@ export function Home() {
           {alertMessage}
         </Alert>
       </Snackbar>
+      <Footer/>
     </>
   );
 }
