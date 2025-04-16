@@ -13,10 +13,19 @@ import banner3 from "./../../assets/png/banner3.png";
 import banner4 from "./../../assets/png/banner4.png";
 import banner5 from "./../../assets/png/banner5.png";
 import banner6 from "./../../assets/png/banner6.png";
-import logo from "./../../assets/png/logo.png";
+
+import banner1Mobile from "./../../assets/png/banner1-mobile.png";
+import banner2Mobile from "./../../assets/png/banner2-mobile.png";
+import banner3Mobile from "./../../assets/png/banner3-mobile.png";
+import banner4Mobile from "./../../assets/png/banner4-mobile.png";
+import banner5Mobile from "./../../assets/png/banner5-mobile.png";
+import banner6Mobile from "./../../assets/png/banner6-mobile.png";
+
+import logo from "./../../assets/svg/logo.svg";
 
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
+import { useMediaQuery } from "@mui/material";
 
 import {
   Cards,
@@ -34,6 +43,10 @@ import { Header } from "../../components/Header";
 export function Home() {
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+
+  const isMobile = useMediaQuery("(max-width: 700px)");
+  const isTablet = useMediaQuery("(max-width: 1200px)");
+  const isBigScreen = useMediaQuery("(max-width: 1600px");
 
   const handleUserSubmit = async (data: {
     name: string;
@@ -68,8 +81,12 @@ export function Home() {
     <>
       <Header />
       {/* Banner 1 */}
-      <Banner image={banner1} height="792px">
-        <ContentContainer $align="flex-start" $top="250px" $left="150px">
+      <Banner image={isMobile ? banner1Mobile : banner1} height="792px">
+        <ContentContainer
+          $align="flex-start"
+          $top="250px"
+          $left={isTablet ? "60px" : "150px"}
+        >
           <img src={logo} alt="Logo" width="200px" height="auto" />
           <TitleBanner>Cuidando da sua mente</TitleBanner>
           <TextBanner style={{ lineHeight: "25px" }}>
@@ -83,10 +100,10 @@ export function Home() {
       </Banner>
 
       {/* Banner 2 */}
-      <Banner image={banner2} height="600px">
+      <Banner image={isMobile ? banner2Mobile : banner2} height="600px">
         <ContentContainer
           $align="flex-start"
-          $left="800px"
+          $left={isTablet ? "650px" : "800px"}
           $right="100px"
           $top="200px"
         >
@@ -104,11 +121,14 @@ export function Home() {
       </Banner>
 
       {/* Banner 3 - Cards sem imagem */}
-      <Banner image={banner3} height="634px">
+      <Banner image={isMobile ? banner3Mobile : banner3} height="634px">
         <ContentContainer
           $align="center"
-          $left="210px"
-          style={{ gap: "100px" }}
+          style={{
+            gap: "100px",
+            position: "relative",
+            justifyContent: "center",
+          }}
         >
           <TitleBanner color={theme.colors.DARK_GREEN}>
             Encontre apoio e informação
@@ -131,11 +151,14 @@ export function Home() {
       </Banner>
 
       {/* Banner 4 - Cards com imagem */}
-      <Banner image={banner4} height="711px">
+      <Banner image={isMobile ? banner4Mobile : banner4} height="711px">
         <ContentContainer
           $align="center"
-          $left="200px"
-          style={{ gap: "100px" }}
+          style={{
+            gap: "100px",
+            position: "relative",
+            justifyContent: "center",
+          }}
         >
           <TitleBanner color={theme.colors.DARK_GREEN}>
             Para quem é?
@@ -158,12 +181,12 @@ export function Home() {
       </Banner>
 
       {/* Banner 5 */}
-      <Banner image={banner5} height="641px">
+      <Banner image={isMobile ? banner5Mobile : banner5} height="641px">
         <ContentContainer
           $align="flex-start"
-          $top="130px"
-          $left="150px"
-          $right="750px"
+          $top={isBigScreen ? "130px" : "180px"}
+          $left={isBigScreen ? "150px" : "80px"}
+          $right={isBigScreen ? "750px" : "950px"}
         >
           <TitleBanner color={theme.colors.WHITE}>
             Nosso impacto na sociedade
@@ -202,7 +225,7 @@ export function Home() {
       <ToolTip />
 
       {/* Banner 6 */}
-      <Banner image={banner6} height="641px">
+      <Banner image={isMobile ? banner6Mobile : banner6} height="641px">
         <ContentContainer
           $align="flex-start"
           $top="200px"

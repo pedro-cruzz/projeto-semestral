@@ -10,7 +10,7 @@ export const theme = {
     mulish: "Mulish, sans-serif",
   },
   media: {
-    mobile: "@media (max-width: 768px)",
+    mobile: "@media (max-width: 700px)",
     tablet: "@media (max-width: 1024px)",
   },
 };

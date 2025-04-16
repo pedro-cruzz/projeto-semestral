@@ -8,29 +8,59 @@ import {
   IconItem,
 } from "./styles";
 
+import logo from "./../../assets/svg/green-logo.svg";
+import wpp from "./../../assets/svg/wpp.svg";
+import login from "./../../assets/svg/login.svg";
+
+import Tooltip from "@mui/material/Tooltip";
+
 export function Header() {
   return (
     <HeaderContainer>
       <Link to="/">
-        <Logo src="/logo.svg" alt="Logo" />
+        <Logo src={logo} alt="Logo" />
       </Link>
       <Nav>
         <NavList>
           <NavItemLink to="/">Home</NavItemLink>
-          <NavItemLink to="/blog">Blog</NavItemLink>
-          <NavItemLink to="/psychologists">Psicólogos</NavItemLink>
-          <IconItem>
-            <Link to="/login">
-              <img src="/login-icon.svg" alt="Login" />
-            </Link>
-          </IconItem>
+          <Tooltip title="Em breve">
+            <span style={{ opacity: 0.6 }}>
+              <NavItemLink to="/#" style={{ cursor: "default" }}>
+                Blog
+              </NavItemLink>
+            </span>
+          </Tooltip>
+
+          <Tooltip title="Em breve">
+            <span style={{ opacity: 0.6 }}>
+              <NavItemLink to="/#" style={{ cursor: "default" }}>
+                Psicólogos
+              </NavItemLink>
+            </span>
+          </Tooltip>
+
+          <Tooltip title="Em breve">
+            <span style={{ opacity: 0.6 }}>
+              <IconItem>
+                <Link
+                  to="/#"
+                  style={{
+                    cursor: "default",
+                  }}
+                >
+                  <img src={login} alt="Login" />
+                </Link>
+              </IconItem>
+            </span>
+          </Tooltip>
+
           <IconItem>
             <a
-              href="https://wa.me/SEU_NUMERO"
+              href="https://wa.me/5535998603656"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/whatsapp-icon.svg" alt="Contato via WhatsApp" />
+              <img src={wpp} alt="Contato via WhatsApp" />
             </a>
           </IconItem>
         </NavList>
