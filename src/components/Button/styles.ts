@@ -55,12 +55,14 @@ export const StyledButton = styled.button<{
   $variant?: IButtonVariant;
   width?: string;
   height?: string;
+  borderRadius?: string;
+  fontWeight?: string;
 }>`
   padding: 12px 24px;
   border: none;
-  border-radius: 60px;
+  border-radius: ${({ borderRadius }) => borderRadius || "60px"};
   font-size: 16px;
-  font-weight: bold;
+  font-weight: ${({ fontWeight }) => fontWeight || "bold"};
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   width: ${({ width }) => width || "auto"};

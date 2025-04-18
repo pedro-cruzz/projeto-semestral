@@ -4,6 +4,7 @@ export const theme = {
     LIGHT_GREEN: "#87A16D",
     WHITE: "#F2F2F1",
     DARK_BLUE: "#181E5A",
+    GRAY: "#D7DAD1",
   },
   fonts: {
     playfair: "Playfair Display, serif",

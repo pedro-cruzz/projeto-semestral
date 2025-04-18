@@ -25,7 +25,10 @@ export function Header() {
           <NavItemLink to="/">Home</NavItemLink>
           <Tooltip title="Em breve">
             <span style={{ opacity: 0.6 }}>
-              <NavItemLink to="/#" style={{ cursor: "default" }}>
+              <NavItemLink
+                to=""
+                style={{ cursor: "default", pointerEvents: "none" }}
+              >
                 Blog
               </NavItemLink>
             </span>
@@ -33,26 +36,20 @@ export function Header() {
 
           <Tooltip title="Em breve">
             <span style={{ opacity: 0.6 }}>
-              <NavItemLink to="/#" style={{ cursor: "default" }}>
+              <NavItemLink
+                to=""
+                style={{ cursor: "default", pointerEvents: "none" }}
+              >
                 Psicólogos
               </NavItemLink>
             </span>
           </Tooltip>
 
-          <Tooltip title="Em breve">
-            <span style={{ opacity: 0.6 }}>
-              <IconItem>
-                <Link
-                  to="/#"
-                  style={{
-                    cursor: "default",
-                  }}
-                >
-                  <img src={login} alt="Login" />
-                </Link>
-              </IconItem>
-            </span>
-          </Tooltip>
+          <IconItem>
+            <Link to="/choose-login">
+              <img src={login} alt="Login" />
+            </Link>
+          </IconItem>
 
           <IconItem>
             <a

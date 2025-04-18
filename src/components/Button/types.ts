@@ -8,4 +8,6 @@ export interface IButtonProps {
   height?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  borderRadius?: string;
+  fontWeight?: string;
 }

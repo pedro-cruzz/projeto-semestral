@@ -9,7 +9,9 @@ export function Button({
   height,
   type = "button",
   disabled = false,
-}: IButtonProps) {
+  borderRadius,
+  fontWeight,
+}: IButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <StyledButton
       $variant={$variant}
@@ -18,6 +20,8 @@ export function Button({
       height={height}
       type={type}
       disabled={disabled}
+      borderRadius={borderRadius}
+      fontWeight={fontWeight}
     >
       {children}
     </StyledButton>
