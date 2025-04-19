@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-size: 100%;
     -webkit-font-smoothing: antialiased;
      font-family: ${theme.fonts.mulish}, sans-serif; // Aplicando mulish como fonte padrão
   }
@@ -18,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
   // font-size: 16px (padrao-Desktop)
   html {
     p {
-      font-size: 18px !important;
        font-family: ${theme.fonts.mulish}, sans-serif;
     }
 

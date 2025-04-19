@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Container } from "./styles";
+import { LoginForm } from "../../components/Forms/LoginForm";
 
 export default function Login() {
   const navigate = useNavigate();
 
   return (
     <Container>
-      <p>login</p>
+      <LoginForm />
       <Button
         borderRadius="10px"
         width="200px"
