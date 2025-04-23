@@ -12,8 +12,9 @@ import {
   Title,
   Text,
 } from "./styles";
-import instagram from "./../../assets/png/instagram.png"
-import linkedin from "./../../assets/png/linkedin.png"
+import instagram from "./../../assets/png/instagram.png";
+import linkedin from "./../../assets/png/linkedin.png";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -42,25 +43,35 @@ export function Footer() {
                 color: "${({ color }) => color || theme.colors.DARK_GREEN};",
               }}
             >
-              <a
+              {/* <a
                 href="https://www.instagram.com/_mentesaudavel_14"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img src={instagram} alt="logo instagram" />
-              </a>
+              </a> */}
+              <Link
+                to="https://www.instagram.com/_mentesaudavel_14"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={instagram} alt="logo instagram" />
+              </Link>
 
               <Tooltip title="Em breve">
                 <span style={{ opacity: 0.6 }}>
-                  <a
+                  {/* <a
                     href=""
                     style={{ cursor: "default", pointerEvents: "none" }}
                   >
-                    <img
-                      src="linkedin"
-                      alt="logo linkedin"
-                    />
-                  </a>
+                    <img src={linkedin} alt="logo linkedin" />
+                  </a> */}
+                  <Link
+                    to=""
+                    style={{ cursor: "default", pointerEvents: "none" }}
+                  >
+                    <img src={linkedin} alt="logo linkedin" />
+                  </Link>
                 </span>
               </Tooltip>
             </div>
