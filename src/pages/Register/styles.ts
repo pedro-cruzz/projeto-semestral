@@ -12,7 +12,7 @@ export const Container = styled.main`
   flex-direction: column;
 
   justify-content: space-around;
-  height: 100vh;
+  /* height: 100vh; */
   z-index: 0;
   overflow: hidden;
 

@@ -8,6 +8,7 @@ export const PasswordField = ({
   onChange,
   placeholder,
   label,
+  error,
 }: IPasswordFieldProps) => {
   const [show, setShow] = useState(false);
 
@@ -21,6 +22,7 @@ export const PasswordField = ({
         placeholder={placeholder}
       />
       <Toggle onClick={() => setShow(!show)}>{show ? "🙈" : "👁️"}</Toggle>
+      {error && <span style={{ color: "red", fontSize: "12px" }}>{error}</span>}
     </Wrapper>
   );
 };

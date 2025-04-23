@@ -18,7 +18,12 @@ export const AuthFormLayout = ({
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}
       >
-        <Button $variant="secondary" width="220px" fontWeight="400">
+        <Button
+          type="submit"
+          $variant="secondary"
+          width="220px"
+          fontWeight="400"
+        >
           {buttonLabel}
         </Button>
       </div>

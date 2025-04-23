@@ -1,0 +1,123 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "ana@psico.com",
+      "password": "Ana@1234",
+      "type": "psychologist"
+    },
+    {
+      "id": 2,
+      "email": "joao@paciente.com",
+      "password": "Joao@1234",
+      "type": "patient"
+    },
+    {
+      "id": "7d7b",
+      "email": "EWFewgewr@gmail.com",
+      "password": "5+15915916515",
+      "type": "psychologist"
+    },
+    {
+      "id": "2eb2",
+      "email": "danyllo.anic@gmail.com",
+      "password": "",
+      "type": "psychologist"
+    },
+    {
+      "id": "a3b7",
+      "email": "DGFGDFG@GMAIL.COM",
+      "password": "FDSGDFGSDF",
+      "type": "psychologist"
+    },
+    {
+      "id": "92c0",
+      "email": "dkfbdkfj@gmail.com",
+      "password": "51651621651",
+      "type": "psychologist"
+    },
+    {
+      "id": "b4b7",
+      "email": "dkfbdkfj@gmail.com",
+      "password": "51651621651",
+      "type": "psychologist"
+    },
+    {
+      "id": "eff8",
+      "email": "fgdsgs@gmail.com",
+      "password": "gdfsgdfgsfdgsdfgs"
+    },
+    {
+      "id": "ddbd",
+      "email": "pedro@gmail.com",
+      "password": "11111111111111111111"
+    }
+  ],
+  "psychologists": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Ana Souza",
+      "crp": "SP/12345",
+      "birthDate": "1985-06-01",
+      "activitiesStartDate": "2010-01-01"
+    },
+    {
+      "id": "77f8",
+      "name": "daggreger",
+      "crp": "MG/789",
+      "birthDate": "1990-01-01",
+      "activitiesStartDate": "2020-01-01",
+      "userId": "7d7b"
+    },
+    {
+      "id": "5daf",
+      "name": "danyllo",
+      "crp": "MG/566",
+      "birthDate": "04",
+      "activitiesStartDate": "",
+      "userId": "2eb2"
+    },
+    {
+      "id": "6ca8",
+      "name": "FDGDFG",
+      "crp": "DFSGDFSG",
+      "birthDate": "2005-07-04",
+      "activitiesStartDate": "undefined-undefined-HFGHD",
+      "userId": "a3b7"
+    },
+    {
+      "id": "1375",
+      "name": "dfhrghfx",
+      "crp": "MG/45612",
+      "birthDate": "2005-07-04",
+      "activitiesStartDate": "2010-02-05",
+      "userId": "92c0"
+    },
+    {
+      "id": "245f",
+      "name": "dfhrghfx",
+      "crp": "MG/45612",
+      "birthDate": "2005-07-04",
+      "activitiesStartDate": "2010-02-05",
+      "userId": "b4b7"
+    },
+    {
+      "id": "40e7",
+      "name": "ggdfdfgsd",
+      "crp": "56/56565",
+      "birthDate": "6516-61-25",
+      "activitiesStartDate": "5645-61-15",
+      "userId": "eff8"
+    },
+    {
+      "id": "ece3",
+      "name": "pedro",
+      "crp": "32/32323",
+      "birthDate": "1321-12-15",
+      "activitiesStartDate": "2323-23-16",
+      "userId": "ddbd"
+    }
+  ],
+  "patients": []
+}
