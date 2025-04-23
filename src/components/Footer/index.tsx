@@ -12,6 +12,8 @@ import {
   Title,
   Text,
 } from "./styles";
+import instagram from "./../../assets/png/instagram.png"
+import linkedin from "./../../assets/png/linkedin.png"
 
 export function Footer() {
   return (
@@ -45,7 +47,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="src\assets\png\instagram.png" alt="logo instagram" />
+                <img src={instagram} alt="logo instagram" />
               </a>
 
               <Tooltip title="Em breve">
@@ -55,7 +57,7 @@ export function Footer() {
                     style={{ cursor: "default", pointerEvents: "none" }}
                   >
                     <img
-                      src="src\assets\png\linkedin.png"
+                      src="linkedin"
                       alt="logo linkedin"
                     />
                   </a>
