@@ -30,6 +30,6 @@ export const RegisterParagraph = styled.p``;
 export const Inputs = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   margin-top: 1rem;
 `;

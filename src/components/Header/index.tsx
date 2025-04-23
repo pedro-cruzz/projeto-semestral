@@ -46,7 +46,7 @@ export function Header() {
           </Tooltip>
 
           <IconItem>
-            <Link to="/choose-login">
+            <Link to="/login">
               <img src={login} alt="Login" />
             </Link>
           </IconItem>

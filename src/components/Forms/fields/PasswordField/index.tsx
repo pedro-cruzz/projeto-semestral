@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { Input, Toggle, Wrapper } from "./styles";
 import { IPasswordFieldProps } from "./types";
+import { LabelInputField } from "../InputField/styles";
 
 export const PasswordField = ({
   value,
   onChange,
   placeholder,
+  label,
 }: IPasswordFieldProps) => {
   const [show, setShow] = useState(false);
 
   return (
     <Wrapper>
+      <LabelInputField>{label}</LabelInputField>
       <Input
         type={show ? "text" : "password"}
         value={value}

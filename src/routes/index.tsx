@@ -6,7 +6,8 @@ import NotFound from "../pages/NotFound";
 import Blog from "../pages/Blog";
 import Psicologos from "../pages/Psychologists";
 import Login from "../pages/Login";
-import { ChooseLogin } from "../pages/ChooseLogin";
+import { ChooseRegister } from "../pages/ChooseRegister";
+import { Register } from "../pages/Register";
 
 export function AppRoutes() {
   return (
@@ -15,7 +16,8 @@ export function AppRoutes() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/psychologists" element={<Psicologos />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/choose-login" element={<ChooseLogin />} />
+      <Route path="/choose-register" element={<ChooseRegister />} />
+      <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -24,7 +24,7 @@ export const Toggle = styled.span`
   position: absolute;
   top: 50%;
   right: 1rem;
-  transform: translateY(-50%);
+  transform: translateY(-20%);
   cursor: pointer;
   font-size: 1.2rem;
 `;

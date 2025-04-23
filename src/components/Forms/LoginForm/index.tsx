@@ -3,14 +3,14 @@ import { AuthFormLayout } from "../AuthFormLayout";
 import { PasswordField } from "../fields/PasswordField";
 import { CheckboxWithLabel } from "../fields/CheckBoxField";
 import {
-  ButtonGoogle,
+  // ButtonGoogle,
   ForgotPassword,
   Inputs,
   RegisterParagraph,
   RegisterParagraphContainer,
 } from "./styles";
 
-import google from "./../../../assets/png/Google.png";
+// import google from "./../../../assets/png/Google.png";
 import { Link } from "react-router-dom";
 import { InputFieldComponent } from "../fields/InputField";
 
@@ -26,7 +26,7 @@ export const LoginForm = () => {
 
   return (
     <AuthFormLayout
-      title="Olá, seja bem vindo de volta!"
+      title={"Olá, seja bem-vindo de volta!"}
       subtitle="É muito bom ter você conosco novamente"
       buttonLabel="Entrar"
       onSubmit={(e) => {
@@ -43,14 +43,14 @@ export const LoginForm = () => {
             marginTop: "2rem",
           }}
         >
-          <ButtonGoogle>
+          {/* <ButtonGoogle>
             <img src={google} alt="Google" style={{ width: "24px" }} />
             Entrar com o Google
-          </ButtonGoogle>
+          </ButtonGoogle> */}
           <RegisterParagraphContainer>
             <RegisterParagraph>Não tem uma conta?</RegisterParagraph>
             <Link
-              to="/cadastro"
+              to={"/choose-register"}
               style={{
                 fontWeight: "bold",
                 textDecoration: "underline",
@@ -73,6 +73,7 @@ export const LoginForm = () => {
           placeholder="Digite sua senha"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
+          label="Senha"
         />
       </Inputs>
 
