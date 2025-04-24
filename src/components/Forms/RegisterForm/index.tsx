@@ -4,6 +4,8 @@ import { PasswordField } from "../fields/PasswordField";
 import { InputFieldComponent } from "../fields/InputField";
 import { useSearchParams } from "react-router-dom";
 import { registerPsychologist } from "../../../services/registerPsychologist";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 
 export const RegisterForm = () => {
   const [nome, setNome] = useState("");
@@ -11,6 +13,9 @@ export const RegisterForm = () => {
   const [crp, setCrp] = useState("");
   const [senha, setSenha] = useState("");
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertSucessMessage, setSucessAlertMessage] = useState("");
+  const [alertErrorMessage, setErrorAlertMessage] = useState("");
 
   const [birthDate, setBirthDate] = useState("");
   const [activitiesStartDate, setActivitiesStartDate] = useState("");
@@ -18,14 +23,22 @@ export const RegisterForm = () => {
   const [searchParams] = useSearchParams();
   const userType = searchParams.get("type"); // "psicologo" | "paciente" | null
 
-  // Funções auxiliares para máscaras
   const applyCRPMask = (value: string) => {
-    return value
-      .replace(/\D/g, "") // Remove tudo que não é dígito
-      .replace(/(\d{2})(\d)/, "$1/$2") // Coloca a barra após 2 dígitos
-      .replace(/(\/\d{5})\d+?$/, "$1"); // Permite apenas 5 dígitos após a barra
-  };
+    // Remove caracteres inválidos
+    const cleaned = value.toUpperCase().replace(/[^A-Z0-9/]/g, "");
 
+    // Separa UF (primeiras 2 letras) e números
+    const uf = cleaned.match(/^[A-Z]{0,2}/)?.[0] || "";
+    const numbers = cleaned.slice(uf.length).replace(/\D/g, "").slice(0, 5);
+
+    // Formatação final
+    let result = uf;
+    if (uf.length >= 2) {
+      result = `${uf.slice(0, 2)}/${numbers}`;
+    }
+
+    return result.slice(0, 8);
+  };
   const applyDateMask = (value: string) => {
     return value
       .replace(/\D/g, "")
@@ -42,11 +55,33 @@ export const RegisterForm = () => {
   }, [errors]);
 
   const handleCrpChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formattedValue = applyCRPMask(e.target.value);
+    const { value, selectionStart } = e.target;
+
+    // Mantém a posição original do cursor
+    const originalCursorPosition = selectionStart || 0;
+
+    // Aplica a máscara
+    const formattedValue = applyCRPMask(value);
+
+    // Calcula a nova posição do cursor
+    let newCursorPosition = originalCursorPosition;
+
+    // Ajusta a posição quando há adição/remoção da barra
+    if (formattedValue.length > value.length && formattedValue.includes("/")) {
+      newCursorPosition += 1;
+    } else if (formattedValue.length < value.length && value.includes("/")) {
+      newCursorPosition -= 1;
+    }
+
+    // Atualiza o estado
     setCrp(formattedValue);
     setErrors((prev) => ({ ...prev, crp: "" }));
-  };
 
+    // Mantém a posição do cursor após atualização
+    setTimeout(() => {
+      e.target.setSelectionRange(newCursorPosition, newCursorPosition);
+    }, 0);
+  };
   const handleBirthDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formattedValue = applyDateMask(e.target.value);
     setBirthDate(formattedValue);
@@ -67,7 +102,7 @@ export const RegisterForm = () => {
     if (!nome.trim()) newErrors.nome = "Nome é obrigatório.";
     if (!email.trim()) newErrors.email = "Email é obrigatório.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      newErrors.email = "Email inválido.";
+      newErrors.email = "Email inválido. Formato deve ser exemplo@gmail.com";
 
     if (senha.length < 8)
       newErrors.senha = "A senha deve ter ao menos 8 caracteres.";
@@ -75,8 +110,8 @@ export const RegisterForm = () => {
     if (userType === "psicologo") {
       if (!crp.trim()) {
         newErrors.crp = "CRP é obrigatório.";
-      } else if (!/^\d{2}\/\d{5}$/.test(crp)) {
-        newErrors.crp = "Formato deve ser UF/99999 (ex: MG/34567).";
+      } else if (!/^[A-Z]{2}\/\d{5}$/.test(crp)) {
+        newErrors.crp = "Formato deve ser UF/99999 (ex: SP/12345)";
       }
       if (!birthDate.trim())
         newErrors.birthDate = "Data de nascimento é obrigatória.";
@@ -99,6 +134,16 @@ export const RegisterForm = () => {
   const convertDateToISO = (date: string) => {
     const [day, month, year] = date.split("/");
     return `${year}-${month}-${day}`;
+  };
+
+  const handleAlertClose = (
+    _event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setAlertOpen(false);
   };
 
   const onSubmit = async () => {
@@ -124,13 +169,18 @@ export const RegisterForm = () => {
 
         const response = await registerPsychologist(userData, psychologistData);
         console.log("Cadastro realizado com sucesso!", response);
-        alert("Cadastro realizado com sucesso!");
+        setSucessAlertMessage(
+          `Psicólogo: ${psychologistData.name} cadastrado com sucesso!`
+        );
+        setAlertOpen(true);
       } else {
-        alert("Tipo de usuário inválido ou não selecionado.");
+        setErrorAlertMessage("Tipo de usuário inválido ou não selecionado.");
+        setAlertOpen(true);
       }
     } catch (err) {
       console.error("Erro no cadastro:", err);
-      alert("Erro ao cadastrar.");
+      setErrorAlertMessage("Erro ao cadastrar.");
+      setAlertOpen(true);
     }
   };
 
@@ -190,6 +240,23 @@ export const RegisterForm = () => {
         onChange={(e) => setSenha(e.target.value)}
         error={errors.senha}
       />
+
+      <Snackbar
+        open={alertOpen}
+        autoHideDuration={3000}
+        onClose={handleAlertClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        {alertSucessMessage ? (
+          <Alert onClose={handleAlertClose} severity="success">
+            {alertSucessMessage}
+          </Alert>
+        ) : (
+          <Alert onClose={handleAlertClose} severity="error">
+            {alertErrorMessage}
+          </Alert>
+        )}
+      </Snackbar>
     </AuthFormLayout>
   );
 };
