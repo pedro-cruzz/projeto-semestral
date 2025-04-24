@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
-export const FormContainer = styled.form`
+export const FormContainer = styled.form<{ maxWidth?: string }>`
   background-color: #fff;
   padding: 2rem;
   border-radius: 1rem;
   width: 100%;
-  max-width: 400px;
+  max-width: ${(props) => props.maxWidth || "none"};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;

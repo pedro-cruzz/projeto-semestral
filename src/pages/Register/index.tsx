@@ -8,7 +8,8 @@ import {
 } from "./styles";
 import { RegisterForm } from "../../components/Forms/RegisterForm";
 import { Link } from "react-router-dom";
-import { Button } from "../../components/Button";
+
+import back from "./../../assets/png/back-button.png";
 
 export function Register() {
   return (
@@ -26,14 +27,7 @@ export function Register() {
       <ContentButton>
         <div></div>
         <Link to={"/choose-register"}>
-          <Button
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            width="200px"
-          >
-            Voltar
-          </Button>
+          <img src={back} alt="back" width={"30px"} />
         </Link>
       </ContentButton>
     </Container>

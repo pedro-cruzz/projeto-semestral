@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import { registerPsychologist } from "../../../services/registerPsychologist";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
+import { ContainerInputs } from "./styles";
 
 export const RegisterForm = () => {
   const [nome, setNome] = useState("");
@@ -192,54 +193,70 @@ export const RegisterForm = () => {
         e.preventDefault();
         onSubmit();
       }}
+      maxWidth="800px"
     >
-      <InputFieldComponent
-        label="Nome"
-        placeholder="Digite seu nome"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-        error={errors.nome}
-      />
-      <InputFieldComponent
-        label="Email"
-        placeholder="Digite seu Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        error={errors.email}
-      />
+      <ContainerInputs>
+        <InputFieldComponent
+          label="Nome"
+          placeholder="Digite seu nome"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+          error={errors.nome}
+        />
+        <InputFieldComponent
+          label="Email"
+          placeholder="Digite seu Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          error={errors.email}
+        />
+      </ContainerInputs>
+
       {userType === "psicologo" && (
         <>
-          <InputFieldComponent
-            label="CRP"
-            placeholder="Conselho Regional de Psicologia"
-            value={crp}
-            onChange={handleCrpChange}
-            error={errors.crp}
-          />
-          <InputFieldComponent
-            label="Data de nascimento"
-            placeholder="DD/MM/AAAA"
-            value={birthDate}
-            onChange={handleBirthDateChange}
-            error={errors.birthDate}
-          />
-
-          <InputFieldComponent
-            label="Início das atividades"
-            placeholder="DD/MM/AAAA"
-            value={activitiesStartDate}
-            onChange={handleActivitiesDateChange}
-            error={errors.activitiesStartDate}
-          />
+          <ContainerInputs>
+            <InputFieldComponent
+              label="CRP"
+              placeholder="Conselho Regional de Psicologia"
+              value={crp}
+              onChange={handleCrpChange}
+              error={errors.crp}
+            />
+            <InputFieldComponent
+              label="Data de nascimento"
+              placeholder="DD/MM/AAAA"
+              value={birthDate}
+              onChange={handleBirthDateChange}
+              error={errors.birthDate}
+            />
+          </ContainerInputs>
+          <ContainerInputs>
+            <InputFieldComponent
+              label="Início das atividades"
+              placeholder="DD/MM/AAAA"
+              value={activitiesStartDate}
+              onChange={handleActivitiesDateChange}
+              error={errors.activitiesStartDate}
+            />
+            <PasswordField
+              label="Senha"
+              placeholder="Mínimo 8 dígitos"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              error={errors.senha}
+            />
+          </ContainerInputs>
         </>
       )}
-      <PasswordField
-        label="Senha"
-        placeholder="Mínimo 8 dígitos"
-        value={senha}
-        onChange={(e) => setSenha(e.target.value)}
-        error={errors.senha}
-      />
+      {userType === "paciente" && (
+        <PasswordField
+          label="Senha"
+          placeholder="Mínimo 8 dígitos"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+          error={errors.senha}
+        />
+      )}
 
       <Snackbar
         open={alertOpen}

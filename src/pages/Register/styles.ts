@@ -12,7 +12,7 @@ export const Container = styled.main`
   flex-direction: column;
 
   justify-content: space-around;
-  /* height: 100vh; */
+  height: 100vh;
   z-index: 0;
   overflow: hidden;
 
@@ -36,7 +36,6 @@ export const ContentText = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 400px;
   gap: 20px;
 `;
 
@@ -54,12 +53,16 @@ export const Text = styled.p`
 
 export const ContentMain = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
 `;
 
 export const ContentButton = styled.div`
   display: flex;
   justify-content: center;
+  position: absolute;
+  top: 15%;
+  left: 10%;
 `;

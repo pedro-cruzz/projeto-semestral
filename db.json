@@ -1,13 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "ana@psico.com",
       "password": "Ana@1234",
       "type": "psychologist"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "joao@paciente.com",
       "password": "Joao@1234",
       "type": "patient"
@@ -76,11 +76,16 @@
       "id": "ff26",
       "email": "www@gmail.com",
       "password": "456454654545645456"
+    },
+    {
+      "id": "b4d4",
+      "email": "natan@gmail.com",
+      "password": "3232323232323"
     }
   ],
   "psychologists": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "name": "Ana Souza",
       "crp": "SP/12345",
@@ -182,6 +187,14 @@
       "birthDate": "5456-46-15",
       "activitiesStartDate": "6526-45-56",
       "userId": "ff26"
+    },
+    {
+      "id": "da35",
+      "name": "Natan",
+      "crp": "GO/26564",
+      "birthDate": "2001-07-04",
+      "activitiesStartDate": "2025-02-22",
+      "userId": "b4d4"
     }
   ],
   "patients": []

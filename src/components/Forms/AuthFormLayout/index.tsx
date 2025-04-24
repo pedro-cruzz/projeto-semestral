@@ -8,10 +8,11 @@ export const AuthFormLayout = ({
   children,
   buttonLabel,
   afterButton,
+  maxWidth,
   onSubmit,
 }: IAuthFormLayoutProps) => {
   return (
-    <FormContainer onSubmit={onSubmit}>
+    <FormContainer onSubmit={onSubmit} maxWidth={maxWidth}>
       <Title>{title}</Title>
       {subtitle && <Subtitle>{subtitle}</Subtitle>}
       <Fields>{children}</Fields>

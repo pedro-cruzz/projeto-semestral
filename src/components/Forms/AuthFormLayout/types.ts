@@ -7,4 +7,5 @@ export interface IAuthFormLayoutProps {
   buttonLabel: string;
   onSubmit: (e: React.FormEvent) => void;
   afterButton?: ReactNode;
+  maxWidth: string;
 }

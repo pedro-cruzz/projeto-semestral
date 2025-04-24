@@ -33,6 +33,7 @@ export const LoginForm = () => {
         e.preventDefault();
         onSubmit();
       }}
+      maxWidth="400px"
       afterButton={
         <div
           style={{
