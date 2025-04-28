@@ -3,10 +3,13 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { theme } from "../../styles/theme";
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header<{
+  $variant: "primary" | "secondary";
+}>`
   width: 100%;
   padding-block: 50px;
-  background-color: #fff;
+  background-color: ${({ $variant }) =>
+    $variant === "primary" ? theme.colors.WHITE : theme.colors.DARK_GREEN};
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -26,10 +29,13 @@ export const NavList = styled.ul`
   list-style: none;
 `;
 
-export const NavItemLink = styled(Link)`
+export const NavItemLink = styled(Link)<{
+  $variant: "primary" | "secondary";
+}>`
   font-weight: 500;
   font-size: 1rem;
-  color: ${theme.colors.DARK_GREEN};
+  color: ${({ $variant }) =>
+    $variant === "primary" ? theme.colors.DARK_GREEN : theme.colors.WHITE};
   text-decoration: none;
   transition: color 0.3s;
   font-family: ${theme.fonts.mulish};

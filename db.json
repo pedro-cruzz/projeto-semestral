@@ -81,6 +81,31 @@
       "id": "b4d4",
       "email": "natan@gmail.com",
       "password": "3232323232323"
+    },
+    {
+      "id": "73d9",
+      "email": "ddsahfdas@gmail.com",
+      "password": "masdnfjdskljdfklsdm"
+    },
+    {
+      "id": "ede4",
+      "email": "dadsasd@gmail.com",
+      "password": "ftyftydfsdrsrtsfdsea"
+    },
+    {
+      "id": "b41e",
+      "email": "higor@gmail.com",
+      "password": "1234564789"
+    },
+    {
+      "id": "3f26",
+      "email": "maria@gmail.com",
+      "password": "FNJIDNFJDNFOIZDJOFDS"
+    },
+    {
+      "id": "0fa2",
+      "email": "ana@gmail.com",
+      "password": "fgfjghfgjfghfghfjhg"
     }
   ],
   "psychologists": [
@@ -195,6 +220,46 @@
       "birthDate": "2001-07-04",
       "activitiesStartDate": "2025-02-22",
       "userId": "b4d4"
+    },
+    {
+      "id": "f29b",
+      "name": "Danyllo",
+      "crp": "KN/56654",
+      "birthDate": "6262-62-62",
+      "activitiesStartDate": "2626-26-26",
+      "userId": "73d9"
+    },
+    {
+      "id": "e363",
+      "name": "sadas",
+      "crp": "SF/66546",
+      "birthDate": "4545-56-54",
+      "activitiesStartDate": "5464-56-46",
+      "userId": "ede4"
+    },
+    {
+      "id": "9998",
+      "name": "Higor",
+      "crp": "MG/12354",
+      "birthDate": "2005-05-04",
+      "activitiesStartDate": "2021-05-04",
+      "userId": "b41e"
+    },
+    {
+      "id": "2ae5",
+      "name": "Maria",
+      "crp": "MG/56565",
+      "birthDate": "0555-02-01",
+      "activitiesStartDate": "0202-02-02",
+      "userId": "3f26"
+    },
+    {
+      "id": "b655",
+      "name": "ana",
+      "crp": "MG/15612",
+      "birthDate": "2005-07-04",
+      "activitiesStartDate": "2021-08-20",
+      "userId": "0fa2"
     }
   ],
   "patients": []

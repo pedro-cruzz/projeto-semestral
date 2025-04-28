@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AuthFormLayout } from "../AuthFormLayout";
 import { PasswordField } from "../fields/PasswordField";
 import { InputFieldComponent } from "../fields/InputField";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { registerPsychologist } from "../../../services/registerPsychologist";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
@@ -24,22 +24,19 @@ export const RegisterForm = () => {
   const [searchParams] = useSearchParams();
   const userType = searchParams.get("type"); // "psicologo" | "paciente" | null
 
-  const applyCRPMask = (value: string) => {
-    // Remove caracteres inválidos
-    const cleaned = value.toUpperCase().replace(/[^A-Z0-9/]/g, "");
+  const navigate = useNavigate(); // Hook para redirecionar
 
-    // Separa UF (primeiras 2 letras) e números
+  const applyCRPMask = (value: string) => {
+    const cleaned = value.toUpperCase().replace(/[^A-Z0-9/]/g, "");
     const uf = cleaned.match(/^[A-Z]{0,2}/)?.[0] || "";
     const numbers = cleaned.slice(uf.length).replace(/\D/g, "").slice(0, 5);
-
-    // Formatação final
     let result = uf;
     if (uf.length >= 2) {
       result = `${uf.slice(0, 2)}/${numbers}`;
     }
-
     return result.slice(0, 8);
   };
+
   const applyDateMask = (value: string) => {
     return value
       .replace(/\D/g, "")
@@ -57,32 +54,21 @@ export const RegisterForm = () => {
 
   const handleCrpChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, selectionStart } = e.target;
-
-    // Mantém a posição original do cursor
     const originalCursorPosition = selectionStart || 0;
-
-    // Aplica a máscara
     const formattedValue = applyCRPMask(value);
-
-    // Calcula a nova posição do cursor
     let newCursorPosition = originalCursorPosition;
-
-    // Ajusta a posição quando há adição/remoção da barra
     if (formattedValue.length > value.length && formattedValue.includes("/")) {
       newCursorPosition += 1;
     } else if (formattedValue.length < value.length && value.includes("/")) {
       newCursorPosition -= 1;
     }
-
-    // Atualiza o estado
     setCrp(formattedValue);
     setErrors((prev) => ({ ...prev, crp: "" }));
-
-    // Mantém a posição do cursor após atualização
     setTimeout(() => {
       e.target.setSelectionRange(newCursorPosition, newCursorPosition);
     }, 0);
   };
+
   const handleBirthDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formattedValue = applyDateMask(e.target.value);
     setBirthDate(formattedValue);
@@ -99,15 +85,12 @@ export const RegisterForm = () => {
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-
     if (!nome.trim()) newErrors.nome = "Nome é obrigatório.";
     if (!email.trim()) newErrors.email = "Email é obrigatório.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       newErrors.email = "Email inválido. Formato deve ser exemplo@gmail.com";
-
     if (senha.length < 8)
       newErrors.senha = "A senha deve ter ao menos 8 caracteres.";
-
     if (userType === "psicologo") {
       if (!crp.trim()) {
         newErrors.crp = "CRP é obrigatório.";
@@ -118,16 +101,12 @@ export const RegisterForm = () => {
         newErrors.birthDate = "Data de nascimento é obrigatória.";
       if (!activitiesStartDate.trim())
         newErrors.activitiesStartDate = "Data de início é obrigatória.";
-
       const dateRegexBR = /^\d{2}\/\d{2}\/\d{4}$/;
-
       if (birthDate && !dateRegexBR.test(birthDate))
         newErrors.birthDate = "Formato deve ser DD/MM/AAAA.";
-
       if (activitiesStartDate && !dateRegexBR.test(activitiesStartDate))
         newErrors.activitiesStartDate = "Formato deve ser DD/MM/AAAA.";
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -148,12 +127,10 @@ export const RegisterForm = () => {
   };
 
   const onSubmit = async () => {
-    const isValid = validateForm(); // sua função de validação
-
+    const isValid = validateForm();
     if (!isValid) {
-      return; // erros já foram definidos dentro de validateForm
+      return;
     }
-
     try {
       const userData = {
         email,
@@ -174,6 +151,9 @@ export const RegisterForm = () => {
           `Psicólogo: ${psychologistData.name} cadastrado com sucesso!`
         );
         setAlertOpen(true);
+        setTimeout(() => {
+          navigate("/psychologist-profile");
+        }, 1500);
       } else {
         setErrorAlertMessage("Tipo de usuário inválido ou não selecionado.");
         setAlertOpen(true);

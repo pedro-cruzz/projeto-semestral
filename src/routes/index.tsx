@@ -8,6 +8,7 @@ import Psicologos from "../pages/Psychologists";
 import Login from "../pages/Login";
 import { ChooseRegister } from "../pages/ChooseRegister";
 import { Register } from "../pages/Register";
+import { PsychologistProfile } from "../pages/PsychologistProfile";
 
 export function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ export function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/choose-register" element={<ChooseRegister />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/psychologist-profile" element={<PsychologistProfile />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

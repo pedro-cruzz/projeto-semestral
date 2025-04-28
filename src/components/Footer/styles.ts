@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.div<{
+  $variant: "primary" | "secondary";
+}>`
   display: flex;
   flex-direction: column;
   border-top: 5px solid rgba(189, 188, 188, 0.77);
-  color: ${({ color }) => color || theme.colors.DARK_GREEN};
+  background-color: ${({ $variant }) =>
+    $variant === "primary" ? theme.colors.WHITE : theme.colors.DARK_GREEN};
 `;
 
 export const FooterContent = styled.div`
@@ -28,27 +31,19 @@ export const RightSide = styled.div`
   gap: 40px;
 `;
 
-export const Address = styled.div`
+export const ContentText = styled.div<{ $variant: "primary" | "secondary" }>`
   display: flex;
   flex-direction: column;
+  color: ${({ $variant }) =>
+    $variant === "primary" ? theme.colors.DARK_GREEN : theme.colors.WHITE};
 `;
 
-export const Contact = styled.div`
+export const SocialMedia = styled.div<{ $variant: "primary" | "secondary" }>`
   display: flex;
   flex-direction: column;
-`;
-
-export const SocialMedia = styled.div`
-  display: flex;
-  flex-direction: column;
-  color: ${({ color }) => color || theme.colors.DARK_GREEN};
+  color: ${({ $variant }) =>
+    $variant === "primary" ? theme.colors.DARK_GREEN : theme.colors.WHITE};
   gap: 14px;
-`;
-
-export const Privacity = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-family: ${theme.fonts.mulish};
 `;
 
 export const Copy = styled.div`
@@ -62,12 +57,10 @@ export const Copy = styled.div`
 export const Title = styled.h2`
   font-family: ${theme.fonts.mulish};
   font-size: 24px;
-  color: ${({ color }) => color || theme.colors.DARK_GREEN};
   font-weight: 700;
 `;
 
 export const Text = styled.p`
   font-family: ${theme.fonts.mulish};
   font-size: 20px;
-  color: ${({ color }) => color || theme.colors.DARK_GREEN};
 `;

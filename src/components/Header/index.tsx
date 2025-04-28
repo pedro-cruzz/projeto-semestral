@@ -8,25 +8,32 @@ import {
   IconItem,
 } from "./styles";
 
-import logo from "./../../assets/svg/green-logo.svg";
+import greenLogo from "./../../assets/svg/green-logo.svg";
+import whiteLogo from "./../../assets/png/logo.png";
 import wpp from "./../../assets/svg/wpp.svg";
+import wppWhite from "./../../assets/png/whatsapp-white.png";
 import login from "./../../assets/svg/login.svg";
+import loginWhite from "./../../assets/png/login-white.png";
 
 import Tooltip from "@mui/material/Tooltip";
+import { IHeaderProps } from "./types";
 
-export function Header() {
+export function Header({ $variant = "primary" }: IHeaderProps) {
   return (
-    <HeaderContainer>
+    <HeaderContainer $variant={$variant}>
       <Link to="/">
-        <Logo src={logo} alt="Logo" />
+        <Logo src={$variant === "primary" ? greenLogo : whiteLogo} alt="Logo" />
       </Link>
       <Nav>
         <NavList>
-          <NavItemLink to="/">Home</NavItemLink>
+          <NavItemLink to="/" $variant={$variant}>
+            Home
+          </NavItemLink>
           <Tooltip title="Em breve">
             <span style={{ opacity: 0.6 }}>
               <NavItemLink
                 to=""
+                $variant={$variant}
                 style={{ cursor: "default", pointerEvents: "none" }}
               >
                 Blog
@@ -38,6 +45,7 @@ export function Header() {
             <span style={{ opacity: 0.6 }}>
               <NavItemLink
                 to=""
+                $variant={$variant}
                 style={{ cursor: "default", pointerEvents: "none" }}
               >
                 Psicólogos
@@ -47,7 +55,10 @@ export function Header() {
 
           <IconItem>
             <Link to="/login">
-              <img src={login} alt="Login" />
+              <img
+                src={$variant === "primary" ? login : loginWhite}
+                alt="Login"
+              />
             </Link>
           </IconItem>
 
@@ -57,7 +68,10 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={wpp} alt="Contato via WhatsApp" />
+              <img
+                src={$variant === "primary" ? wpp : wppWhite}
+                alt="Contato via WhatsApp"
+              />
             </a>
           </IconItem>
         </NavList>

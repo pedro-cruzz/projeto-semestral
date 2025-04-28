@@ -2,11 +2,9 @@ import Tooltip from "@mui/material/Tooltip";
 import {
   FooterContainer,
   FooterContent,
-  Address,
-  Contact,
+  ContentText,
   Copy,
   SocialMedia,
-  Privacity,
   RightSide,
   LeftSide,
   Title,
@@ -14,26 +12,29 @@ import {
 } from "./styles";
 import instagram from "./../../assets/png/instagram.png";
 import linkedin from "./../../assets/png/linkedin.png";
+import instagramWhite from "./../../assets/png/instagram-white.png";
+import linkedinWhite from "./../../assets/png/linkedin-white.png";
 import { Link } from "react-router-dom";
+import { IFooterProps } from "./types";
 
-export function Footer() {
+export function Footer({ $variant = "primary" }: IFooterProps) {
   return (
-    <FooterContainer>
+    <FooterContainer $variant={$variant}>
       <FooterContent>
         <LeftSide>
-          <Address>
+          <ContentText $variant={$variant}>
             <Title>Endereço</Title>
             <Text>Rua das Acácias, 123 – Bairro Jardim das Pedras</Text>
             <Text>Itajubá – MG, CEP 37500-000</Text>
-          </Address>
-          <Contact>
+          </ContentText>
+          <ContentText $variant={$variant}>
             <Title>Contato</Title>
             <Text>Telefone: +55(35) 99876-2345</Text>
             <Text>Email: mentesaudavel014@gmail.com</Text>
-          </Contact>
+          </ContentText>
         </LeftSide>
         <RightSide>
-          <SocialMedia>
+          <SocialMedia $variant={$variant}>
             <Title>Nos acompanhe pelas redes</Title>
             <div
               style={{
@@ -43,47 +44,42 @@ export function Footer() {
                 color: "${({ color }) => color || theme.colors.DARK_GREEN};",
               }}
             >
-              {/* <a
-                href="https://www.instagram.com/_mentesaudavel_14"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={instagram} alt="logo instagram" />
-              </a> */}
               <Link
                 to="https://www.instagram.com/_mentesaudavel_14"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={instagram} alt="logo instagram" />
+                <img
+                  src={$variant === "primary" ? instagram : instagramWhite}
+                  alt="logo instagram"
+                />
               </Link>
 
               <Tooltip title="Em breve">
                 <span style={{ opacity: 0.6 }}>
-                  {/* <a
-                    href=""
-                    style={{ cursor: "default", pointerEvents: "none" }}
-                  >
-                    <img src={linkedin} alt="logo linkedin" />
-                  </a> */}
                   <Link
                     to=""
                     style={{ cursor: "default", pointerEvents: "none" }}
                   >
-                    <img src={linkedin} alt="logo linkedin" />
+                    <img
+                      src={$variant === "primary" ? linkedin : linkedinWhite}
+                      alt="logo linkedin"
+                    />
                   </Link>
                 </span>
               </Tooltip>
             </div>
           </SocialMedia>
-          <Privacity>
+          <ContentText $variant={$variant}>
             <Text style={{ fontSize: "20px" }}>
               Políticas e termos de privacidade
             </Text>
-          </Privacity>
+          </ContentText>
         </RightSide>
       </FooterContent>
-      <Copy>&copy; 2025 Mente Saudável. Todos os direitos reservados.</Copy>
+      <ContentText $variant={$variant}>
+        <Copy>&copy; 2025 Mente Saudável. Todos os direitos reservados.</Copy>
+      </ContentText>
     </FooterContainer>
   );
 }
