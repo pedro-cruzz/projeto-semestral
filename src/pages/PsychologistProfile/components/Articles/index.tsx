@@ -6,6 +6,8 @@ export function Articles() {
     <>
       <Title>Artigos recentes</Title>
       <CardArticle />
+      <CardArticle />
+      <CardArticle />
     </>
   );
 }
