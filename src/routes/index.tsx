@@ -19,7 +19,10 @@ export function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/choose-register" element={<ChooseRegister />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/psychologist-profile" element={<PsychologistProfile />} />
+      <Route
+        path="/psychologist-profile/:psychologistId"
+        element={<PsychologistProfile />}
+      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

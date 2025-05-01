@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "../../../../../../components/Button";
 import {
   Container,
@@ -7,27 +8,29 @@ import {
   Content,
   ContentText,
 } from "./styles";
+import imagemPadrao from "./../../../../../../assets/png/pacientes.jpg";
+import { CardArticleProps } from "./types";
 
-import imagem from "./../../../../../../assets/png/pacientes.jpg";
-
-export function CardArticle() {
+export const CardArticle: React.FC<CardArticleProps> = ({
+  image = imagemPadrao,
+  title = "Por que estamos sempre cansados?",
+  subtitle = "Entenda os verdadeiros motivos por trás do cansaço constante e descubra estratégias eficazes para recuperar sua energia física, mental e emocional.",
+  idPsychologist,
+}) => {
   return (
-    <Container>
+    <Container key={idPsychologist}>
       <Content>
-        <Image src={imagem} />
+        <Image src={image} alt="Card Image" />
         <ContentText>
-          <Title>Por que estamos sempre cansados?</Title>
-          <Description>
-            Entenda os verdadeiros motivos por trás do cansaço constante e
-            descubra estratégias eficazes para recuperar sua energia física,
-            mental e emocional.
-          </Description>
+          <Title>{title}</Title>
+          <Description>{subtitle}</Description>
         </ContentText>
-
-        <Button width="196px" $variant="secondary">
-          Leia mais
+        <Button width={"196px"} $variant={"secondary"}>
+          Leia Mais
         </Button>
       </Content>
     </Container>
   );
-}
+};
+
+export default CardArticle;

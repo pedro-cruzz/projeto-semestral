@@ -15,3 +15,10 @@ export const Separator = styled.div`
   height: 2px;
   margin-bottom: 80px;
 `;
+
+export const ArticlesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+`;
