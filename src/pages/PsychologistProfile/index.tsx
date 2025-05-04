@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { BaseLayout } from "../../components/BaseLayout";
 import { CardProfile } from "./components/CardProfile";
 import { ContainerCardProfile } from "./components/CardProfile/styles";
-import { Container, Separator, ArticlesContainer } from "./styles";
+import { Container, Separator, ArticlesContainer, Image } from "./styles";
 import { Articles } from "./components/Articles";
 import { getPsychologistById } from "../../services/getPsychologistById";
 import { getArticlesByPsychologistId } from "../../services/getArticlesByPsychologist";
@@ -62,11 +62,12 @@ export function PsychologistProfile() {
 
   // Mapeia os dados do psicólogo para os atributos definidos na interface
   const profileProps: IPsychologistProfileProps = {
-    image: user, // Valor default para imagem do perfil, caso não haja imagem
+    image: psychologist.image || user, // Valor default para imagem do perfil, caso não haja imagem
     about: psychologist.about || "",
     crp: psychologist.crp,
     name: psychologist.name,
     psychologistId: psychologist.id,
+    specialization: psychologist.specialization,
     // Esses valores serão usados apenas como fallback se algum artigo não tiver dados específicos.
     imageArticle: user,
     title: "",
@@ -77,11 +78,12 @@ export function PsychologistProfile() {
     <BaseLayout $variant="secondary">
       <Container key={profileProps.psychologistId}>
         <ContainerCardProfile>
-          <img src={profileProps.image} alt="Imagem de perfil de psicólogo" />
+          <Image src={profileProps.image} alt="Imagem de perfil de psicólogo" />
           <CardProfile
             about={profileProps.about}
             crp={profileProps.crp}
             name={profileProps.name}
+            specialization={profileProps.specialization}
           />
         </ContainerCardProfile>
         <Separator />

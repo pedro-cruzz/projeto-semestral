@@ -22,3 +22,10 @@ export const ArticlesContainer = styled.div`
   gap: 20px;
   margin-top: 20px;
 `;
+
+export const Image = styled.img`
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+`;

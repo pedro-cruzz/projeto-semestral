@@ -7,6 +7,8 @@ export interface PsychologistResponse {
   birthDate: string;
   activitiesStartDate: string;
   about?: string | null;
+  image?: string;
+  specialization?: string[];
 }
 
 export interface ApiError {

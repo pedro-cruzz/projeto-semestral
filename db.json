@@ -24,16 +24,28 @@
       "crp": "SP/12345",
       "birthDate": "1985-06-01",
       "activitiesStartDate": "2010-01-01",
-      "about": null
+      "about": null,
+      "image": "",
+      "specialization": [
+        "Psicologia Clínica",
+        "Psicologia Infantil",
+        "Terapia Cognitivo-Comportamental"
+      ]
     },
     {
       "id": "77f8",
-      "name": "daggreger",
+      "name": "Roberto Silva",
       "crp": "MG/789",
       "birthDate": "1990-01-01",
       "activitiesStartDate": "2020-01-01",
-      "about": null,
-      "userId": "7d7b"
+      "about": "Psicólogo comprometido com o desenvolvimento humano, com experiência prática em diversos contextos. Apaixonado por ajudar seus pacientes a alcançarem uma melhor qualidade de vida e equilíbrio emocional através de abordagens inovadoras e terapias personalizadas.",
+      "userId": "7d7b",
+      "image": "https://burst.shopifycdn.com/photos/smirking-young-man.jpg?width=1000&format=pjpg&exif=0&iptc=0",
+      "specialization": [
+        "Psicologia Clínica",
+        "Psicologia Infantil",
+        "Terapia Cognitivo-Comportamental"
+      ]
     }
   ],
   "patients": [],
