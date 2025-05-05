@@ -18,7 +18,9 @@ export const Separator = styled.div`
 
 export const ArticlesContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   margin-top: 20px;
 `;
@@ -28,4 +30,14 @@ export const Image = styled.img`
   height: 300px;
   border-radius: 50%;
   object-fit: cover;
+`;
+
+export const Title = styled.h1`
+  font-family: ${theme.fonts.playfair};
+  color: ${theme.colors.DARK_GREEN};
+`;
+
+export const ContainerCardArticles = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;

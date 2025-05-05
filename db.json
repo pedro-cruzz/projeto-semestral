@@ -62,16 +62,16 @@
     {
       "id": "a2",
       "psychologistId": "77f8",
-      "title": "Técnicas de Relaxamento",
+      "title": "1Técnicas de Relaxamento",
       "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
+      "image": "",
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
       "createdAt": "2025-05-02T10:30:00Z"
     },
     {
       "id": "a3",
       "psychologistId": "77f8",
-      "title": "Técnicas de Relaxamento",
+      "title": "2Técnicas de Relaxamento",
       "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
       "image": "path/to/another-image.jpg",
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
@@ -80,7 +80,7 @@
     {
       "id": "a4",
       "psychologistId": "77f8",
-      "title": "Técnicas de Relaxamento",
+      "title": "3Técnicas de Relaxamento",
       "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
       "image": "path/to/another-image.jpg",
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
@@ -89,7 +89,7 @@
     {
       "id": "a5",
       "psychologistId": "77f8",
-      "title": "Técnicas de Relaxamento",
+      "title": "4Técnicas de Relaxamento",
       "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
       "image": "path/to/another-image.jpg",
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
@@ -98,7 +98,7 @@
     {
       "id": "a6",
       "psychologistId": "77f8",
-      "title": "Técnicas de Relaxamento",
+      "title": "5Técnicas de Relaxamento",
       "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
       "image": "path/to/another-image.jpg",
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
@@ -107,7 +107,7 @@
     {
       "id": "a7",
       "psychologistId": "77f8",
-      "title": "Técnicas de Relaxamento",
+      "title": "6Técnicas de Relaxamento",
       "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
       "image": "path/to/another-image.jpg",
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
@@ -116,7 +116,7 @@
     {
       "id": "a8",
       "psychologistId": "77f8",
-      "title": "Técnicas de Relaxamento",
+      "title": "7Técnicas de Relaxamento",
       "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
       "image": "path/to/another-image.jpg",
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
@@ -125,7 +125,25 @@
     {
       "id": "a9",
       "psychologistId": "77f8",
-      "title": "Técnicas de Relaxamento",
+      "title": "8Técnicas de Relaxamento",
+      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
+      "image": "path/to/another-image.jpg",
+      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
+      "createdAt": "2025-05-02T10:30:00Z"
+    },
+    {
+      "id": "a10",
+      "psychologistId": "77f8",
+      "title": "9Técnicas de Relaxamento",
+      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
+      "image": "path/to/another-image.jpg",
+      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
+      "createdAt": "2025-05-02T10:30:00Z"
+    },
+    {
+      "id": "a11",
+      "psychologistId": "77f8",
+      "title": "10Técnicas de Relaxamento",
       "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
       "image": "path/to/another-image.jpg",
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",

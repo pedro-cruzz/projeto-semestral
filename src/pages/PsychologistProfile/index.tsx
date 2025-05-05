@@ -1,18 +1,25 @@
-// src/pages/PsychologistProfile/index.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { BaseLayout } from "../../components/BaseLayout";
 import { CardProfile } from "./components/CardProfile";
 import { ContainerCardProfile } from "./components/CardProfile/styles";
-import { Container, Separator, ArticlesContainer, Image } from "./styles";
-import { Articles } from "./components/Articles";
+import {
+  Container,
+  Separator,
+  ArticlesContainer,
+  Image,
+  Title,
+  ContainerCardArticles,
+} from "./styles";
 import { getPsychologistById } from "../../services/getPsychologistById";
 import { getArticlesByPsychologistId } from "../../services/getArticlesByPsychologist";
 import { IPsychologistProfileProps } from "./types";
 import { PsychologistResponse } from "../../dtos/getPsychologistById";
 import { ArticleResponse } from "../../dtos/getArticlesByPsychologist";
 import user from "./../../assets/png/user.png";
+import CardArticle from "./components/CardArticle";
+import { Carousel } from "../../components/Carousel";
 
 export function PsychologistProfile() {
   const { psychologistId } = useParams<{ psychologistId: string }>();
@@ -88,19 +95,26 @@ export function PsychologistProfile() {
         </ContainerCardProfile>
         <Separator />
         <ArticlesContainer>
-          {articles.length > 0 ? (
-            articles.map((article) => (
-              <Articles
-                key={article.id}
-                idPsychologist={profileProps.psychologistId}
-                image={article.image || profileProps.imageArticle}
-                title={article.title || profileProps.title}
-                subtitle={article.subtitle || profileProps.subtitle}
+          <Title>Artigos Recentes</Title>
+          <ContainerCardArticles>
+            {articles.length > 0 ? (
+              <Carousel
+                items={articles}
+                itemsPerPage={3}
+                renderItem={(article) => (
+                  <CardArticle
+                    key={article.id}
+                    idPsychologist={profileProps.psychologistId}
+                    image={article.image || profileProps.imageArticle}
+                    title={article.title || profileProps.title}
+                    subtitle={article.subtitle || profileProps.subtitle}
+                  />
+                )}
               />
-            ))
-          ) : (
-            <div>Nenhum artigo encontrado.</div>
-          )}
+            ) : (
+              <div>Nenhum artigo encontrado.</div>
+            )}
+          </ContainerCardArticles>
         </ArticlesContainer>
       </Container>
     </BaseLayout>

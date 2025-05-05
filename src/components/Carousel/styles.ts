@@ -1,50 +1,42 @@
-// styles.ts
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 export const CarouselWrapper = styled.div`
   position: relative;
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
 `;
 
-export const CarouselContent = styled.div<{
-  translateX: number;
-  transition: number;
-}>`
+export const CarouselContent = styled.div`
   display: flex;
-  transform: ${({ translateX }) => `translateX(${translateX}%)`};
-  transition: transform ${({ transition }) => transition}s ease;
+  gap: 16px;
+  transition: transform 0.3s ease-in-out;
 `;
 
-export const CarouselItem = styled.div<{ itemsPerView: number }>`
-  flex: 0 0 ${({ itemsPerView }) => 100 / itemsPerView}%;
-  box-sizing: border-box;
-  padding: 10px;
-`;
-
-export const ArrowButton = styled.button<{ position: "left" | "right" }>`
+export const ArrowButton = styled.button`
   position: absolute;
   top: 50%;
-  ${({ position }) => (position === "left" ? "left: 10px;" : "right: 10px;")}
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: ${theme.colors.DARK_GREEN};
+  color: ${theme.colors.WHITE};
   border: none;
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  z-index: 10;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  opacity: 0.8;
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
 `;
 
-// Container para cada carousel (quando houver mais de um)
-export const CarouselContainer = styled.div<{ gap: number }>`
-  margin-bottom: ${({ gap }) => gap}px;
-  &:last-child {
-    margin-bottom: 0;
-  }
+export const LeftArrow = styled(ArrowButton)`
+  left: 10px;
+`;
+
+export const RightArrow = styled(ArrowButton)`
+  right: 10px;
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../../../../../components/Button";
+import { Button } from "../../../../components/Button";
 import {
   Container,
   Image,
@@ -8,7 +8,7 @@ import {
   Content,
   ContentText,
 } from "./styles";
-import imagemPadrao from "./../../../../../../assets/png/pacientes.jpg";
+import imagemPadrao from "./../../../../assets/png/familias.png";
 import { CardArticleProps } from "./types";
 
 export const CardArticle: React.FC<CardArticleProps> = ({
