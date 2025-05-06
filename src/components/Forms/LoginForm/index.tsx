@@ -1,27 +1,37 @@
-import { useState } from "react";
-import { AuthFormLayout } from "../AuthFormLayout";
-import { PasswordField } from "../fields/PasswordField";
-import { CheckboxWithLabel } from "../fields/CheckBoxField";
+// src/pages/Login.tsx (ou LoginForm.tsx, conforme sua organização)
+import { useState, useContext } from "react";
+
 import {
-  // ButtonGoogle,
   ForgotPassword,
   Inputs,
   RegisterParagraph,
   RegisterParagraphContainer,
 } from "./styles";
-
-// import google from "./../../../assets/png/Google.png";
-import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthFormLayout } from "../AuthFormLayout";
 import { InputFieldComponent } from "../fields/InputField";
+import { PasswordField } from "../fields/PasswordField";
+import { CheckboxWithLabel } from "../fields/CheckBoxField";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [lembrar, setLembrar] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = () => {
-    console.log({ email, senha, lembrar });
-    // lógica de autenticação
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const onSubmit = async () => {
+    try {
+      await signIn(email, senha);
+      // Redireciona para a página desejada após o login (exemplo: dashboard ou homepage protegida)
+      navigate("/dashboard");
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (err) {
+      setError("Falha no login. Verifique suas credenciais.");
+    }
   };
 
   return (
@@ -44,18 +54,11 @@ export const LoginForm = () => {
             marginTop: "2rem",
           }}
         >
-          {/* <ButtonGoogle>
-            <img src={google} alt="Google" style={{ width: "24px" }} />
-            Entrar com o Google
-          </ButtonGoogle> */}
           <RegisterParagraphContainer>
             <RegisterParagraph>Não tem uma conta?</RegisterParagraph>
             <Link
               to={"/choose-register"}
-              style={{
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
+              style={{ fontWeight: "bold", textDecoration: "underline" }}
             >
               Cadastre-se já!
             </Link>
@@ -94,6 +97,7 @@ export const LoginForm = () => {
         />
         <ForgotPassword>Esqueceu sua senha?</ForgotPassword>
       </div>
+      {error && <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>}
     </AuthFormLayout>
   );
 };

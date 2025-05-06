@@ -14,6 +14,11 @@
       "id": "7d7b",
       "email": "EWFewgewr@gmail.com",
       "password": "5+15915916515"
+    },
+    {
+      "id": "881d",
+      "email": "danyllo@gmail.com",
+      "password": "12345678"
     }
   ],
   "psychologists": [
@@ -46,6 +51,14 @@
         "Psicologia Infantil",
         "Terapia Cognitivo-Comportamental"
       ]
+    },
+    {
+      "id": "cbc1",
+      "name": "Danyllo",
+      "crp": "MG/12345",
+      "birthDate": "2005-07-04",
+      "activitiesStartDate": "2025-05-02",
+      "userId": "881d"
     }
   ],
   "patients": [],

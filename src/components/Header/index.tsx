@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import {
   HeaderContainer,
   Logo,
@@ -14,11 +15,16 @@ import wpp from "./../../assets/svg/wpp.svg";
 import wppWhite from "./../../assets/png/whatsapp-white.png";
 import login from "./../../assets/svg/login.svg";
 import loginWhite from "./../../assets/png/login-white.png";
+import logout from "./../../assets/png/logout.png";
+import logoutWhite from "./../../assets/png/logout-white.png";
 
 import Tooltip from "@mui/material/Tooltip";
 import { IHeaderProps } from "./types";
+import { AuthContext } from "../../contexts/AuthContext"; // ajuste o caminho conforme sua estrutura
 
 export function Header({ $variant = "primary" }: IHeaderProps) {
+  const { token, signOut } = useContext(AuthContext);
+
   return (
     <HeaderContainer $variant={$variant}>
       <Link to="/">
@@ -40,7 +46,6 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
               </NavItemLink>
             </span>
           </Tooltip>
-
           <Tooltip title="Em breve">
             <span style={{ opacity: 0.6 }}>
               <NavItemLink
@@ -54,12 +59,31 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
           </Tooltip>
 
           <IconItem>
-            <Link to="/login">
-              <img
-                src={$variant === "primary" ? login : loginWhite}
-                alt="Login"
-              />
-            </Link>
+            {token ? (
+              // Se o usuário está logado, renderiza um botão de logout.
+              <button
+                onClick={() => signOut()}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
+              >
+                <img
+                  src={$variant === "primary" ? logout : logoutWhite}
+                  alt="Logout"
+                />
+              </button>
+            ) : (
+              // Se não estiver logado, renderiza o link para a página de login.
+              <Link to="/login">
+                <img
+                  src={$variant === "primary" ? login : loginWhite}
+                  alt="Login"
+                />
+              </Link>
+            )}
           </IconItem>
 
           <IconItem>
