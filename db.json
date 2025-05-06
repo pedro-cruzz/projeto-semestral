@@ -19,6 +19,26 @@
       "id": "881d",
       "email": "danyllo@gmail.com",
       "password": "12345678"
+    },
+    {
+      "id": "fe60",
+      "email": "davi@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "74c1",
+      "email": "davi@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "d871",
+      "email": "pedro@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "0231",
+      "email": "gabriel@gmail.com",
+      "password": "12345678"
     }
   ],
   "psychologists": [
@@ -59,6 +79,30 @@
       "birthDate": "2005-07-04",
       "activitiesStartDate": "2025-05-02",
       "userId": "881d"
+    },
+    {
+      "id": "a396",
+      "name": "Davi",
+      "crp": "MG/25255",
+      "birthDate": "2000-02-01",
+      "activitiesStartDate": "2023-05-02",
+      "userId": "74c1"
+    },
+    {
+      "id": "dd5b",
+      "name": "pedro",
+      "crp": "MG/12345",
+      "birthDate": "2001-02-05",
+      "activitiesStartDate": "2024-02-05",
+      "userId": "d871"
+    },
+    {
+      "id": "ed28",
+      "name": "Gabriel",
+      "crp": "MG/45445",
+      "birthDate": "2004-04-20",
+      "activitiesStartDate": "2025-05-02",
+      "userId": "0231"
     }
   ],
   "patients": [],

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthFormLayout } from "../AuthFormLayout";
 import { PasswordField } from "../fields/PasswordField";
 import { InputFieldComponent } from "../fields/InputField";
@@ -7,6 +7,7 @@ import { registerPsychologist } from "../../../services/registerPsychologist";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { ContainerInputs } from "./styles";
+import { AuthContext } from "../../../contexts/AuthContext"; // ajuste o caminho conforme sua estrutura
 
 export const RegisterForm = () => {
   const [nome, setNome] = useState("");
@@ -25,6 +26,7 @@ export const RegisterForm = () => {
   const userType = searchParams.get("type"); // "psicologo" | "paciente" | null
 
   const navigate = useNavigate(); // Hook para redirecionar
+  const { signIn } = useContext(AuthContext);
 
   const applyCRPMask = (value: string) => {
     const cleaned = value.toUpperCase().replace(/[^A-Z0-9/]/g, "");
@@ -147,12 +149,20 @@ export const RegisterForm = () => {
 
         const response = await registerPsychologist(userData, psychologistData);
         console.log("Cadastro realizado com sucesso!", response);
+
+        // Verifica onde está o id do psicólogo
+        const psychologistId = response.psychologist.id;
+        console.log("ID retornado:", psychologistId);
+
         setSucessAlertMessage(
           `Psicólogo: ${psychologistData.name} cadastrado com sucesso!`
         );
         setAlertOpen(true);
+
+        // Efetue login e redirecione para o perfil com o id correto
+        await signIn(email, senha);
         setTimeout(() => {
-          navigate("/psychologist-profile");
+          navigate(`/psychologist-profile/${psychologistId}`);
         }, 1500);
       } else {
         setErrorAlertMessage("Tipo de usuário inválido ou não selecionado.");
