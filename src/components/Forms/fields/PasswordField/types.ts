@@ -4,4 +4,5 @@ export interface IPasswordFieldProps
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   error?: string;
+  helperText?: string;
 }

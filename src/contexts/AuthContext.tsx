@@ -102,6 +102,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   async function signIn(email: string, password: string) {
     try {
+      if (!email || !password) {
+        throw new Error("Preencha todos os campos");
+      }
       // Busca o usuário
       const userResponse = await api.get<User[]>(`/users`, {
         params: { email, password },

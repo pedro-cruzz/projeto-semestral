@@ -20,19 +20,53 @@ export const LoginForm = () => {
   const [lembrar, setLembrar] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const { signIn } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
+
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+
+    if (!email.trim()) {
+      setEmailError("Email é obrigatório");
+      isValid = false;
+    } else {
+      setEmailError(null);
+    }
+
+    if (!senha.trim()) {
+      setPasswordError("Senha é obrigatória");
+      isValid = false;
+    } else {
+      setPasswordError(null);
+    }
+
+    if (!validateEmail(email)) {
+      setEmailError("Email inválido");
+      isValid = false;
+    }
+
+    return isValid;
+  };
 
   const onSubmit = async () => {
+    if (!validateForm()) return;
+
     try {
       await signIn(email, senha);
-      // Redireciona para a página desejada após o login (exemplo: dashboard ou homepage protegida)
       navigate("/dashboard");
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
-      setError("Falha no login. Verifique suas credenciais.");
+      setError("Credenciais inválidas");
     }
   };
+
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   return (
     <AuthFormLayout
@@ -70,14 +104,25 @@ export const LoginForm = () => {
         <InputFieldComponent
           placeholder="Digite seu email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setEmailError(null);
+          }}
           label="Email"
+          error={emailError || ""}
+          helperText={emailError || ""}
         />
+
         <PasswordField
           placeholder="Digite sua senha"
           value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          onChange={(e) => {
+            setSenha(e.target.value);
+            setPasswordError(null);
+          }}
           label="Senha"
+          error={passwordError || ""}
+          helperText={passwordError || ""}
         />
       </Inputs>
 
