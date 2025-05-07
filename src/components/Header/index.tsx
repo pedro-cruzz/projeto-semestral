@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import {
   HeaderContainer,
@@ -7,6 +7,7 @@ import {
   NavList,
   NavItemLink,
   IconItem,
+  ButtonLink,
 } from "./styles";
 
 import greenLogo from "./../../assets/svg/green-logo.svg";
@@ -17,13 +18,23 @@ import login from "./../../assets/svg/login.svg";
 import loginWhite from "./../../assets/png/login-white.png";
 import logout from "./../../assets/png/logout.png";
 import logoutWhite from "./../../assets/png/logout-white.png";
+// Adicione os novos imports
 
 import Tooltip from "@mui/material/Tooltip";
 import { IHeaderProps } from "./types";
-import { AuthContext } from "../../contexts/AuthContext"; // ajuste o caminho conforme sua estrutura
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function Header({ $variant = "primary" }: IHeaderProps) {
-  const { token, signOut } = useContext(AuthContext);
+  const { token, signOut, psychologistId } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    if (psychologistId) {
+      navigate(`/psychologist-profile/${psychologistId}`);
+    } else {
+      console.error("Nenhum psicólogo vinculado a este usuário");
+    }
+  };
 
   return (
     <HeaderContainer $variant={$variant}>
@@ -35,6 +46,16 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
           <NavItemLink to="/" $variant={$variant}>
             Home
           </NavItemLink>
+
+          {/* Item de Perfil - Adicionado antes do Login/Logout */}
+          {token && psychologistId && (
+            <IconItem>
+              <ButtonLink onClick={handleProfileClick} $variant={$variant}>
+                Meu perfil
+              </ButtonLink>
+            </IconItem>
+          )}
+
           <Tooltip title="Em breve">
             <span style={{ opacity: 0.6 }}>
               <NavItemLink
@@ -46,6 +67,7 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
               </NavItemLink>
             </span>
           </Tooltip>
+
           <Tooltip title="Em breve">
             <span style={{ opacity: 0.6 }}>
               <NavItemLink
@@ -60,7 +82,6 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
 
           <IconItem>
             {token ? (
-              // Se o usuário está logado, renderiza um botão de logout.
               <button
                 onClick={() => signOut()}
                 style={{
@@ -76,7 +97,6 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
                 />
               </button>
             ) : (
-              // Se não estiver logado, renderiza o link para a página de login.
               <Link to="/login">
                 <img
                   src={$variant === "primary" ? login : loginWhite}

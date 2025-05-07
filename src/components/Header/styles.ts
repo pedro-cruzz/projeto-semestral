@@ -44,6 +44,23 @@ export const NavItemLink = styled(Link)<{
   }
 `;
 
+export const ButtonLink = styled.button<{
+  $variant: "primary" | "secondary";
+}>`
+  font-weight: 500;
+  font-size: 1rem;
+  color: ${({ $variant }) =>
+    $variant === "primary" ? theme.colors.DARK_GREEN : theme.colors.WHITE};
+  text-decoration: none;
+  transition: color 0.3s;
+  font-family: ${theme.fonts.mulish};
+  border: none;
+  background-color: transparent;
+  &:hover {
+    color: ${theme.colors.LIGHT_GREEN};
+  }
+`;
+
 export const IconItem = styled.li`
   cursor: pointer;
 

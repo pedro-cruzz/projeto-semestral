@@ -56,53 +56,77 @@ interface User {
   password: string;
 }
 
+interface Psychologist {
+  id: string;
+  userId: string;
+  name: string;
+  crp: string;
+  birthDate: string;
+  activitiesStartDate: string;
+  about?: string;
+  specialization?: string[];
+  image?: string;
+  // ... outros campos do psicólogo
+}
+
 interface AuthContextData {
   token: string | null;
+  userId: string | null;
+  psychologistId: string | null; // Novo campo
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => void;
-  userId: string | null;
 }
 
 export const AuthContext = createContext<AuthContextData>({
   token: null,
+  userId: null,
+  psychologistId: null,
   signIn: async () => {},
   signOut: () => {},
-  userId: null,
 });
 
 interface AuthProviderProps {
   children: ReactNode;
 }
 
-interface AuthContextData {
-  token: string | null;
-  userId: string | null; // Adicione isso
-  signIn: (email: string, password: string) => Promise<void>;
-  signOut: () => void;
-}
-
-// No provider:
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [token, setToken] = useState<string | null>(
     localStorage.getItem("token")
   );
   const [userId, setUserId] = useState<string | null>(
     localStorage.getItem("userId")
-  ); // Novo estado
+  );
+  const [psychologistId, setPsychologistId] = useState<string | null>(
+    localStorage.getItem("psychologistId")
+  );
 
   async function signIn(email: string, password: string) {
     try {
-      const response = await api.get<User[]>(`/users`, {
+      // Busca o usuário
+      const userResponse = await api.get<User[]>(`/users`, {
         params: { email, password },
       });
 
-      if (response.data.length === 0) throw new Error("Credenciais inválidas");
+      if (userResponse.data.length === 0) {
+        throw new Error("Credenciais inválidas");
+      }
 
-      const user = response.data[0];
-      setToken(user.id); // Armazena o ID como token
-      setUserId(user.id); // Armazena o ID do usuário
+      const user = userResponse.data[0];
+
+      // Busca o psicólogo vinculado ao usuário
+      const psyResponse = await api.get<Psychologist[]>(
+        `/psychologists?userId=${user.id}`
+      );
+
+      // Atualiza os estados
+      setToken(user.id);
+      setUserId(user.id);
+      setPsychologistId(psyResponse.data[0]?.id || null);
+
+      // Armazena no localStorage
       localStorage.setItem("token", user.id);
       localStorage.setItem("userId", user.id);
+      localStorage.setItem("psychologistId", psyResponse.data[0]?.id || "");
     } catch (error) {
       console.error("Erro ao fazer login:", error);
       throw error;
@@ -111,11 +135,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   function signOut() {
     setToken(null);
+    setUserId(null);
+    setPsychologistId(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("psychologistId");
   }
 
   return (
-    <AuthContext.Provider value={{ token, signIn, signOut, userId }}>
+    <AuthContext.Provider
+      value={{
+        token,
+        userId,
+        psychologistId,
+        signIn,
+        signOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
