@@ -23,6 +23,13 @@ export async function registerPsychologist(
       throw new Error("Este email já está sendo usado");
     }
 
+    const crpCheck = await fetch(
+      `http://localhost:3001/psychologists?crp=${psychologistData.crp}`
+    );
+    if (!crpCheck.ok) throw new Error("Erro ao verificar CRP");
+    if ((await crpCheck.json()).length > 0)
+      throw new Error("CRP já cadastrado");
+
     // 1. Cadastra o usuário
     const userRes = await fetch("http://localhost:3001/users", {
       method: "POST",

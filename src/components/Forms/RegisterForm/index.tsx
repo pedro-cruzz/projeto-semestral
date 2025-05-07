@@ -113,6 +113,19 @@ export const RegisterForm = () => {
       } else if (!/^[A-Z]{2}\/\d{5}$/.test(crp)) {
         newErrors.crp = "Formato deve ser UF/99999 (ex: SP/12345)";
       }
+      if (crp.trim()) {
+        try {
+          const response = await fetch(
+            `http://localhost:3001/psychologists?crp=${crp}`
+          );
+          const existingCRPs = await response.json();
+          if (existingCRPs.length > 0) {
+            newErrors.crp = "CRP já cadastrado";
+          }
+        } catch (err) {
+          console.error("Erro ao verificar CRP:", err);
+        }
+      }
       if (!birthDate.trim())
         newErrors.birthDate = "Data de nascimento é obrigatória.";
       if (!activitiesStartDate.trim())
@@ -150,6 +163,27 @@ export const RegisterForm = () => {
     const debounceTimer = setTimeout(checkEmailAvailability, 500);
     return () => clearTimeout(debounceTimer);
   }, [email]);
+
+  useEffect(() => {
+    const checkCRP = async () => {
+      if (crp && /^[A-Z]{2}\/\d{5}$/.test(crp)) {
+        try {
+          const response = await fetch(
+            `http://localhost:3001/psychologists?crp=${crp}`
+          );
+          const existingCRPs = await response.json();
+          if (existingCRPs.length > 0) {
+            setErrors((prev) => ({ ...prev, crp: "CRP já cadastrado" }));
+          }
+        } catch (err) {
+          console.error("Erro na verificação do CRP:", err);
+        }
+      }
+    };
+
+    const debounceTimer = setTimeout(checkCRP, 500);
+    return () => clearTimeout(debounceTimer);
+  }, [crp]);
 
   const convertDateToISO = (date: string) => {
     const [day, month, year] = date.split("/");
