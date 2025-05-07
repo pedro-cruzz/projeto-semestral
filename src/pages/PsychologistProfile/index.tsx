@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { BaseLayout } from "../../components/BaseLayout";
@@ -20,15 +20,18 @@ import { ArticleResponse } from "../../dtos/getArticlesByPsychologist";
 import user from "./../../assets/png/user.png";
 import CardArticle from "./components/CardArticle";
 import { Carousel } from "../../components/Carousel";
+import { AuthContext } from "../../contexts/AuthContext";
+import { Button } from "../../components/Button";
 
 export function PsychologistProfile() {
+  const { userId } = useContext(AuthContext);
   const { psychologistId } = useParams<{ psychologistId: string }>();
   const [psychologist, setPsychologist] = useState<PsychologistResponse | null>(
     null
   );
   const [articles, setArticles] = useState<ArticleResponse[]>([]);
   const [loading, setLoading] = useState(true);
-
+  const isOwnProfile = psychologist?.userId === userId;
   useEffect(() => {
     if (psychologistId) {
       // Executa ambas as requisições em paralelo
@@ -91,10 +94,18 @@ export function PsychologistProfile() {
             crp={profileProps.crp}
             name={profileProps.name}
             specialization={profileProps.specialization}
+            showEditButton={isOwnProfile}
           />
         </ContainerCardProfile>
         <Separator />
         <ArticlesContainer>
+          <div style={{ alignSelf: "flex-end", marginRight: "8rem" }}>
+            {isOwnProfile && (
+              <Button $variant="secondary" width="200px">
+                + Criar Artigo
+              </Button>
+            )}
+          </div>
           <Title>Artigos Recentes</Title>
           <ContainerCardArticles>
             {articles.length > 0 ? (
@@ -112,7 +123,9 @@ export function PsychologistProfile() {
                 )}
               />
             ) : (
-              <div>Nenhum artigo encontrado.</div>
+              <div style={{ marginBottom: "4rem" }}>
+                Nenhum artigo encontrado.
+              </div>
             )}
           </ContainerCardArticles>
         </ArticlesContainer>

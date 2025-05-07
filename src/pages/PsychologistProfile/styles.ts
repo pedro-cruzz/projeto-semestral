@@ -22,7 +22,7 @@ export const ArticlesContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-top: 20px;
+  width: 100%;
 `;
 
 export const Image = styled.img`

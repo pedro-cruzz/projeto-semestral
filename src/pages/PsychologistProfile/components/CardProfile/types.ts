@@ -3,4 +3,5 @@ export interface ICardProfileProps {
   crp: string;
   about?: string;
   specialization?: string[];
+  showEditButton?: boolean;
 }

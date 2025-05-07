@@ -32,13 +32,8 @@ export async function login(email: string, password: string): Promise<string> {
     params: { email, password },
   });
 
-  if (response.data && response.data.length > 0) {
-    // Usuário encontrado – aqui você pode simular o token.
-    // Por exemplo, usando o id ou gerando uma string (pode ser até um base64 do email)
-    const user = response.data[0];
-    const token = btoa(user.id + ":" + user.email); // token simulado
-    return token;
-  } else {
-    throw new Error("Credenciais inválidas");
+  if (response.data.length > 0) {
+    return response.data[0].id; // Retorna apenas o ID como token
   }
+  throw new Error("Credenciais inválidas");
 }

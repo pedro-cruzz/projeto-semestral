@@ -27,11 +27,14 @@ export function CardProfile({
   crp,
   name,
   specialization,
+  showEditButton = false,
 }: ICardProfileProps) {
   return (
     <Container>
       <Content>
-        <EditImage src={greenEdit} alt="Editar perfil de psicólogo" />
+        {showEditButton && (
+          <EditImage src={greenEdit} alt="Editar perfil de psicólogo" />
+        )}
         <Text>
           <Name>{name}</Name>
           <Dropdown items={specialization} label="Especialização" />
