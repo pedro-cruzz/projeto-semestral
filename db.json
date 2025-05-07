@@ -34,6 +34,11 @@
       "id": "0231",
       "email": "gabriel@gmail.com",
       "password": "12345678"
+    },
+    {
+      "id": "3e04",
+      "email": "danyllo2@gmail.com",
+      "password": "12345678"
     }
   ],
   "psychologists": [
@@ -98,6 +103,14 @@
       "birthDate": "2004-04-20",
       "activitiesStartDate": "2025-05-02",
       "userId": "0231"
+    },
+    {
+      "id": "c614",
+      "name": "Danyllo 2",
+      "crp": "SP/54564",
+      "birthDate": "2005-07-04",
+      "activitiesStartDate": "2022-02-04",
+      "userId": "3e04"
     }
   ],
   "patients": [],

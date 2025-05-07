@@ -85,12 +85,26 @@ export const RegisterForm = () => {
     setErrors((prev) => ({ ...prev, activitiesStartDate: "" }));
   };
 
-  const validateForm = () => {
+  const validateForm = async () => {
     const newErrors: { [key: string]: string } = {};
     if (!nome.trim()) newErrors.nome = "Nome é obrigatório.";
     if (!email.trim()) newErrors.email = "Email é obrigatório.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       newErrors.email = "Email inválido. Formato deve ser exemplo@gmail.com";
+    if (email.trim()) {
+      try {
+        const checkEmail = await fetch(
+          `http://localhost:3001/users?email=${email}`
+        );
+        const existingUsers = await checkEmail.json();
+        if (existingUsers.length > 0) {
+          newErrors.email = "Este email já está cadastrado";
+        }
+      } catch (err) {
+        console.error("Erro na verificação de email:", err);
+      }
+    }
+
     if (senha.length < 8)
       newErrors.senha = "A senha deve ter ao menos 8 caracteres.";
     if (userType === "psicologo") {
@@ -113,6 +127,30 @@ export const RegisterForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  useEffect(() => {
+    const checkEmailAvailability = async () => {
+      if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        try {
+          const response = await fetch(
+            `http://localhost:3001/users?email=${email}`
+          );
+          const existingUsers = await response.json();
+          if (existingUsers.length > 0) {
+            setErrors((prev) => ({
+              ...prev,
+              email: "Este email já está cadastrado",
+            }));
+          }
+        } catch (err) {
+          console.error("Erro na verificação de email:", err);
+        }
+      }
+    };
+
+    const debounceTimer = setTimeout(checkEmailAvailability, 500);
+    return () => clearTimeout(debounceTimer);
+  }, [email]);
+
   const convertDateToISO = (date: string) => {
     const [day, month, year] = date.split("/");
     return `${year}-${month}-${day}`;
@@ -129,7 +167,7 @@ export const RegisterForm = () => {
   };
 
   const onSubmit = async () => {
-    const isValid = validateForm();
+    const isValid = await validateForm();
     if (!isValid) {
       return;
     }
@@ -192,13 +230,18 @@ export const RegisterForm = () => {
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           error={errors.nome}
+          helperText={errors.nome}
         />
         <InputFieldComponent
           label="Email"
           placeholder="Digite seu Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setErrors((prev) => ({ ...prev, email: "" }));
+          }}
           error={errors.email}
+          helperText={errors.email}
         />
       </ContainerInputs>
 
@@ -211,6 +254,7 @@ export const RegisterForm = () => {
               value={crp}
               onChange={handleCrpChange}
               error={errors.crp}
+              helperText={errors.crp}
             />
             <InputFieldComponent
               label="Data de nascimento"
@@ -218,6 +262,7 @@ export const RegisterForm = () => {
               value={birthDate}
               onChange={handleBirthDateChange}
               error={errors.birthDate}
+              helperText={errors.birthDate}
             />
           </ContainerInputs>
           <ContainerInputs>
@@ -227,6 +272,7 @@ export const RegisterForm = () => {
               value={activitiesStartDate}
               onChange={handleActivitiesDateChange}
               error={errors.activitiesStartDate}
+              helperText={errors.activitiesStartDate}
             />
             <PasswordField
               label="Senha"
@@ -234,6 +280,7 @@ export const RegisterForm = () => {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               error={errors.senha}
+              helperText={errors.senha}
             />
           </ContainerInputs>
         </>
@@ -245,6 +292,7 @@ export const RegisterForm = () => {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
           error={errors.senha}
+          helperText={errors.senha}
         />
       )}
 

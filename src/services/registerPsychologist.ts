@@ -12,6 +12,17 @@ export async function registerPsychologist(
   psychologistData: Omit<CreatePsychologistDTO, "userId">
 ): Promise<{ user: UserResponse; psychologist: PsychologistResponse }> {
   try {
+    // verifica se o email ja nao esta sendo utilizado
+    const emailCheck = await fetch(
+      `http://localhost:3001/users?email=${userData.email}`
+    );
+    if (!emailCheck.ok) throw new Error("Erro ao verificar email");
+
+    const existingUsers = await emailCheck.json();
+    if (existingUsers.length > 0) {
+      throw new Error("Este email já está sendo usado");
+    }
+
     // 1. Cadastra o usuário
     const userRes = await fetch("http://localhost:3001/users", {
       method: "POST",
