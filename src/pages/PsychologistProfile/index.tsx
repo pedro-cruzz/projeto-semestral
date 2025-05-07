@@ -11,6 +11,8 @@ import {
   Image,
   Title,
   ContainerCardArticles,
+  NotFoundContainer,
+  ButtonBack
 } from "./styles";
 import { getPsychologistById } from "../../services/getPsychologistById";
 import { getArticlesByPsychologistId } from "../../services/getArticlesByPsychologist";
@@ -22,6 +24,8 @@ import CardArticle from "./components/CardArticle";
 import { Carousel } from "../../components/Carousel";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Button } from "../../components/Button";
+import { Link } from "react-router-dom";
+import back from "./../../assets/png/back.png";
 
 export function PsychologistProfile() {
   const { userId } = useContext(AuthContext);
@@ -65,7 +69,15 @@ export function PsychologistProfile() {
   if (!psychologist) {
     return (
       <BaseLayout $variant="secondary">
-        <div>Psicólogo não encontrado.</div>
+        <NotFoundContainer>
+          <ButtonBack>
+            <div></div>
+            <Link to={"/"}>
+            <img src={back} alt="back" width={"30px"} />
+            </Link>
+          </ButtonBack>
+          <h1>Psicólogo não encontrado!</h1>
+        </NotFoundContainer>
       </BaseLayout>
     );
   }

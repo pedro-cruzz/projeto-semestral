@@ -25,11 +25,18 @@ export const NotFoundContainer = styled.div`
     font-size: 1.2rem;
     color: ${theme.colors.DARK_GREEN};
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 `;
+
+export const ButtonBack = styled.div`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+`;
+
 
 

@@ -8,7 +8,6 @@ import {
 } from "./styles";
 import { RegisterForm } from "../../components/Forms/RegisterForm";
 import { Link } from "react-router-dom";
-
 import back from "./../../assets/png/back-button.png";
 
 export function Register() {
