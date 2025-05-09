@@ -12,7 +12,7 @@ import {
   Title,
   ContainerCardArticles,
   NotFoundContainer,
-  ButtonBack
+  ButtonBack,
 } from "./styles";
 import { getPsychologistById } from "../../services/getPsychologistById";
 import { getArticlesByPsychologistId } from "../../services/getArticlesByPsychologist";
@@ -26,6 +26,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Button } from "../../components/Button";
 import { Link } from "react-router-dom";
 import back from "./../../assets/png/back.png";
+import { EditProfileModal } from "./components/ModalEdit";
 
 export function PsychologistProfile() {
   const { userId } = useContext(AuthContext);
@@ -35,7 +36,23 @@ export function PsychologistProfile() {
   );
   const [articles, setArticles] = useState<ArticleResponse[]>([]);
   const [loading, setLoading] = useState(true);
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [currentPsychologist, setCurrentPsychologist] =
+    useState<PsychologistResponse | null>(null);
+
+  const handleUpdateProfile = (updatedData: PsychologistResponse) => {
+    setCurrentPsychologist(updatedData);
+    setPsychologist(updatedData);
+  };
+
   const isOwnProfile = psychologist?.userId === userId;
+
+  useEffect(() => {
+    if (psychologist) {
+      setCurrentPsychologist(psychologist);
+    }
+  }, [psychologist]);
+
   useEffect(() => {
     if (psychologistId) {
       // Executa ambas as requisições em paralelo
@@ -73,7 +90,7 @@ export function PsychologistProfile() {
           <ButtonBack>
             <div></div>
             <Link to={"/"}>
-            <img src={back} alt="back" width={"30px"} />
+              <img src={back} alt="back" width={"30px"} />
             </Link>
           </ButtonBack>
           <h1>Psicólogo não encontrado!</h1>
@@ -107,8 +124,17 @@ export function PsychologistProfile() {
             name={profileProps.name}
             specialization={profileProps.specialization}
             showEditButton={isOwnProfile}
+            onEditClick={() => setEditModalOpen(true)}
           />
         </ContainerCardProfile>
+        {currentPsychologist && (
+          <EditProfileModal
+            psychologist={currentPsychologist}
+            open={editModalOpen}
+            onClose={() => setEditModalOpen(false)}
+            onUpdate={handleUpdateProfile}
+          />
+        )}
         <Separator />
         <ArticlesContainer>
           <div style={{ alignSelf: "flex-end", marginRight: "8rem" }}>

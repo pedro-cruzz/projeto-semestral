@@ -106,8 +106,22 @@ export const TitleAbout = styled.span`
   font-weight: 700;
 `;
 
-export const TextAbout = styled.p`
+export const TextAbout = styled.textarea`
   font-family: ${theme.fonts.mulish};
   color: ${theme.colors.DARK_GREEN};
   font-size: 16px;
+  height: 120px;
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 0; // Adicionar
+  background: transparent; // Adicionar
+  overflow-y: auto; // Adicionar rolagem se necessário
+
+  // Estilo para modo de edição (se necessário posteriormente)
+  &:not([readonly]) {
+    border: 1px solid ${theme.colors.LIGHT_GREEN};
+    padding: 8px;
+    border-radius: 4px;
+  }
 `;

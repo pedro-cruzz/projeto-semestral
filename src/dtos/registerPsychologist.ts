@@ -10,6 +10,9 @@ export type CreatePsychologistDTO = {
   birthDate: string; // ISO date format
   activitiesStartDate: string; // ISO date format
   userId: number;
+  about?: string;
+  specialization?: string[];
+  image?: string;
 };
 
 export type PsychologistResponse = {
@@ -18,6 +21,9 @@ export type PsychologistResponse = {
   crp: string;
   birthDate: string;
   activitiesStartDate: string;
+  about?: string;
+  specialization?: string[];
+  image?: string;
   userId: number;
   createdAt: string;
   updatedAt: string;

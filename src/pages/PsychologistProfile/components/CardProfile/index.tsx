@@ -28,12 +28,17 @@ export function CardProfile({
   name,
   specialization,
   showEditButton = false,
+  onEditClick,
 }: ICardProfileProps) {
   return (
     <Container>
       <Content>
         {showEditButton && (
-          <EditImage src={greenEdit} alt="Editar perfil de psicólogo" />
+          <EditImage
+            src={greenEdit}
+            alt="Editar perfil de psicólogo"
+            onClick={onEditClick}
+          />
         )}
         <Text>
           <Name>{name}</Name>
@@ -51,7 +56,7 @@ export function CardProfile({
         <Divider />
         <About>
           <TitleAbout>Sobre o profissional:</TitleAbout>
-          <TextAbout>{about}</TextAbout>
+          <TextAbout value={about || ""} readOnly />
         </About>
       </Content>
     </Container>

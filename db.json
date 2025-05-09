@@ -39,6 +39,26 @@
       "id": "3e04",
       "email": "danyllo2@gmail.com",
       "password": "12345678"
+    },
+    {
+      "id": "4cc6",
+      "email": "mateus@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "4cl6",
+      "email": "mateu2s@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "5710",
+      "email": "antonio@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "d144",
+      "email": "gabriel2@gmail.com",
+      "password": "12345678"
     }
   ],
   "psychologists": [
@@ -74,11 +94,16 @@
     },
     {
       "id": "cbc1",
-      "name": "Danyllo",
+      "name": "Danyllo Aniceto",
       "crp": "MG/12345",
       "birthDate": "2005-07-04",
       "activitiesStartDate": "2025-05-02",
-      "userId": "881d"
+      "userId": "881d",
+      "about": "nao",
+      "image": "https://i.pinimg.com/736x/12/cc/75/12cc75e794e10fbb88ab4908a6cbfe8b.jpg",
+      "specialization": [
+        "sla"
+      ]
     },
     {
       "id": "a396",
@@ -111,6 +136,41 @@
       "birthDate": "2005-07-04",
       "activitiesStartDate": "2022-02-04",
       "userId": "3e04"
+    },
+    {
+      "id": "85c1",
+      "name": "Mateus",
+      "crp": "GO/45678",
+      "birthDate": "2001-01-01",
+      "activitiesStartDate": "2021-01-01",
+      "about": "",
+      "specialization": [],
+      "image": "",
+      "userId": "4cc6"
+    },
+    {
+      "id": "5a6f",
+      "name": "Antonio",
+      "crp": "GO/12345",
+      "birthDate": "2002-02-02",
+      "activitiesStartDate": "2022-02-02",
+      "about": "",
+      "specialization": [],
+      "image": "",
+      "userId": "5710"
+    },
+    {
+      "id": "9c6f",
+      "name": "Gabriel Evaristao",
+      "crp": "MG/15645",
+      "birthDate": "2000-02-02",
+      "activitiesStartDate": "2020-02-02",
+      "about": "",
+      "specialization": [
+        ""
+      ],
+      "image": "",
+      "userId": "d144"
     }
   ],
   "patients": [],

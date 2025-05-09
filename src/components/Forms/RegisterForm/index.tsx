@@ -217,6 +217,9 @@ export const RegisterForm = () => {
           crp,
           birthDate: convertDateToISO(birthDate),
           activitiesStartDate: convertDateToISO(activitiesStartDate),
+          about: "",
+          specialization: [],
+          image: "",
         };
 
         const response = await registerPsychologist(userData, psychologistData);

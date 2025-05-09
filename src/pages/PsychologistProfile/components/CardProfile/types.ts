@@ -4,4 +4,5 @@ export interface ICardProfileProps {
   about?: string;
   specialization?: string[];
   showEditButton?: boolean;
+  onEditClick?: () => void;
 }
