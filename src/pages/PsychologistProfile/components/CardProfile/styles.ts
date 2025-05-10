@@ -125,3 +125,10 @@ export const TextAbout = styled.textarea`
     border-radius: 4px;
   }
 `;
+
+export const Icons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 20px;
+`;

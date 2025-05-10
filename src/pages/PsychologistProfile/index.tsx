@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { BaseLayout } from "../../components/BaseLayout";
 import { CardProfile } from "./components/CardProfile";
@@ -27,9 +27,11 @@ import { Button } from "../../components/Button";
 import { Link } from "react-router-dom";
 import back from "./../../assets/png/back.png";
 import { EditProfileModal } from "./components/ModalEdit";
+import { ConfirmDeleteModal } from "./components/ModalDelete";
+import { deletePsychologist } from "../../services/deletePsychologist";
 
 export function PsychologistProfile() {
-  const { userId } = useContext(AuthContext);
+  const { userId, signOut } = useContext(AuthContext);
   const { psychologistId } = useParams<{ psychologistId: string }>();
   const [psychologist, setPsychologist] = useState<PsychologistResponse | null>(
     null
@@ -37,9 +39,10 @@ export function PsychologistProfile() {
   const [articles, setArticles] = useState<ArticleResponse[]>([]);
   const [loading, setLoading] = useState(true);
   const [editModalOpen, setEditModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [currentPsychologist, setCurrentPsychologist] =
     useState<PsychologistResponse | null>(null);
-
+  const navigate = useNavigate();
   const handleUpdateProfile = (updatedData: PsychologistResponse) => {
     setCurrentPsychologist(updatedData);
     setPsychologist(updatedData);
@@ -99,6 +102,18 @@ export function PsychologistProfile() {
     );
   }
 
+  const handleDelete = async () => {
+    if (!psychologist) return;
+    try {
+      await deletePsychologist(psychologist.id);
+      signOut();
+      navigate("/"); // redireciona para home
+    } catch (error) {
+      console.error("Erro ao deletar:", error);
+      // opcional: exibir snackbar de erro
+    }
+  };
+
   // Mapeia os dados do psicólogo para os atributos definidos na interface
   const profileProps: IPsychologistProfileProps = {
     image: psychologist.image || user, // Valor default para imagem do perfil, caso não haja imagem
@@ -123,8 +138,9 @@ export function PsychologistProfile() {
             crp={profileProps.crp}
             name={profileProps.name}
             specialization={profileProps.specialization}
-            showEditButton={isOwnProfile}
+            showActionButtons={isOwnProfile}
             onEditClick={() => setEditModalOpen(true)}
+            onDeleteClick={() => setDeleteModalOpen(true)}
           />
         </ContainerCardProfile>
         {currentPsychologist && (
@@ -135,6 +151,14 @@ export function PsychologistProfile() {
             onUpdate={handleUpdateProfile}
           />
         )}
+        {currentPsychologist && (
+          <ConfirmDeleteModal
+            open={deleteModalOpen}
+            onClose={() => setDeleteModalOpen(false)}
+            onConfirm={handleDelete}
+          />
+        )}
+
         <Separator />
         <ArticlesContainer>
           <div style={{ alignSelf: "flex-end", marginRight: "8rem" }}>

@@ -3,6 +3,7 @@ export interface ICardProfileProps {
   crp: string;
   about?: string;
   specialization?: string[];
-  showEditButton?: boolean;
+  showActionButtons?: boolean;
   onEditClick?: () => void;
+  onDeleteClick?: () => void;
 }

@@ -1,7 +1,7 @@
 // components/EditProfileModal.tsx
 import { useState, useEffect } from "react";
 
-import { Modal } from "@mui/material";
+import { Alert, Modal, Snackbar } from "@mui/material";
 import { PsychologistResponse } from "../../../../dtos/updatePsychologist";
 import { updatePsychologist } from "../../../../services/updatePsychologist";
 import { InputFieldComponent } from "../../../../components/Forms/fields/InputField";
@@ -31,6 +31,9 @@ export const EditProfileModal = ({
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertSucessMessage, setSucessAlertMessage] = useState("");
+  const [alertErrorMessage, setErrorAlertMessage] = useState("");
 
   useEffect(() => {
     // Buscar email do usuário ao abrir o modal
@@ -55,6 +58,16 @@ export const EditProfileModal = ({
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const handleAlertClose = (
+    _event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setAlertOpen(false);
   };
 
   const validateForm = () => {
@@ -90,11 +103,17 @@ export const EditProfileModal = ({
       );
 
       onUpdate(updatedData.psychologist);
-      onClose();
+      setSucessAlertMessage(
+        `Psicólogo: ${updatedData.psychologist.name} editado com sucesso!`
+      );
+      setAlertOpen(true);
+      setTimeout(onClose, 1000);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error("Erro na atualização:", error);
       setErrors((prev) => ({ ...prev, form: error.message }));
+      setErrorAlertMessage("Erro ao editar.");
+      setAlertOpen(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -112,6 +131,7 @@ export const EditProfileModal = ({
           padding: "2rem",
           borderRadius: "8px",
           minWidth: "400px",
+          width: "800px",
         }}
       >
         <h2>Editar Perfil</h2>
@@ -191,6 +211,22 @@ export const EditProfileModal = ({
             </Button>
           </div>
         </form>
+        <Snackbar
+          open={alertOpen}
+          autoHideDuration={800}
+          onClose={handleAlertClose}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        >
+          {alertSucessMessage ? (
+            <Alert onClose={handleAlertClose} severity="success">
+              {alertSucessMessage}
+            </Alert>
+          ) : (
+            <Alert onClose={handleAlertClose} severity="error">
+              {alertErrorMessage}
+            </Alert>
+          )}
+        </Snackbar>
       </div>
     </Modal>
   );

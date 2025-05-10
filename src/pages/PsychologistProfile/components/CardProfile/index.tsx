@@ -14,10 +14,12 @@ import {
   TextAbout,
   TitleAbout,
   TextMedia,
+  Icons,
 } from "./styles";
 import { ICardProfileProps } from "./types";
 
 import greenEdit from "./../../../../assets/png/green-edit.png";
+import trash from "./../../../../assets/png/trash-bin.png";
 import greenLinkedin from "./../../../../assets/png/green-linkedin.png";
 import greenWhatsapp from "./../../../../assets/png/green-whatsapp.png";
 import greenEmail from "./../../../../assets/png/green-email.png";
@@ -27,18 +29,27 @@ export function CardProfile({
   crp,
   name,
   specialization,
-  showEditButton = false,
+  showActionButtons = false,
   onEditClick,
+  onDeleteClick,
 }: ICardProfileProps) {
   return (
     <Container>
       <Content>
-        {showEditButton && (
-          <EditImage
-            src={greenEdit}
-            alt="Editar perfil de psicólogo"
-            onClick={onEditClick}
-          />
+        {showActionButtons && (
+          <Icons>
+            <EditImage
+              src={greenEdit}
+              alt="Editar perfil de psicólogo"
+              onClick={onEditClick}
+            />
+
+            <EditImage
+              src={trash}
+              alt="Deletar psicólogo"
+              onClick={onDeleteClick}
+            />
+          </Icons>
         )}
         <Text>
           <Name>{name}</Name>
