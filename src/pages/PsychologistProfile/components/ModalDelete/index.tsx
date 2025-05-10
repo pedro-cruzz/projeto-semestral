@@ -1,5 +1,6 @@
 import { Modal, Typography, Box } from "@mui/material";
 import { Button } from "../../../../components/Button";
+import { theme } from "../../../../styles/theme";
 
 interface ConfirmDeleteModalProps {
   open: boolean;
@@ -31,8 +32,8 @@ export const ConfirmDeleteModal = ({
           minWidth: "300px",
         }}
       >
-        <Typography variant="h6" gutterBottom>
-          Tem certeza que deseja deletar este psicólogo?
+        <Typography variant="h6" gutterBottom color={theme.colors.DARK_GREEN}>
+          Tem certeza que deseja deletar seu perfil?
         </Typography>
         <Box
           sx={{
