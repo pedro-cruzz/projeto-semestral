@@ -10,10 +10,15 @@ export const CarouselWrapper = styled.div`
 
 export const CarouselContent = styled.div`
   display: flex;
+  justify-content: center; /* centraliza os cards */
+  align-items: center;
   gap: 16px;
   transition: transform 0.3s ease-in-out;
-`;
 
+  /* ocupa toda a área entre as setas */
+  width: calc(100% - 100px); /* 10px margin + 40px seta ×2 */
+  margin: 0 auto; /* centraliza esse bloco */
+`;
 export const ArrowButton = styled.button`
   position: absolute;
   top: 50%;
