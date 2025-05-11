@@ -87,17 +87,9 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
               </span>
             </Tooltip>
 
-            <Tooltip title="Em breve">
-              <span style={{ opacity: 0.6 }}>
-                <NavItemLink
-                  to=""
-                  $variant={$variant}
-                  style={{ cursor: "default", pointerEvents: "none" }}
-                >
-                  Psicólogos
-                </NavItemLink>
-              </span>
-            </Tooltip>
+            <NavItemLink to="/psychologists" $variant={$variant}>
+              Psicólogos
+            </NavItemLink>
 
             <IconItem>
               {token ? (

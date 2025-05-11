@@ -44,7 +44,9 @@ export function Carousel<T>({
         {currentItems.map((item, index) => (
           <div
             key={index}
-            style={{ flex: `0 0 calc(100% / ${itemsPerPage} - 16px)` }}
+            style={{
+              flex: `0 0 calc(100% / ${itemsPerPage} - 16px)`,
+            }}
           >
             {renderItem(item, currentIndex + index)}
           </div>
