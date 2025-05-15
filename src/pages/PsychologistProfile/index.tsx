@@ -135,6 +135,7 @@ export function PsychologistProfile() {
         <ContainerCardProfile>
           <Image src={profileProps.image} alt="Imagem de perfil de psicólogo" />
           <CardProfile
+            psychologistId={profileProps.psychologistId}
             about={profileProps.about}
             crp={profileProps.crp}
             name={profileProps.name}

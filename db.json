@@ -236,5 +236,32 @@
       "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
       "createdAt": "2025-05-02T10:30:00Z"
     }
+  ],
+  "favorites": [
+    {
+      "id": "7193",
+      "patientId": "c80e",
+      "psychologistId": "1"
+    },
+    {
+      "id": "705f",
+      "patientId": "c80e",
+      "psychologistId": "77f8"
+    },
+    {
+      "id": "f69f",
+      "patientId": "c80e",
+      "psychologistId": "cbc1"
+    },
+    {
+      "id": "ab98",
+      "patientId": "c80e",
+      "psychologistId": "a396"
+    },
+    {
+      "id": "d823",
+      "patientId": "c80e",
+      "psychologistId": "dd5b"
+    }
   ]
 }

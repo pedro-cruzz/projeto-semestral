@@ -24,33 +24,95 @@ import greenLinkedin from "./../../../../assets/png/green-linkedin.png";
 import greenWhatsapp from "./../../../../assets/png/green-whatsapp.png";
 import greenEmail from "./../../../../assets/png/green-email.png";
 
+// Import para favoritos
+import { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../../../../contexts/AuthContext";
+import {
+  addFavorite,
+  removeFavorite,
+  getFavoritesByPatient,
+} from "./../../../../services/favoriteApi";
+
 export function CardProfile({
   about,
   crp,
+  psychologistId,
   name,
   specialization,
   showActionButtons = false,
   onEditClick,
   onDeleteClick,
 }: ICardProfileProps) {
+  const { patientId } = useContext(AuthContext);
+  const [isFavorited, setIsFavorited] = useState(false);
+  const [favoriteId, setFavoriteId] = useState<string | null>(null);
+
+  // Verifica se já está favoritado
+  useEffect(() => {
+    if (!patientId) return;
+    getFavoritesByPatient(patientId).then((list) => {
+      const fav = list.find(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (f: any) =>
+          f.psychologistId == psychologistId /* assumindo crp único */ ||
+          f.psychologist?.id === psychologistId
+      );
+      if (fav) {
+        setIsFavorited(true);
+        setFavoriteId(fav.id);
+      }
+    });
+  }, [patientId, psychologistId]);
+
+  const handleToggleFavorite = async () => {
+    if (!patientId) return;
+    if (isFavorited && favoriteId) {
+      await removeFavorite(favoriteId);
+      setIsFavorited(false);
+      setFavoriteId(null);
+    } else {
+      const created = await addFavorite({
+        patientId,
+        psychologistId: /* usar id */ psychologistId,
+      });
+      setIsFavorited(true);
+      setFavoriteId(created.id);
+    }
+  };
+
   return (
     <Container>
       <Content>
-        {showActionButtons && (
-          <Icons>
-            <EditImage
-              src={greenEdit}
-              alt="Editar perfil de psicólogo"
-              onClick={onEditClick}
-            />
-
-            <EditImage
-              src={trash}
-              alt="Deletar psicólogo"
-              onClick={onDeleteClick}
-            />
-          </Icons>
-        )}
+        <Icons>
+          {showActionButtons && (
+            <>
+              <EditImage
+                src={greenEdit}
+                alt="Editar perfil de psicólogo"
+                onClick={onEditClick}
+              />
+              <EditImage
+                src={trash}
+                alt="Deletar psicólogo"
+                onClick={onDeleteClick}
+              />
+            </>
+          )}
+          {/* Botão de favorito */}
+          {patientId && (
+            <button
+              onClick={handleToggleFavorite}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "1.5rem",
+              }}
+            >
+              {isFavorited ? "💚" : "🤍"}
+            </button>
+          )}
+        </Icons>
         <Text>
           <Name>{name}</Name>
           <Dropdown items={specialization} label="Especialização" />
@@ -73,3 +135,5 @@ export function CardProfile({
     </Container>
   );
 }
+
+export default CardProfile;

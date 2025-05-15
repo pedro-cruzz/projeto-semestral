@@ -19,11 +19,18 @@ import {
 import EditPatientModal from "./components/ModalEdit";
 import CardProfile from "./components/CardProfile";
 import { PatientResponse } from "../../dtos/registerPatient";
+import {
+  FavoriteWithPsychologist,
+  getFavoritesByPatient,
+} from "../../services/favoriteApi";
+import { CardPsychologist } from "../Psychologists/components/CardPsychologist";
 
 export function PatientProfile() {
   const { userId, patientId, signOut } = useContext(AuthContext);
   const { patientId: paramId } = useParams<{ patientId: string }>();
-
+  const [favoritePsychologists, setFavoritePsychologists] = useState<
+    FavoriteWithPsychologist[]
+  >([]);
   const [patient, setPatient] = useState<PatientResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -54,6 +61,17 @@ export function PatientProfile() {
       })
       .finally(() => setLoading(false));
   }, [paramId, patientId]);
+
+  useEffect(() => {
+    if (patientId) {
+      getFavoritesByPatient(patientId)
+        .then((favorites) => {
+          console.log("Favoritos com psicólogos:", favorites);
+          setFavoritePsychologists(favorites);
+        })
+        .catch((error) => console.error("Erro:", error));
+    }
+  }, [patientId]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleUpdateProfile = (updatedData: any) => {
@@ -129,6 +147,20 @@ export function PatientProfile() {
         )}
 
         <Separator />
+
+        {favoritePsychologists.map((psy) => (
+          <Link
+            to={`/psychologist-profile/${psy.psychologist.id}`}
+            key={psy.id}
+          >
+            <CardPsychologist
+              idPsychologist={psy.psychologist.id}
+              name={psy.psychologist.name}
+              about={psy.psychologist.about || ""}
+              image={psy.psychologist.image || ""}
+            />
+          </Link>
+        ))}
       </Container>
     </BaseLayout>
   );
