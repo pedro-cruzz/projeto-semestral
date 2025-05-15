@@ -244,6 +244,8 @@ export const RegisterForm = () => {
         const patientData = {
           name: nome,
           birthDate: convertDateToISO(birthDate),
+          image: "",
+          about: "",
         };
         const response = await registerPatient(userData, patientData);
         setSucessAlertMessage(`Paciente ${patientData.name} cadastrado!`);

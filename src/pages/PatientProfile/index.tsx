@@ -7,18 +7,24 @@ import { ContainerCardProfile } from "../PsychologistProfile/components/CardProf
 import { getPatientById } from "../../services/getPatientById";
 import userIcon from "../../assets/png/user.png";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Button } from "../../components/Button";
 import { deletePatient } from "../../services/deletePatient";
 import ConfirmDeleteModal from "./components/ModalDelete";
-import { ButtonBack, Container, NotFoundContainer, Separator } from "./styles";
+import {
+  ButtonBack,
+  Container,
+  Image,
+  NotFoundContainer,
+  Separator,
+} from "./styles";
 import EditPatientModal from "./components/ModalEdit";
 import CardProfile from "./components/CardProfile";
+import { PatientResponse } from "../../dtos/registerPatient";
 
 export function PatientProfile() {
   const { userId, patientId, signOut } = useContext(AuthContext);
   const { patientId: paramId } = useParams<{ patientId: string }>();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [patient, setPatient] = useState<any | null>(null);
+
+  const [patient, setPatient] = useState<PatientResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -94,10 +100,11 @@ export function PatientProfile() {
     <BaseLayout $variant="secondary">
       <Container>
         <ContainerCardProfile>
-          <img src={patient.image || userIcon} alt="Perfil do paciente" />
+          <Image src={patient.image || userIcon} alt="Perfil do paciente" />
           <CardProfile
             name={patient.name}
             birthDate={patient.birthDate}
+            about={patient.about}
             showActionButtons={isOwnProfile}
             onEditClick={() => setEditModalOpen(true)}
             onDeleteClick={() => setDeleteModalOpen(true)}
@@ -122,10 +129,6 @@ export function PatientProfile() {
         )}
 
         <Separator />
-
-        <Link to="/dashboard">
-          <Button borderRadius="10px">Voltar</Button>
-        </Link>
       </Container>
     </BaseLayout>
   );

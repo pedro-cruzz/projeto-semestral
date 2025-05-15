@@ -69,6 +69,16 @@ interface Psychologist {
   // ... outros campos do psicólogo
 }
 
+interface Patient {
+  id: string;
+  userId: string;
+  name: string;
+  birthDate: string;
+  about?: string;
+  image?: string;
+  // ... outros campos do psicólogo
+}
+
 interface AuthContextData {
   token: string | null;
   userId: string | null;
@@ -127,8 +137,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         `/psychologists?userId=${user.id}`
       );
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const patResponse = await api.get<any[]>(`/patients?userId=${user.id}`);
+      const patResponse = await api.get<Patient[]>(
+        `/patients?userId=${user.id}`
+      );
       const patientId = patResponse.data[0]?.id || null;
       setPatientId(patientId);
 

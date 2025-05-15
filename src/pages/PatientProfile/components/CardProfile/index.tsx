@@ -6,6 +6,10 @@ import {
   Divider,
   Label,
   Text,
+  About,
+  TitleAbout,
+  TextAbout,
+  EditImage,
 } from "./styles";
 import { ICardProfilePatientProps } from "./types";
 
@@ -18,29 +22,56 @@ import trash from "../../../../assets/png/trash-bin.png";
 export function CardProfilePatient({
   name,
   birthDate,
+  about,
   showActionButtons = false,
   onEditClick,
   onDeleteClick,
 }: ICardProfilePatientProps) {
+  // Cálculo de idade em tempo real
+  const calculateAge = (dateString: string): number => {
+    const today = new Date();
+    const birth = new Date(dateString);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birth.getDate())
+    ) {
+      age--;
+    }
+    return age;
+  };
+
+  const age = calculateAge(birthDate);
+
   return (
     <Container>
       <Content>
         {showActionButtons && (
           <Icons>
-            <img
+            <EditImage
               src={greenEdit}
               alt="Editar perfil de paciente"
               onClick={onEditClick}
+              style={{ cursor: "pointer" }}
             />
-            <img src={trash} alt="Deletar paciente" onClick={onDeleteClick} />
+            <EditImage
+              src={trash}
+              alt="Deletar paciente"
+              onClick={onDeleteClick}
+              style={{ cursor: "pointer" }}
+            />
           </Icons>
         )}
         <Text>
           <Name>{name}</Name>
-          <Label>Nascido em: {new Date(birthDate).toLocaleDateString()}</Label>
+          <Label>Idade: {age} anos</Label>
         </Text>
         <Divider />
-        <Label>Informações do paciente</Label>
+        <About>
+          <TitleAbout>Sobre o paciente:</TitleAbout>
+          <TextAbout value={about || ""} readOnly />
+        </About>
       </Content>
     </Container>
   );

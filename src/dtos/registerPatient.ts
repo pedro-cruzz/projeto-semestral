@@ -19,6 +19,8 @@ export interface PatientResponse {
   userId: string;
   name: string;
   birthDate: string;
+  image?: string;
+  about?: string;
   // ...
 }
 export interface ApiError {

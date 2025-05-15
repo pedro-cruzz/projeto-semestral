@@ -6,6 +6,12 @@ import { theme } from "../../../../styles/theme";
 import { updatePatient } from "../../../../services/updatePatient";
 import { PatientResponse } from "../../../../dtos/updatePatient";
 import { InputFieldComponent } from "../../../../components/Forms/fields/InputField";
+import {
+  ContainerInputs,
+  FieldGroup,
+  Label,
+  TextArea,
+} from "../../../PsychologistProfile/components/ModalEdit/syles";
 
 interface EditPatientModalProps {
   patient: PatientResponse;
@@ -24,12 +30,13 @@ export const EditPatientModal = ({
     name: patient.name,
     birthDate: patient.birthDate.split("T")[0], // YYYY-MM-DD
     email: "",
+    image: patient.image || "",
+    about: patient.about || "",
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [alert, setAlert] = useState<{
-    type: "success" | "error";
-    msg: string;
-  } | null>(null);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertSucessMessage, setSucessAlertMessage] = useState("");
+  const [alertErrorMessage, setErrorAlertMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -38,6 +45,8 @@ export const EditPatientModal = ({
         name: patient.name,
         birthDate: patient.birthDate.split("T")[0],
         email: "",
+        image: patient.image || "",
+        about: patient.about || "",
       });
       // busca email
       (async () => {
@@ -47,16 +56,16 @@ export const EditPatientModal = ({
           );
           const user = await res.json();
           setFormData((f) => ({ ...f, email: user.email }));
-        } catch {
-          // ignore
+        } catch (err) {
+          console.error("Erro ao buscar email:", err);
         }
       })();
-      setErrors({});
-      setAlert(null);
     }
   }, [open, patient]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((f) => ({ ...f, [name]: value }));
     setErrors((e) => ({ ...e, [name]: "" }));
@@ -85,18 +94,32 @@ export const EditPatientModal = ({
         {
           name: formData.name,
           birthDate: formData.birthDate,
+          image: formData.image,
+          about: formData.about,
         }
       );
       onUpdate(result.patient);
-      setAlert({ type: "success", msg: "Perfil atualizado com sucesso!" });
+      setSucessAlertMessage(`Paciente: ${patient.name} editado com sucesso!`);
+      setAlertOpen(true);
       setTimeout(onClose, 1000);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);
-      setAlert({ type: "error", msg: err.message || "Erro ao atualizar" });
+      setErrorAlertMessage("Erro ao editar.");
+      setAlertOpen(true);
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleAlertClose = (
+    _event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setAlertOpen(false);
   };
 
   return (
@@ -110,37 +133,63 @@ export const EditPatientModal = ({
           backgroundColor: "white",
           padding: "2rem",
           borderRadius: "8px",
-          minWidth: "360px",
-          width: "400px",
+          minWidth: "400px",
+          width: "800px",
         }}
       >
-        <h2 style={{ color: theme.colors.DARK_GREEN }}>Editar Perfil</h2>
+        <h2
+          style={{
+            color: theme.colors.DARK_GREEN,
+            fontFamily: theme.fonts.mulish,
+            textAlign: "start",
+          }}
+        >
+          Editar Perfil
+        </h2>
         <form
           onSubmit={handleSubmit}
-          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+            paddingBlock: "1rem",
+          }}
         >
-          <InputFieldComponent
-            label="Nome"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            error={errors.name}
-          />
-          <InputFieldComponent
-            label="Data de nascimento"
-            name="birthDate"
-            placeholder="YYYY-MM-DD"
-            value={formData.birthDate}
-            onChange={handleChange}
-            error={errors.birthDate}
-          />
-          <InputFieldComponent
-            label="Email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            disabled
-          />
+          <ContainerInputs>
+            <InputFieldComponent
+              label="Nome"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              error={errors.name}
+            />
+
+            <InputFieldComponent
+              label="Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              disabled
+            />
+          </ContainerInputs>
+
+          <ContainerInputs>
+            <InputFieldComponent
+              label="Foto"
+              name="image"
+              value={formData.image}
+              onChange={handleChange}
+            />
+            <FieldGroup>
+              <Label>Sobre</Label>
+              <TextArea
+                name="about"
+                value={formData.about}
+                onChange={handleChange}
+                placeholder="Conte sobre sua experiência"
+              />
+            </FieldGroup>
+          </ContainerInputs>
           <div
             style={{ display: "flex", justifyContent: "flex-end", gap: "1rem" }}
           >
@@ -157,16 +206,22 @@ export const EditPatientModal = ({
             </Button>
           </div>
         </form>
-        {!!alert && (
-          <Snackbar
-            open
-            autoHideDuration={3000}
-            onClose={() => setAlert(null)}
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-          >
-            <Alert severity={alert.type}>{alert.msg}</Alert>
-          </Snackbar>
-        )}
+        <Snackbar
+          open={alertOpen}
+          autoHideDuration={800}
+          onClose={handleAlertClose}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        >
+          {alertSucessMessage ? (
+            <Alert onClose={handleAlertClose} severity="success">
+              {alertSucessMessage}
+            </Alert>
+          ) : (
+            <Alert onClose={handleAlertClose} severity="error">
+              {alertErrorMessage}
+            </Alert>
+          )}
+        </Snackbar>
       </div>
     </Modal>
   );

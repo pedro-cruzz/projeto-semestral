@@ -45,6 +45,7 @@ export const Label = styled.label`
   font-size: 14px;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  color: ${theme.colors.DARK_GREEN};
 `;
 
 export const TextArea = styled.textarea`

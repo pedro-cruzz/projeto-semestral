@@ -41,7 +41,7 @@ export const Text = styled.section`
 export const Name = styled.span`
   font-family: ${theme.fonts.mulish};
   color: ${theme.colors.DARK_GREEN};
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
 `;
 
@@ -56,34 +56,6 @@ export const Label = styled.label`
   color: ${theme.colors.DARK_GREEN};
   font-size: 16px;
   font-weight: 700;
-`;
-
-export const TextMedia = styled.section`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 60px;
-  padding-top: 20px;
-`;
-
-export const SocialMedia = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  gap: 20px;
-`;
-
-export const ImageMedia = styled.img`
-  width: 24px;
-  height: 24px;
-  align-self: baseline;
-  cursor: pointer;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
 
 export const Divider = styled.div`
@@ -131,4 +103,5 @@ export const Icons = styled.div`
   flex-direction: row;
   justify-content: end;
   gap: 20px;
+  margin-bottom: 20px;
 `;

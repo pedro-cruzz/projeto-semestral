@@ -6,6 +6,8 @@ export interface UpdateUserDTO {
 export interface UpdatePatientDTO {
   name?: string;
   birthDate?: string; // ISO (YYYY-MM-DD)
+  image?: string;
+  about?: string;
 }
 
 export interface UserResponse {
@@ -19,6 +21,8 @@ export interface PatientResponse {
   userId: string;
   name: string;
   birthDate: string;
+  image?: string;
+  about?: string;
 }
 
 export interface ApiError {
