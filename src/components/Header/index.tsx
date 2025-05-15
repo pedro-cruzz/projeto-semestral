@@ -26,13 +26,21 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { ConfirmLogoutModal } from "./components/ConfirmLogoutModal";
 
 export function Header({ $variant = "primary" }: IHeaderProps) {
-  const { token, signOut, psychologistId } = useContext(AuthContext);
+  const { token, signOut, psychologistId, patientId } = useContext(AuthContext);
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleProfileClick = () => {
+  const handlePsychologisyProfileClick = () => {
     if (psychologistId) {
       navigate(`/psychologist-profile/${psychologistId}`);
+    } else {
+      console.error("Nenhum psicólogo vinculado a este usuário");
+    }
+  };
+
+  const handlePatientProfileClick = () => {
+    if (patientId) {
+      navigate(`/patient-profile/${patientId}`);
     } else {
       console.error("Nenhum psicólogo vinculado a este usuário");
     }
@@ -66,10 +74,25 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
               Home
             </NavItemLink>
 
-            {/* Item de Perfil - Adicionado antes do Login/Logout */}
+            {/* Item de Perfil Psicologo - Adicionado antes do Login/Logout */}
             {token && psychologistId && (
               <IconItem>
-                <ButtonLink onClick={handleProfileClick} $variant={$variant}>
+                <ButtonLink
+                  onClick={handlePsychologisyProfileClick}
+                  $variant={$variant}
+                >
+                  Meu perfil
+                </ButtonLink>
+              </IconItem>
+            )}
+
+            {/* Item de Perfil Paciente - Adicionado antes do Login/Logout */}
+            {token && patientId && (
+              <IconItem>
+                <ButtonLink
+                  onClick={handlePatientProfileClick}
+                  $variant={$variant}
+                >
                   Meu perfil
                 </ButtonLink>
               </IconItem>

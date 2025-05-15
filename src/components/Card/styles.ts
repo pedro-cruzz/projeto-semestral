@@ -30,10 +30,9 @@ export const CardTitle = styled.h2`
 `;
 
 export const CardDescription = styled.p`
-  font-size: 10px;
+  font-size: 14px;
   color: ${theme.colors.WHITE};
   font-family: ${theme.fonts.mulish};
-  font: small-caption;
 `;
 
 export const Icon = styled.img`

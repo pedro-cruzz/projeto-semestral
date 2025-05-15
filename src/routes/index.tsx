@@ -10,6 +10,7 @@ import { ChooseRegister } from "../pages/ChooseRegister";
 import { Register } from "../pages/Register";
 import { PsychologistProfile } from "../pages/PsychologistProfile";
 import PrivateRoute from "../components/PrivateRoute";
+import { PatientProfile } from "../pages/PatientProfile";
 
 export function AppRoutes() {
   return (
@@ -22,13 +23,16 @@ export function AppRoutes() {
 
       {/* Exemplo: rota pública para dashboard ou home de usuários */}
       <Route path="/dashboard" element={<Home />} />
-
+      <Route path="/psychologists" element={<Psicologos />} />
       {/* Rotas protegidas: Apenas usuários logados podem acessar */}
       <Route element={<PrivateRoute />}>
-        <Route path="/psychologists" element={<Psicologos />} />
         <Route
           path="/psychologist-profile/:psychologistId"
           element={<PsychologistProfile />}
+        />
+        <Route
+          path="/patient-profile/:patientId"
+          element={<PatientProfile />}
         />
         {/* Outras rotas protegidas podem ser incluídas aqui */}
       </Route>

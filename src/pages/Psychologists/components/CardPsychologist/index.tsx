@@ -7,6 +7,8 @@ interface CardProps {
   image?: string;
 }
 
+import imageUser from "./../../../../assets/png/user.png";
+
 export function CardPsychologist({
   idPsychologist,
   name,
@@ -15,7 +17,7 @@ export function CardPsychologist({
 }: CardProps) {
   return (
     <CardContainer>
-      <Img src={image || "/assets/default-user.png"} alt={name} />
+      <Img src={image || imageUser} alt={name} />
       <Content>
         <Name>{name}</Name>
         <About>{about || "—"}</About>

@@ -5,7 +5,6 @@ import { Card, Content, Title, User, UserImage, Users } from "./styles";
 
 import psicologos from "./../../assets/png/psicologos.jpg";
 import pacientes from "./../../assets/png/pacientes.jpg";
-import Tooltip from "@mui/material/Tooltip";
 
 export function ChooseRegister() {
   return (
@@ -26,23 +25,19 @@ export function ChooseRegister() {
                 </Button>
               </Link>
             </User>
-            <Tooltip title="Em breve" arrow placement="top">
-              <span>
-                <User className="disabled">
-                  <UserImage src={pacientes} alt="Pacientes" />
-                  <Link to="/register?type=paciente">
-                    <Button
-                      $variant="secondary"
-                      fontWeight="normal"
-                      borderRadius="10px"
-                      disabled
-                    >
-                      Sou Paciente
-                    </Button>
-                  </Link>
-                </User>
-              </span>
-            </Tooltip>
+
+            <User>
+              <UserImage src={pacientes} alt="Pacientes" />
+              <Link to="/register?type=paciente">
+                <Button
+                  $variant="secondary"
+                  fontWeight="normal"
+                  borderRadius="10px"
+                >
+                  Sou Paciente
+                </Button>
+              </Link>
+            </User>
           </Users>
         </Card>
         <Link to={"/login"}>

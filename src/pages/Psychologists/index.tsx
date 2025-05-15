@@ -6,9 +6,22 @@ import { getAllPsychologists } from "../../services/getAllPsychologists";
 import { PsychologistResponse } from "../../dtos/getPsychologistById";
 import { CardPsychologist } from "./components/CardPsychologist";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2rem;
+`;
 
 const Title = styled.h1`
-  margin-bottom: 2rem;
+  font-family: ${theme.fonts.playfair};
+  font-size: 30px;
+  font-weight: 700;
+  color: ${theme.colors.DARK_GREEN};
 `;
 
 const Loading = styled.div`
@@ -31,27 +44,29 @@ export default function Psicologos() {
 
   return (
     <BaseLayout $variant="secondary">
-      <Title>Psicólogos</Title>
+      <Container>
+        <Title>Psicólogos</Title>
 
-      {loading ? (
-        <Loading>Carregando psicólogos...</Loading>
-      ) : psychologists.length > 0 ? (
-        <Carousel
-          items={psychologists}
-          itemsPerPage={3}
-          renderItem={(psych) => (
-            <CardPsychologist
-              key={psych.id}
-              idPsychologist={psych.id}
-              name={psych.name}
-              about={psych.about ?? ""}
-              image={psych.image}
-            />
-          )}
-        />
-      ) : (
-        <div>Nenhum psicólogo encontrado.</div>
-      )}
+        {loading ? (
+          <Loading>Carregando psicólogos...</Loading>
+        ) : psychologists.length > 0 ? (
+          <Carousel
+            items={psychologists}
+            itemsPerPage={3}
+            renderItem={(psych) => (
+              <CardPsychologist
+                key={psych.id}
+                idPsychologist={psych.id}
+                name={psych.name}
+                about={psych.about ?? ""}
+                image={psych.image}
+              />
+            )}
+          />
+        ) : (
+          <div>Nenhum psicólogo encontrado.</div>
+        )}
+      </Container>
     </BaseLayout>
   );
 }

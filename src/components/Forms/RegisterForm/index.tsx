@@ -8,6 +8,7 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { ContainerInputs } from "./styles";
 import { AuthContext } from "../../../contexts/AuthContext"; // ajuste o caminho conforme sua estrutura
+import { registerPatient } from "../../../services/registerPatient";
 
 export const RegisterForm = () => {
   const [nome, setNome] = useState("");
@@ -239,6 +240,15 @@ export const RegisterForm = () => {
         setTimeout(() => {
           navigate(`/psychologist-profile/${psychologistId}`);
         }, 1500);
+      } else if (userType === "paciente") {
+        const patientData = {
+          name: nome,
+          birthDate: convertDateToISO(birthDate),
+        };
+        const response = await registerPatient(userData, patientData);
+        setSucessAlertMessage(`Paciente ${patientData.name} cadastrado!`);
+        await signIn(email, senha);
+        navigate(`/patient-profile/${response.patient.id}`);
       } else {
         setErrorAlertMessage("Tipo de usuário inválido ou não selecionado.");
         setAlertOpen(true);
@@ -323,14 +333,23 @@ export const RegisterForm = () => {
         </>
       )}
       {userType === "paciente" && (
-        <PasswordField
-          label="Senha"
-          placeholder="Mínimo 8 dígitos"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
-          error={errors.senha}
-          helperText={errors.senha}
-        />
+        <ContainerInputs>
+          <InputFieldComponent
+            label="Data de nascimento"
+            placeholder="DD/MM/AAAA"
+            value={birthDate}
+            onChange={handleBirthDateChange}
+            error={errors.birthDate}
+          />
+          <PasswordField
+            label="Senha"
+            placeholder="Mínimo 8 dígitos"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            error={errors.senha}
+            helperText={errors.senha}
+          />
+        </ContainerInputs>
       )}
 
       <Snackbar

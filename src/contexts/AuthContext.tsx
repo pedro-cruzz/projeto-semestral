@@ -73,6 +73,7 @@ interface AuthContextData {
   token: string | null;
   userId: string | null;
   psychologistId: string | null; // Novo campo
+  patientId: string | null;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => void;
 }
@@ -81,6 +82,7 @@ export const AuthContext = createContext<AuthContextData>({
   token: null,
   userId: null,
   psychologistId: null,
+  patientId: null,
   signIn: async () => {},
   signOut: () => {},
 });
@@ -97,6 +99,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     localStorage.getItem("userId")
   );
   const [psychologistId, setPsychologistId] = useState<string | null>(
+    localStorage.getItem("psychologistId")
+  );
+
+  const [patientId, setPatientId] = useState<string | null>(
     localStorage.getItem("psychologistId")
   );
 
@@ -121,6 +127,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         `/psychologists?userId=${user.id}`
       );
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const patResponse = await api.get<any[]>(`/patients?userId=${user.id}`);
+      const patientId = patResponse.data[0]?.id || null;
+      setPatientId(patientId);
+
       // Atualiza os estados
       setToken(user.id);
       setUserId(user.id);
@@ -130,6 +141,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       localStorage.setItem("token", user.id);
       localStorage.setItem("userId", user.id);
       localStorage.setItem("psychologistId", psyResponse.data[0]?.id || "");
+      localStorage.setItem("patientId", patientId || "");
     } catch (error) {
       console.error("Erro ao fazer login:", error);
       throw error;
@@ -140,6 +152,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setToken(null);
     setUserId(null);
     setPsychologistId(null);
+    setPatientId(null);
+    localStorage.removeItem("patientId");
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("psychologistId");
@@ -151,6 +165,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         token,
         userId,
         psychologistId,
+        patientId,
         signIn,
         signOut,
       }}

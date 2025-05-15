@@ -29,6 +29,7 @@ import back from "./../../assets/png/back.png";
 import { EditProfileModal } from "./components/ModalEdit";
 import { ConfirmDeleteModal } from "./components/ModalDelete";
 import { deletePsychologist } from "../../services/deletePsychologist";
+import Tooltip from "@mui/material/Tooltip";
 
 export function PsychologistProfile() {
   const { userId, signOut } = useContext(AuthContext);
@@ -163,9 +164,13 @@ export function PsychologistProfile() {
         <ArticlesContainer>
           <div style={{ alignSelf: "flex-end", marginRight: "8rem" }}>
             {isOwnProfile && (
-              <Button $variant="secondary" width="200px">
-                + Criar Artigo
-              </Button>
+              <Tooltip title="Em breve">
+                <span style={{ opacity: 0.6 }}>
+                  <Button $variant="secondary" width="200px" disabled>
+                    + Criar Artigo
+                  </Button>
+                </span>
+              </Tooltip>
             )}
           </div>
           <Title>Artigos Recentes</Title>
