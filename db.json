@@ -109,6 +109,7 @@
       "crp": "MG/12345",
       "birthDate": "2001-02-05",
       "activitiesStartDate": "2024-02-05",
+<<<<<<< HEAD
       "about": "Especializo-me em saúde ocupacional e desenvolvo programas de bem-estar no trabalho. Meu foco é a prevenção do burnout e a promoção de práticas de Mindfulness para redução do estresse.",
       "image": "https://static.vecteezy.com/ti/fotos-gratis/t2/3542373-garota-sorridente-em-um-fundo-branco-gratis-foto.JPG",
       "specialization": [
@@ -130,6 +131,40 @@
       "name": "Gabriel Olavio",
       "birthDate": "2000-02-02",
       "userId": "cde0"
+=======
+      "userId": "d871",
+      "image": "https://images.cults3d.com/hIJZ4SvcmhPoPxg5JpDk2k-i9KM=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/41050705/illustration-file/ad5c379c-2807-49fb-ab36-e139e2cfec26/br-br-patapim.jpg"
+    },
+    {
+      "id": "ed28",
+      "name": "Gabriel",
+      "crp": "MG/45445",
+      "birthDate": "2004-04-20",
+      "activitiesStartDate": "2025-05-02",
+      "userId": "0231"
+    },
+    {
+      "id": "85c1",
+      "name": "Mateus",
+      "crp": "GO/45678",
+      "birthDate": "2001-01-01",
+      "activitiesStartDate": "2021-01-01",
+      "about": "",
+      "specialization": [],
+      "image": "",
+      "userId": "4cc6"
+    },
+    {
+      "id": "5a6f",
+      "name": "Antonio",
+      "crp": "GO/12345",
+      "birthDate": "2002-02-02",
+      "activitiesStartDate": "2022-02-02",
+      "about": "",
+      "specialization": [],
+      "image": "",
+      "userId": "5710"
+>>>>>>> 97e7cbc709a3a66818a3cf0d322bfded30db2027
     }
   ],
   "articles": [
