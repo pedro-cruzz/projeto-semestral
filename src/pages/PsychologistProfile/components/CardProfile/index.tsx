@@ -40,6 +40,7 @@ export function CardProfile({
   name,
   specialization,
   showActionButtons = false,
+  favoriteCount,
   onEditClick,
   onDeleteClick,
 }: ICardProfileProps) {
@@ -100,17 +101,24 @@ export function CardProfile({
           )}
           {/* Botão de favorito */}
           {patientId && (
-            <button
-              onClick={handleToggleFavorite}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                fontSize: "1.5rem",
-              }}
-            >
-              {isFavorited ? "💚" : "🤍"}
-            </button>
+            <>
+              {favoriteCount !== undefined && (
+                <div style={{ marginTop: "0.5rem", color: "#666" }}>
+                  Favoritado por {favoriteCount} pacientes
+                </div>
+              )}
+              <button
+                onClick={handleToggleFavorite}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "1.5rem",
+                }}
+              >
+                {isFavorited ? "💚" : "🤍"}
+              </button>
+            </>
           )}
         </Icons>
         <Text>

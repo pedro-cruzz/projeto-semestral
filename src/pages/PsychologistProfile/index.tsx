@@ -30,6 +30,7 @@ import { EditProfileModal } from "./components/ModalEdit";
 import { ConfirmDeleteModal } from "./components/ModalDelete";
 import { deletePsychologist } from "../../services/deletePsychologist";
 import Tooltip from "@mui/material/Tooltip";
+import { countFavoritesByPsychologist } from "../../services/favoriteApi";
 
 export function PsychologistProfile() {
   const { userId, signOut } = useContext(AuthContext);
@@ -43,6 +44,7 @@ export function PsychologistProfile() {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [currentPsychologist, setCurrentPsychologist] =
     useState<PsychologistResponse | null>(null);
+  const [favoriteCount, setFavoriteCount] = useState(0);
   const navigate = useNavigate();
   const handleUpdateProfile = (updatedData: PsychologistResponse) => {
     setCurrentPsychologist(updatedData);
@@ -56,6 +58,14 @@ export function PsychologistProfile() {
       setCurrentPsychologist(psychologist);
     }
   }, [psychologist]);
+
+  useEffect(() => {
+    if (psychologistId) {
+      countFavoritesByPsychologist(psychologistId)
+        .then(setFavoriteCount)
+        .catch((error) => console.error("Erro ao buscar favoritos:", error));
+    }
+  }, [psychologistId]);
 
   useEffect(() => {
     if (psychologistId) {
@@ -143,6 +153,7 @@ export function PsychologistProfile() {
             showActionButtons={isOwnProfile}
             onEditClick={() => setEditModalOpen(true)}
             onDeleteClick={() => setDeleteModalOpen(true)}
+            favoriteCount={favoriteCount}
           />
         </ContainerCardProfile>
         {currentPsychologist && (

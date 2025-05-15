@@ -239,11 +239,6 @@
   ],
   "favorites": [
     {
-      "id": "7193",
-      "patientId": "c80e",
-      "psychologistId": "1"
-    },
-    {
       "id": "705f",
       "patientId": "c80e",
       "psychologistId": "77f8"
