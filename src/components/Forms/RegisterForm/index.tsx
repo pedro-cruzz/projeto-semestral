@@ -7,8 +7,11 @@ import { registerPsychologist } from "../../../services/registerPsychologist";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { ContainerInputs } from "./styles";
-import { AuthContext } from "../../../contexts/AuthContext"; // ajuste o caminho conforme sua estrutura
+import { AuthContext } from "../../../contexts/AuthContext";
 import { registerPatient } from "../../../services/registerPatient";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import dayjs from "dayjs";
+dayjs.extend(customParseFormat);
 
 export const RegisterForm = () => {
   const [nome, setNome] = useState("");
@@ -86,6 +89,41 @@ export const RegisterForm = () => {
     setErrors((prev) => ({ ...prev, activitiesStartDate: "" }));
   };
 
+  function validaDatas(
+    birth: string,
+    activitiesStart: string,
+    type: string | null
+  ): { [key: string]: string } {
+    const newErrors: { [key: string]: string } = {};
+    const format = "DD/MM/YYYY";
+    const birthDayjs = dayjs(birth, format, true);
+
+    if (!birthDayjs.isValid()) {
+      newErrors.birthDate = "Data de nascimento inválida.";
+    } else {
+      const idade = dayjs().diff(birthDayjs, "year");
+      const [min, max] = type === "paciente" ? [13, 110] : [23, 110];
+      if (idade < min || idade > max)
+        newErrors.birthDate = `Idade deve ser entre ${min} e ${max} anos.`;
+    }
+
+    if (type === "psicologo") {
+      const startDayjs = dayjs(activitiesStart, format, true);
+      if (!startDayjs.isValid()) {
+        newErrors.activitiesStartDate = "Data de início inválida.";
+      } else {
+        const idadeAoIniciar = startDayjs.diff(birthDayjs, "year");
+        // 5 anos de curso + 18 anos = 23 anos
+        if (idadeAoIniciar < 23)
+          newErrors.activitiesStartDate =
+            "Psicólogo só pode iniciar atividades após 23 anos.";
+        if (startDayjs.isAfter(dayjs()))
+          newErrors.activitiesStartDate = "Data de início não pode ser futura.";
+      }
+    }
+
+    return newErrors;
+  }
   const validateForm = async () => {
     const newErrors: { [key: string]: string } = {};
     if (!nome.trim()) newErrors.nome = "Nome é obrigatório.";
@@ -137,6 +175,8 @@ export const RegisterForm = () => {
       if (activitiesStartDate && !dateRegexBR.test(activitiesStartDate))
         newErrors.activitiesStartDate = "Formato deve ser DD/MM/AAAA.";
     }
+    const dateErrors = validaDatas(birthDate, activitiesStartDate, userType);
+    Object.assign(newErrors, dateErrors);
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };

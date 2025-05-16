@@ -44,6 +44,11 @@
       "id": "f1c5",
       "email": "luiz@gmail.com",
       "password": "12345678"
+    },
+    {
+      "id": "4769",
+      "email": "joao@gmail.com",
+      "password": "12345678"
     }
   ],
   "psychologists": [
@@ -147,6 +152,14 @@
       "image": "",
       "about": "",
       "userId": "f1c5"
+    },
+    {
+      "id": "dfe6",
+      "name": "Joao",
+      "birthDate": "2000-02-02",
+      "image": "",
+      "about": "safdsgnsraetgfhnfdfhheghdfgfagsdzbgsffdgsf",
+      "userId": "4769"
     }
   ],
   "articles": [
@@ -275,6 +288,16 @@
       "id": "4ef7",
       "patientId": "037a",
       "psychologistId": "dd5b"
+    },
+    {
+      "id": "5b69",
+      "patientId": "dfe6",
+      "psychologistId": "1"
+    },
+    {
+      "id": "078e",
+      "patientId": "dfe6",
+      "psychologistId": "cbc1"
     }
   ]
 }
