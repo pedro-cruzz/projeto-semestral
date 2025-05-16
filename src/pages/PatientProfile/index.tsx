@@ -15,6 +15,7 @@ import {
   Image,
   NotFoundContainer,
   Separator,
+  Title,
 } from "./styles";
 import EditPatientModal from "./components/ModalEdit";
 import CardProfile from "./components/CardProfile";
@@ -24,6 +25,7 @@ import {
   getFavoritesByPatient,
 } from "../../services/favoriteApi";
 import { CardPsychologist } from "../Psychologists/components/CardPsychologist";
+import { Carousel } from "../../components/Carousel";
 
 export function PatientProfile() {
   const { userId, patientId, signOut } = useContext(AuthContext);
@@ -148,19 +150,24 @@ export function PatientProfile() {
 
         <Separator />
 
-        {favoritePsychologists.map((psy) => (
-          <Link
-            to={`/psychologist-profile/${psy.psychologist.id}`}
-            key={psy.id}
-          >
-            <CardPsychologist
-              idPsychologist={psy.psychologist.id}
-              name={psy.psychologist.name}
-              about={psy.psychologist.about || ""}
-              image={psy.psychologist.image || ""}
-            />
-          </Link>
-        ))}
+        <Title>Meus psicólogos favoritos</Title>
+        <Carousel
+          items={favoritePsychologists}
+          itemsPerPage={3}
+          renderItem={(psy) => (
+            <Link
+              to={`/psychologist-profile/${psy.psychologist.id}`}
+              key={psy.id}
+            >
+              <CardPsychologist
+                idPsychologist={psy.psychologist.id}
+                name={psy.psychologist.name}
+                about={psy.psychologist.about || ""}
+                image={psy.psychologist.image || ""}
+              />
+            </Link>
+          )}
+        />
       </Container>
     </BaseLayout>
   );

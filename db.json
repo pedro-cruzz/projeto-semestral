@@ -298,6 +298,36 @@
       "id": "078e",
       "patientId": "dfe6",
       "psychologistId": "cbc1"
+    },
+    {
+      "id": "9e8c",
+      "patientId": "b8ce",
+      "psychologistId": "1"
+    },
+    {
+      "id": "f69c",
+      "patientId": "b8ce",
+      "psychologistId": "cbc1"
+    },
+    {
+      "id": "4809",
+      "patientId": "b8ce",
+      "psychologistId": "77f8"
+    },
+    {
+      "id": "9262",
+      "patientId": "b8ce",
+      "psychologistId": "a396"
+    },
+    {
+      "id": "78e1",
+      "patientId": "c80e",
+      "psychologistId": "77f8"
+    },
+    {
+      "id": "53d1",
+      "patientId": "c80e",
+      "psychologistId": "a396"
     }
   ]
 }

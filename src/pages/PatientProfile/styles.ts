@@ -35,6 +35,7 @@ export const Image = styled.img`
 export const Title = styled.h1`
   font-family: ${theme.fonts.playfair};
   color: ${theme.colors.DARK_GREEN};
+  margin-bottom: 14px;
 `;
 
 export const ContainerCardArticles = styled.div`
