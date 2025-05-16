@@ -6,6 +6,8 @@ export interface ICardProfileProps {
   specialization?: string[];
   favoriteCount?: number;
   showActionButtons?: boolean;
+  isOwnProfile?: boolean;
   onEditClick?: () => void;
   onDeleteClick?: () => void;
+  setModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }

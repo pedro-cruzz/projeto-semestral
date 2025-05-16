@@ -44,10 +44,13 @@ export function PatientProfile() {
   const isOwnProfile = patient?.userId === userId;
 
   useEffect(() => {
-    if (patient) {
-      setCurrentPatient(patient);
-    }
-  }, [patient]);
+    const id = paramId || patientId; // primeiro tenta ID via URL, depois contexto
+    if (!id) return;
+
+    getFavoritesByPatient(id)
+      .then(setFavoritePsychologists)
+      .catch(console.error);
+  }, [paramId, patientId]);
 
   useEffect(() => {
     const id = paramId || patientId;

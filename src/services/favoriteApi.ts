@@ -1,4 +1,6 @@
+import { PatientResponse } from "../dtos/registerPatient";
 import api from "./api";
+import { getAllPatients } from "./getAllPatients";
 import { getAllPsychologists } from "./getAllPsychologists";
 
 export interface FavoriteWithPsychologist {
@@ -16,6 +18,13 @@ export interface FavoriteWithPsychologist {
     specialization?: string[];
     image?: string;
   };
+}
+
+export interface FavoriteWithPatient {
+  id: string;
+  patientId: string;
+  psychologistId: string;
+  patient: PatientResponse;
 }
 // Interface opcional
 interface FavoritePayload {
@@ -84,4 +93,37 @@ export async function countFavoritesByPsychologist(
     `/favorites?psychologistId=${psychologistId}`
   );
   return response.data.length;
+}
+
+export async function getFavoritesByPsychologist(
+  psychologistId: string
+): Promise<FavoriteWithPatient[]> {
+  // 1. busca os registros de favorite
+  const favRes = await api.get<
+    {
+      id: string;
+      patientId: string;
+      psychologistId: string;
+    }[]
+  >("/favorites", {
+    params: { psychologistId },
+  });
+  const favorites = favRes.data;
+
+  // 2. busca todos os pacientes
+  const patients = await getAllPatients();
+
+  // 3. combina favorite com patient
+  const result: FavoriteWithPatient[] = favorites
+    .map((fav) => {
+      const patient = patients.find((p) => p.id === fav.patientId);
+      if (!patient) return null;
+      return {
+        ...fav,
+        patient,
+      };
+    })
+    .filter((item): item is FavoriteWithPatient => item != null);
+
+  return result;
 }

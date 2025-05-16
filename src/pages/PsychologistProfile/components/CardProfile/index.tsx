@@ -18,6 +18,7 @@ import {
 } from "./styles";
 import { ICardProfileProps } from "./types";
 
+import group from "./../../../../assets/png/group.png";
 import greenEdit from "./../../../../assets/png/green-edit.png";
 import trash from "./../../../../assets/png/trash-bin.png";
 import greenLinkedin from "./../../../../assets/png/green-linkedin.png";
@@ -41,8 +42,10 @@ export function CardProfile({
   specialization,
   showActionButtons = false,
   favoriteCount: initialCount = 0,
+  isOwnProfile,
   onEditClick,
   onDeleteClick,
+  setModalOpen,
 }: ICardProfileProps) {
   const { patientId } = useContext(AuthContext);
   const [count, setCount] = useState<number>(initialCount);
@@ -92,8 +95,28 @@ export function CardProfile({
           {
             <>
               {count !== undefined && (
-                <div style={{ marginTop: "0.5rem", color: "#666" }}>
-                  Favoritado por {count} pacientes
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "1rem",
+                    alignItems: "baseline",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#666",
+                    }}
+                  >
+                    Favoritado por {count} pacientes
+                  </div>
+                  {isOwnProfile && (
+                    <EditImage
+                      src={group}
+                      alt="Número de pacientes que favoritaram"
+                      onClick={() => setModalOpen?.(true)}
+                    />
+                  )}
                 </div>
               )}
             </>

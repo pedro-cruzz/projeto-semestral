@@ -31,6 +31,7 @@ import { ConfirmDeleteModal } from "./components/ModalDelete";
 import { deletePsychologist } from "../../services/deletePsychologist";
 import Tooltip from "@mui/material/Tooltip";
 import { countFavoritesByPsychologist } from "../../services/favoriteApi";
+import PatientsFavoritedModal from "./components/PatientsFavoritedModal";
 
 export function PsychologistProfile() {
   const { userId, signOut } = useContext(AuthContext);
@@ -45,6 +46,8 @@ export function PsychologistProfile() {
   const [currentPsychologist, setCurrentPsychologist] =
     useState<PsychologistResponse | null>(null);
   const [favoriteCount, setFavoriteCount] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+
   const navigate = useNavigate();
   const handleUpdateProfile = (updatedData: PsychologistResponse) => {
     setCurrentPsychologist(updatedData);
@@ -154,6 +157,8 @@ export function PsychologistProfile() {
             onEditClick={() => setEditModalOpen(true)}
             onDeleteClick={() => setDeleteModalOpen(true)}
             favoriteCount={favoriteCount}
+            setModalOpen={setModalOpen}
+            isOwnProfile={isOwnProfile}
           />
         </ContainerCardProfile>
         {currentPsychologist && (
@@ -169,6 +174,13 @@ export function PsychologistProfile() {
             open={deleteModalOpen}
             onClose={() => setDeleteModalOpen(false)}
             onConfirm={handleDelete}
+          />
+        )}
+        {currentPsychologist && (
+          <PatientsFavoritedModal
+            open={modalOpen}
+            onClose={() => setModalOpen(false)}
+            psychologistId={profileProps.psychologistId}
           />
         )}
 
