@@ -113,9 +113,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   );
 
   const [patientId, setPatientId] = useState<string | null>(
-    localStorage.getItem("psychologistId")
+    localStorage.getItem("patientId")
   );
-
   async function signIn(email: string, password: string) {
     try {
       if (!email || !password) {

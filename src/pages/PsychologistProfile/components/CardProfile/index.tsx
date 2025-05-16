@@ -40,11 +40,12 @@ export function CardProfile({
   name,
   specialization,
   showActionButtons = false,
-  favoriteCount,
+  favoriteCount: initialCount = 0,
   onEditClick,
   onDeleteClick,
 }: ICardProfileProps) {
   const { patientId } = useContext(AuthContext);
+  const [count, setCount] = useState<number>(initialCount);
   const [isFavorited, setIsFavorited] = useState(false);
   const [favoriteId, setFavoriteId] = useState<string | null>(null);
 
@@ -65,26 +66,38 @@ export function CardProfile({
     });
   }, [patientId, psychologistId]);
 
+  useEffect(() => {
+    setCount(initialCount);
+  }, [initialCount]);
+
   const handleToggleFavorite = async () => {
     if (!patientId) return;
     if (isFavorited && favoriteId) {
       await removeFavorite(favoriteId);
       setIsFavorited(false);
       setFavoriteId(null);
+      // não desce de zero
+      setCount((prev) => Math.max(prev - 1, 0));
     } else {
-      const created = await addFavorite({
-        patientId,
-        psychologistId: /* usar id */ psychologistId,
-      });
+      const created = await addFavorite({ patientId, psychologistId });
       setIsFavorited(true);
       setFavoriteId(created.id);
+      setCount((prev) => prev + 1);
     }
   };
-
   return (
     <Container>
       <Content>
         <Icons>
+          {
+            <>
+              {count !== undefined && (
+                <div style={{ marginTop: "0.5rem", color: "#666" }}>
+                  Favoritado por {count} pacientes
+                </div>
+              )}
+            </>
+          }
           {showActionButtons && (
             <>
               <EditImage
@@ -102,11 +115,6 @@ export function CardProfile({
           {/* Botão de favorito */}
           {patientId && (
             <>
-              {favoriteCount !== undefined && (
-                <div style={{ marginTop: "0.5rem", color: "#666" }}>
-                  Favoritado por {favoriteCount} pacientes
-                </div>
-              )}
               <button
                 onClick={handleToggleFavorite}
                 style={{

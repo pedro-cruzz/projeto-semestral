@@ -131,4 +131,5 @@ export const Icons = styled.div`
   flex-direction: row;
   justify-content: end;
   gap: 20px;
+  align-items: center;
 `;
