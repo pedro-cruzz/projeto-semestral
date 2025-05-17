@@ -4,7 +4,7 @@ import { theme } from "../../../../styles/theme";
 export const Container = styled.div`
   border: 1px solid ${theme.colors.DARK_GREEN};
   border-radius: 20px;
-  height: 454px;
+  height: 520px;
   width: 740px;
   background-color: ${theme.colors.PURE_WHITE};
 `;
@@ -63,7 +63,7 @@ export const TextMedia = styled.section`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 60px;
+  gap: 20px;
   padding-top: 20px;
 `;
 
@@ -133,4 +133,11 @@ export const Icons = styled.div`
   gap: 20px;
   align-items: baseline;
   margin-bottom: 10px;
+`;
+
+export const ContentMedia = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;

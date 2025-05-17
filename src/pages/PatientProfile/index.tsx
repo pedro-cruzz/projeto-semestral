@@ -37,8 +37,7 @@ export function PatientProfile() {
   const [loading, setLoading] = useState(true);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [currentPatient, setCurrentPatient] = useState<any | null>(null);
+
   const navigate = useNavigate();
 
   const isOwnProfile = patient?.userId === userId;
@@ -77,12 +76,6 @@ export function PatientProfile() {
         .catch((error) => console.error("Erro:", error));
     }
   }, [patientId]);
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleUpdateProfile = (updatedData: any) => {
-    setCurrentPatient(updatedData);
-    setPatient(updatedData);
-  };
 
   const handleDelete = async () => {
     if (!patient) return;
@@ -135,15 +128,15 @@ export function PatientProfile() {
         </ContainerCardProfile>
 
         {/* Modals para editar e deletar */}
-        {currentPatient && (
+        {patient && (
           <EditPatientModal
-            patient={currentPatient}
+            patient={patient}
             open={editModalOpen}
             onClose={() => setEditModalOpen(false)}
-            onUpdate={handleUpdateProfile}
+            onUpdate={(updated) => setPatient(updated)}
           />
         )}
-        {currentPatient && (
+        {patient && (
           <ConfirmDeleteModal
             open={deleteModalOpen}
             onClose={() => setDeleteModalOpen(false)}

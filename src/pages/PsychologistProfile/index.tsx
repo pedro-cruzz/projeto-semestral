@@ -32,6 +32,10 @@ import { deletePsychologist } from "../../services/deletePsychologist";
 import Tooltip from "@mui/material/Tooltip";
 import { countFavoritesByPsychologist } from "../../services/favoriteApi";
 import PatientsFavoritedModal from "./components/PatientsFavoritedModal";
+import { ContactResponse } from "../../dtos/contact";
+import { getContactByPsychologist } from "../../services/contactApi";
+import { AddressResponse } from "../../dtos/adresss";
+import { getAddressByPsychologist } from "../../services/adress";
 
 export function PsychologistProfile() {
   const { userId, signOut } = useContext(AuthContext);
@@ -47,11 +51,29 @@ export function PsychologistProfile() {
     useState<PsychologistResponse | null>(null);
   const [favoriteCount, setFavoriteCount] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [contact, setContact] = useState<ContactResponse | null>(null);
+  const [address, setAddress] = useState<AddressResponse | null>(null);
 
   const navigate = useNavigate();
-  const handleUpdateProfile = (updatedData: PsychologistResponse) => {
-    setCurrentPsychologist(updatedData);
-    setPsychologist(updatedData);
+  const handleUpdateProfile = (
+    updatedData: PsychologistResponse | ContactResponse | AddressResponse
+  ) => {
+    if ("userId" in updatedData) {
+      setCurrentPsychologist(updatedData);
+      setPsychologist(updatedData);
+    } else if (
+      "gmail" in updatedData ||
+      "linkedin" in updatedData ||
+      "whatsapp" in updatedData
+    ) {
+      setContact(updatedData as ContactResponse);
+    } else if (
+      "country" in updatedData ||
+      "uf" in updatedData ||
+      "cep" in updatedData
+    ) {
+      setAddress(updatedData as AddressResponse);
+    }
   };
 
   const isOwnProfile = psychologist?.userId === userId;
@@ -76,10 +98,14 @@ export function PsychologistProfile() {
       Promise.all([
         getPsychologistById(psychologistId),
         getArticlesByPsychologistId(psychologistId),
+        getContactByPsychologist(psychologistId),
+        getAddressByPsychologist(psychologistId),
       ])
-        .then(([psychData, articlesData]) => {
+        .then(([psychData, articlesData, contactData, addressData]) => {
           setPsychologist(psychData);
           setArticles(articlesData);
+          setContact(contactData);
+          setAddress(addressData);
         })
         .catch((err) => {
           console.error("Erro ao buscar dados do perfil:", err.message);
@@ -91,6 +117,12 @@ export function PsychologistProfile() {
       setLoading(false);
     }
   }, [psychologistId]);
+
+  useEffect(() => {
+    if (!psychologist) return;
+    getContactByPsychologist(psychologist.id).then(setContact);
+    getAddressByPsychologist(psychologist.id).then(setAddress);
+  }, [psychologist]);
 
   if (loading) {
     return (
@@ -159,6 +191,16 @@ export function PsychologistProfile() {
             favoriteCount={favoriteCount}
             setModalOpen={setModalOpen}
             isOwnProfile={isOwnProfile}
+            email={contact?.gmail || ""}
+            linkedin={contact?.linkedin || ""}
+            whatsapp={contact?.whatsapp || ""}
+            country={address?.country}
+            uf={address?.uf}
+            cep={address?.cep}
+            city={address?.city}
+            district={address?.district}
+            street={address?.street}
+            number={address?.number}
           />
         </ContainerCardProfile>
         {currentPsychologist && (
