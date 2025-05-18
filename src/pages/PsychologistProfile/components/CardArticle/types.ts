@@ -3,4 +3,5 @@ export interface CardArticleProps {
   title?: string;
   subtitle?: string;
   idPsychologist?: string;
+  id?: string;
 }

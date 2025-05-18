@@ -11,6 +11,7 @@ import { Register } from "../pages/Register";
 import { PsychologistProfile } from "../pages/PsychologistProfile";
 import PrivateRoute from "../components/PrivateRoute";
 import { PatientProfile } from "../pages/PatientProfile";
+import { PsychologistsArticle } from "../pages/PsychologistsArticle";
 
 export function AppRoutes() {
   return (
@@ -33,6 +34,10 @@ export function AppRoutes() {
         <Route
           path="/patient-profile/:patientId"
           element={<PatientProfile />}
+        />
+        <Route
+          path="/psychologist-article/:articleId"
+          element={<PsychologistsArticle />}
         />
         {/* Outras rotas protegidas podem ser incluídas aqui */}
       </Route>
