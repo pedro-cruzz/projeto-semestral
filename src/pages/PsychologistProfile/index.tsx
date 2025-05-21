@@ -229,7 +229,11 @@ export function PsychologistProfile() {
         <ArticlesContainer>
           <div style={{ alignSelf: "flex-end", marginRight: "8rem" }}>
             {isOwnProfile && (
-              <Button $variant="secondary" width="200px">
+              <Button
+                $variant="secondary"
+                width="200px"
+                onClick={() => navigate("/psychologist-article/create")}
+              >
                 + Criar Artigo
               </Button>
             )}

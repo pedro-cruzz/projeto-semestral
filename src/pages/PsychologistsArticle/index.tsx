@@ -4,6 +4,21 @@ import { useEffect, useState } from "react";
 import { getArticleById } from "./../../services/getArticleById";
 import { ArticleResponse } from "../../dtos/getArticlesByPsychologist";
 import { BaseLayout } from "../../components/BaseLayout";
+import {
+  Container,
+  Content,
+  ContentTitle,
+  CreatedAt,
+  Header,
+  Image,
+  Subtitle,
+  Title,
+  Divider,
+  ContainerContent,
+  ContentWrapper,
+  ButtonBack,
+} from "./styles";
+import back from "./../../assets/png/green-back.png";
 
 export function PsychologistsArticle() {
   const { articleId } = useParams<{ articleId: string }>();
@@ -36,19 +51,38 @@ export function PsychologistsArticle() {
 
   return (
     <BaseLayout $variant="secondary">
-      <h1>{article.title}</h1>
-      <h4>{article.subtitle}</h4>
-      {article.image && (
-        <img
-          src={article.image}
-          alt={article.title}
-          style={{ maxWidth: "100%" }}
-        />
-      )}
-      <p>{article.content}</p>
-      <small>
-        Criado em: {new Date(article.createdAt).toLocaleDateString()}
-      </small>
+      <Container>
+        <ButtonBack>
+          <Link
+            to={
+              article && (article as ArticleResponse).psychologistId
+                ? `/psychologist-profile/${
+                    (article as ArticleResponse).psychologistId
+                  }`
+                : "/"
+            }
+          >
+            <img src={back} alt="back" width={"30px"} />
+          </Link>
+        </ButtonBack>
+        <Header>
+          <ContentTitle>
+            <Title>{article.title}</Title>
+            <Subtitle>{article.subtitle}</Subtitle>
+            <CreatedAt>
+              Criado em: {new Date(article.createdAt).toLocaleDateString()}
+            </CreatedAt>
+          </ContentTitle>
+
+          {article.image && <Image src={article.image} alt={article.title} />}
+        </Header>
+        <Divider />
+        <ContainerContent>
+          <ContentWrapper>
+            <Content>{article.content}</Content>
+          </ContentWrapper>
+        </ContainerContent>
+      </Container>
     </BaseLayout>
   );
 }

@@ -12,6 +12,7 @@ import { PsychologistProfile } from "../pages/PsychologistProfile";
 import PrivateRoute from "../components/PrivateRoute";
 import { PatientProfile } from "../pages/PatientProfile";
 import { PsychologistsArticle } from "../pages/PsychologistsArticle";
+import { CreateEditArticle } from "../pages/CreateEditArticle";
 
 export function AppRoutes() {
   return (
@@ -38,6 +39,16 @@ export function AppRoutes() {
         <Route
           path="/psychologist-article/:articleId"
           element={<PsychologistsArticle />}
+        />
+
+        <Route
+          path="/psychologist-article/create"
+          element={<CreateEditArticle />}
+        />
+
+        <Route
+          path="/psychologist-article/:articleId/edit"
+          element={<CreateEditArticle />}
         />
         {/* Outras rotas protegidas podem ser incluídas aqui */}
       </Route>
