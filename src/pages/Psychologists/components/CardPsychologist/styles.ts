@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { theme } from "../../../../styles/theme";
 
 export const CardContainer = styled.div`
   width: 280px;
@@ -21,11 +22,13 @@ export const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 `;
 
 export const Name = styled.h3`
   margin: 0;
   font-size: 1.25rem;
+  color: ${theme.colors.DARK_GREEN};
 `;
 
 export const About = styled.p`

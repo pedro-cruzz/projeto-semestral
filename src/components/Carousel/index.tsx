@@ -40,7 +40,7 @@ export function Carousel<T>({
       <RightArrow onClick={handleNext} disabled={currentIndex >= maxIndex}>
         {">"}
       </RightArrow>
-      <CarouselContent style={{ padding: "0 60px" }}>
+      <CarouselContent style={{ padding: "20px 60px" }}>
         {currentItems.map((item, index) => (
           <div
             key={index}

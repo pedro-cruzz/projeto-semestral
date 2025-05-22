@@ -1,3 +1,4 @@
+// src/pages/PsychologistsArticle/styles.ts
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
@@ -12,9 +13,10 @@ export const Container = styled.div`
 
 export const Header = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  gap: 20px;
+
+  width: 100%;
 `;
 
 export const ContentTitle = styled.div`
@@ -29,9 +31,11 @@ export const ContentTitle = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 400px;
   border-radius: 10px;
+  object-fit: cover;
 `;
 
 export const Title = styled.h1`
@@ -51,44 +55,52 @@ export const Subtitle = styled.h4`
   overflow-wrap: break-word;
   word-break: break-word;
 `;
+
 export const CreatedAt = styled.small`
   font-family: ${theme.fonts.mulish};
   color: ${theme.colors.DARK_GREEN};
 `;
 
 export const Divider = styled.div`
-  width: 775px;
+  width: 100%;
+  max-width: 775px;
   height: 1px;
   background-color: ${theme.colors.DARK_GREEN};
-  margin-block: 80px;
+  margin: 80px 0;
 `;
 
 export const ContainerContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 950px;
   background-color: ${theme.colors.PURE_WHITE};
-  width: 950px;
-  height: 100%;
-  max-height: 1330px;
   padding: 60px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+
+  /* garante que o wrapper interno livre overflow horizontal */
+  overflow-x: hidden;
 `;
 
 export const ContentWrapper = styled.div`
-  overflow-y: auto;
-  height: 100%;
+  width: 100%;
+  max-height: 1400px; /* altura máxima antes de rolar */
+  overflow-y: auto; /* só rolagem vertical */
+  overflow-x: hidden; /* sem scroll horizontal */
 `;
 
-export const Content = styled.p``;
+export const Content = styled.p`
+  white-space: pre-wrap; /* preserva quebras de linha */
+  word-break: break-word; /* evita overflow de palavras longas */
+  font-family: ${theme.fonts.mulish};
+  color: ${theme.colors.DARK_GREEN};
+  margin: 0;
+`;
 
 export const ButtonBack = styled.div`
   display: flex;
   position: absolute;
-  top: 34%;
-  left: 4%;
+  top: 30%;
+  left: 3%;
   cursor: pointer;
   transition: background-color 0.3s;
 `;

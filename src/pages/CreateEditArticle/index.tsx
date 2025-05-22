@@ -14,6 +14,21 @@ import { getArticleById } from "../../services/getArticleById";
 import { createArticle, updateArticle } from "../../services/registerArticle";
 import { AuthContext } from "../../contexts/AuthContext";
 
+// Import dos mesmos estilos usados na página de visualização
+import {
+  Container as PreviewContainer,
+  Header as PreviewHeader,
+  ContentTitle as PreviewContentTitle,
+  Title as PreviewTitle,
+  Subtitle as PreviewSubtitle,
+  Image as PreviewImage,
+  Divider as PreviewDivider,
+  ContainerContent as PreviewContentWrap,
+  ContentWrapper as PreviewContentWrapper,
+  Content as PreviewContent,
+} from "../PsychologistsArticle/styles";
+import { Container, Form, Title, Wrapper } from "./styles";
+
 export function CreateEditArticle() {
   const { psychologistId: ctxPsychologistId } = useContext(AuthContext);
   const location = useLocation();
@@ -22,6 +37,7 @@ export function CreateEditArticle() {
   const idParam = qs.get("id") || "";
   const mode = modeParam || "create";
   const navigate = useNavigate();
+
   const [form, setForm] = useState<
     CreateArticleDTO & Partial<UpdateArticleDTO>
   >({
@@ -63,10 +79,10 @@ export function CreateEditArticle() {
         navigate(`/psychologist-article/${created.id}`);
       } else {
         const dto: UpdateArticleDTO = {
-          title: form.title,
-          subtitle: form.subtitle,
-          image: form.image,
-          content: form.content,
+          title: form.title!,
+          subtitle: form.subtitle!,
+          image: form.image!,
+          content: form.content!,
         };
         await updateArticle(idParam, dto);
         navigate(`/psychologist-article/${idParam}`);
@@ -85,39 +101,73 @@ export function CreateEditArticle() {
 
   return (
     <BaseLayout $variant="secondary">
-      <h1>{mode === "create" ? "Criar Artigo" : "Editar Artigo"}</h1>
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-      >
-        <InputFieldComponent
-          label="Título"
-          name="title"
-          value={form.title}
-          onChange={handleChange}
-        />
-        <InputFieldComponent
-          label="Subtítulo"
-          name="subtitle"
-          value={form.subtitle}
-          onChange={handleChange}
-        />
-        <InputFieldComponent
-          label="URL da Imagem"
-          name="image"
-          value={form.image}
-          onChange={handleChange}
-        />
-        <TextArea
-          name="content"
-          rows={10}
-          placeholder="Conteúdo do artigo"
-          value={form.content}
-          onChange={handleChange}
-        />
-        <Button type="submit">{mode === "create" ? "Criar" : "Salvar"}</Button>
-      </form>
+      <Wrapper>
+        <Container>
+          <Title>{mode === "create" ? "Criar Artigo" : "Editar Artigo"}</Title>
+
+          <Form onSubmit={handleSubmit}>
+            <InputFieldComponent
+              label="Título"
+              name="title"
+              value={form.title}
+              onChange={handleChange}
+              style={{ width: "800px" }}
+            />
+            <InputFieldComponent
+              label="Subtítulo"
+              name="subtitle"
+              value={form.subtitle}
+              onChange={handleChange}
+              style={{ width: "800px" }}
+            />
+            <InputFieldComponent
+              label="URL da Imagem"
+              name="image"
+              value={form.image}
+              onChange={handleChange}
+              style={{ width: "800px" }}
+            />
+            <TextArea
+              name="content"
+              rows={10}
+              placeholder="Conteúdo do artigo"
+              value={form.content}
+              onChange={handleChange}
+            />
+            <Button type="submit" width="400px" $variant="secondary">
+              {mode === "create" ? "Criar" : "Salvar"}
+            </Button>
+          </Form>
+        </Container>
+        {/* --- Pré-visualização --- */}
+
+        <PreviewContainer>
+          <PreviewHeader>
+            <PreviewContentTitle>
+              <PreviewTitle>{form.title || "Título de Exemplo"}</PreviewTitle>
+              <PreviewSubtitle>
+                {form.subtitle || "Subtítulo de Exemplo"}
+              </PreviewSubtitle>
+            </PreviewContentTitle>
+            {form.image && (
+              <PreviewImage src={form.image} alt="Prévia da imagem" />
+            )}
+          </PreviewHeader>
+
+          <PreviewDivider />
+
+          <PreviewContentWrap>
+            <PreviewContentWrapper>
+              <PreviewContent style={{ whiteSpace: "pre-wrap" }}>
+                {form.content ||
+                  "Comece a digitar o conteúdo do seu artigo aqui..."}
+              </PreviewContent>
+            </PreviewContentWrapper>
+          </PreviewContentWrap>
+        </PreviewContainer>
+      </Wrapper>
     </BaseLayout>
   );
 }
+
 export default CreateEditArticle;
