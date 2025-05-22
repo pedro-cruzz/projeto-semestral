@@ -104,3 +104,27 @@ export const ButtonBack = styled.div`
   cursor: pointer;
   transition: background-color 0.3s;
 `;
+
+export const Icon = styled.img`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
+
+export const Icons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 20px;
+  align-items: baseline;
+  margin-bottom: 10px;
+  margin-right: 10px;
+`;
+
+export const ContentActions = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  gap: 10px;
+`;
