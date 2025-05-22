@@ -27,7 +27,8 @@ import {
   ContentWrapper as PreviewContentWrapper,
   Content as PreviewContent,
 } from "../PsychologistsArticle/styles";
-import { Container, Form, Title, Wrapper } from "./styles";
+
+import { Container, Form, Title, Wrapper, ErrorText } from "./styles";
 
 export function CreateEditArticle() {
   const { psychologistId: ctxPsychologistId } = useContext(AuthContext);
@@ -45,6 +46,11 @@ export function CreateEditArticle() {
     title: "",
     subtitle: "",
     image: "",
+    content: "",
+  });
+  const [errors, setErrors] = useState({
+    title: "",
+    subtitle: "",
     content: "",
   });
   const [loading, setLoading] = useState(mode === "edit");
@@ -67,11 +73,24 @@ export function CreateEditArticle() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
+    // limpa erro do campo
+    setErrors((err) => ({ ...err, [name]: "" }));
+  };
+
+  const validate = () => {
+    const newErrors = { title: "", subtitle: "", content: "" };
+    if (!form.title?.trim()) newErrors.title = "Título é obrigatório";
+    if (!form.subtitle?.trim()) newErrors.subtitle = "Subtítulo é obrigatório";
+    if (!form.content?.trim()) newErrors.content = "Conteúdo é obrigatório";
+    setErrors(newErrors);
+    return !newErrors.title && !newErrors.subtitle && !newErrors.content;
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
     try {
       if (mode === "create") {
         const dto: CreateArticleDTO = { ...(form as CreateArticleDTO) };
@@ -112,6 +131,7 @@ export function CreateEditArticle() {
               value={form.title}
               onChange={handleChange}
               style={{ width: "800px" }}
+              helperText={errors.title}
             />
             <InputFieldComponent
               label="Subtítulo"
@@ -119,6 +139,7 @@ export function CreateEditArticle() {
               value={form.subtitle}
               onChange={handleChange}
               style={{ width: "800px" }}
+              helperText={errors.subtitle}
             />
             <InputFieldComponent
               label="URL da Imagem"
@@ -127,20 +148,32 @@ export function CreateEditArticle() {
               onChange={handleChange}
               style={{ width: "800px" }}
             />
-            <TextArea
-              name="content"
-              rows={10}
-              placeholder="Conteúdo do artigo"
-              value={form.content}
-              onChange={handleChange}
-            />
-            <Button type="submit" width="400px" $variant="secondary">
+            <div style={{ width: "800px" }}>
+              <TextArea
+                name="content"
+                rows={10}
+                placeholder="Conteúdo do artigo"
+                value={form.content}
+                onChange={handleChange}
+              />
+              {errors.content && <ErrorText>{errors.content}</ErrorText>}
+            </div>
+            <Button
+              type="submit"
+              width="400px"
+              $variant="secondary"
+              disabled={
+                !form.title.trim() ||
+                !form.subtitle.trim() ||
+                !form.content.trim()
+              }
+            >
               {mode === "create" ? "Criar" : "Salvar"}
             </Button>
           </Form>
         </Container>
-        {/* --- Pré-visualização --- */}
 
+        {/* --- Pré-visualização --- */}
         <PreviewContainer>
           <PreviewHeader>
             <PreviewContentTitle>

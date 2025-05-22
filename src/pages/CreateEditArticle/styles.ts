@@ -29,3 +29,9 @@ export const Title = styled.h1`
 export const Wrapper = styled.div`
   background-color: ${theme.colors.WHITE};
 `;
+
+export const ErrorText = styled.span`
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+`;
