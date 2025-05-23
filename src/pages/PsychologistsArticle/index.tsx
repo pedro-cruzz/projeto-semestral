@@ -27,7 +27,9 @@ import trash from "./../../assets/png/trash-bin.png";
 import { AuthContext } from "../../contexts/AuthContext";
 import { BaseLayout } from "../../components/BaseLayout";
 import { deleteArticle } from "../../services/registerArticle";
-import { Box, Modal, Typography, Button as MuiButton } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
+import { theme } from "../../styles/theme";
+import { Button } from "../../components/Button";
 
 export function PsychologistsArticle() {
   const { articleId } = useParams<{ articleId: string }>();
@@ -144,19 +146,24 @@ export function PsychologistsArticle() {
             minWidth: 300,
           }}
         >
-          <Typography variant="h6" mb={2}>
+          <Typography
+            variant="h6"
+            mb={2}
+            gutterBottom
+            color={theme.colors.DARK_GREEN}
+          >
             Tem certeza que deseja excluir este artigo?
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 1 }}>
-            <MuiButton
-              variant="outlined"
+            <Button
+              $variant="primary"
               onClick={() => setDeleteModalOpen(false)}
             >
               Cancelar
-            </MuiButton>
-            <MuiButton variant="contained" color="error" onClick={handleDelete}>
-              Excluir
-            </MuiButton>
+            </Button>
+            <Button $variant="secondary" onClick={handleDelete}>
+              Deletar
+            </Button>
           </Box>
         </Box>
       </Modal>

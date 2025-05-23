@@ -39,7 +39,9 @@ export const Title = styled.h1`
 
 export const ContainerCardArticles = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 40px; /* espaçamento entre cada carousel */
+  width: 100%; /* garante full-width */
 `;
 
 export const NotFoundContainer = styled.div`

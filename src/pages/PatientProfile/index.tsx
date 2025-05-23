@@ -13,6 +13,7 @@ import {
   ButtonBack,
   Container,
   Image,
+  Loading,
   NotFoundContainer,
   Separator,
   Title,
@@ -26,6 +27,7 @@ import {
 } from "../../services/favoriteApi";
 import { CardPsychologist } from "../Psychologists/components/CardPsychologist";
 import { Carousel } from "../../components/Carousel";
+import { chunkArray } from "../../utils/chuncks";
 
 export function PatientProfile() {
   const { userId, patientId, signOut } = useContext(AuthContext);
@@ -112,6 +114,12 @@ export function PatientProfile() {
     );
   }
 
+  const itemsPerCarousel = 15;
+  const psychologistsChunks = chunkArray(
+    favoritePsychologists,
+    itemsPerCarousel
+  );
+
   return (
     <BaseLayout $variant="secondary">
       <Container>
@@ -147,23 +155,32 @@ export function PatientProfile() {
         <Separator />
 
         <Title>Meus psicólogos favoritos</Title>
-        <Carousel
-          items={favoritePsychologists}
-          itemsPerPage={3}
-          renderItem={(psy) => (
-            <Link
-              to={`/psychologist-profile/${psy.psychologist.id}`}
-              key={psy.id}
-            >
-              <CardPsychologist
-                idPsychologist={psy.psychologist.id}
-                name={psy.psychologist.name}
-                about={psy.psychologist.about || ""}
-                image={psy.psychologist.image || ""}
-              />
-            </Link>
-          )}
-        />
+        {loading ? (
+          <Loading>Carregando psicólogos favoritos...</Loading>
+        ) : psychologistsChunks.length > 0 ? (
+          psychologistsChunks.map((psychologists, index) => (
+            <Carousel
+              key={index}
+              items={psychologists}
+              itemsPerPage={3}
+              renderItem={(psy) => (
+                <Link
+                  to={`/psychologist-profile/${psy.psychologist.id}`}
+                  key={psy.id}
+                >
+                  <CardPsychologist
+                    idPsychologist={psy.psychologist.id}
+                    name={psy.psychologist.name}
+                    about={psy.psychologist.about || ""}
+                    image={psy.psychologist.image || ""}
+                  />
+                </Link>
+              )}
+            />
+          ))
+        ) : (
+          <div>Nenhum psicólogo favorito encontrado.</div>
+        )}
       </Container>
     </BaseLayout>
   );

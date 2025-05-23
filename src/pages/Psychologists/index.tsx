@@ -7,6 +7,7 @@ import { PsychologistResponse } from "../../dtos/getPsychologistById";
 import { CardPsychologist } from "./components/CardPsychologist";
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
+import { chunkArray } from "../../utils/chuncks";
 
 const Container = styled.div`
   display: flex;
@@ -42,6 +43,9 @@ export default function Psicologos() {
       .finally(() => setLoading(false));
   }, []);
 
+  const itemsPerCarousel = 15;
+  const psychologistsChunks = chunkArray(psychologists, itemsPerCarousel);
+
   return (
     <BaseLayout $variant="secondary">
       <Container>
@@ -49,20 +53,23 @@ export default function Psicologos() {
 
         {loading ? (
           <Loading>Carregando psicólogos...</Loading>
-        ) : psychologists.length > 0 ? (
-          <Carousel
-            items={psychologists}
-            itemsPerPage={3}
-            renderItem={(psych) => (
-              <CardPsychologist
-                key={psych.id}
-                idPsychologist={psych.id}
-                name={psych.name}
-                about={psych.about ?? ""}
-                image={psych.image}
-              />
-            )}
-          />
+        ) : psychologistsChunks.length > 0 ? (
+          psychologistsChunks.map((psychologists, index) => (
+            <Carousel
+              key={index}
+              items={psychologists}
+              itemsPerPage={3}
+              renderItem={(psych) => (
+                <CardPsychologist
+                  key={psych.id}
+                  idPsychologist={psych.id}
+                  name={psych.name}
+                  about={psych.about ?? ""}
+                  image={psych.image}
+                />
+              )}
+            />
+          ))
         ) : (
           <div>Nenhum psicólogo encontrado.</div>
         )}

@@ -73,3 +73,8 @@ export const ButtonBack = styled.div`
   cursor: pointer;
   transition: background-color 0.3s;
 `;
+
+export const Loading = styled.div`
+  padding: 4rem;
+  text-align: center;
+`;

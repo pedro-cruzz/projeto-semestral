@@ -35,6 +35,7 @@ import { ContactResponse } from "../../dtos/contact";
 import { getContactByPsychologist } from "../../services/contactApi";
 import { AddressResponse } from "../../dtos/adresss";
 import { getAddressByPsychologist } from "../../services/adress";
+import { chunkArray } from "../../utils/chuncks";
 
 export function PsychologistProfile() {
   const { userId, signOut } = useContext(AuthContext);
@@ -173,6 +174,9 @@ export function PsychologistProfile() {
     subtitle: "",
   };
 
+  const itemsPerCarousel = 15;
+  const articleChunks = chunkArray(articles, itemsPerCarousel);
+
   return (
     <BaseLayout $variant="secondary">
       <Container key={profileProps.psychologistId}>
@@ -239,7 +243,7 @@ export function PsychologistProfile() {
             )}
           </div>
           <Title>Artigos Recentes</Title>
-          <ContainerCardArticles>
+          {/* <ContainerCardArticles>
             {articles.length > 0 ? (
               <Carousel
                 items={articles}
@@ -255,6 +259,31 @@ export function PsychologistProfile() {
                   />
                 )}
               />
+            ) : (
+              <div style={{ marginBottom: "4rem" }}>
+                Nenhum artigo encontrado.
+              </div>
+            )}
+          </ContainerCardArticles> */}
+          <ContainerCardArticles>
+            {articleChunks.length > 0 ? (
+              articleChunks.map((chunk, idx) => (
+                <Carousel
+                  key={idx}
+                  items={chunk}
+                  itemsPerPage={3}
+                  renderItem={(article) => (
+                    <CardArticle
+                      key={article.id}
+                      id={article.id}
+                      idPsychologist={profileProps.psychologistId}
+                      image={article.image || profileProps.imageArticle}
+                      title={article.title || profileProps.title}
+                      subtitle={article.subtitle || profileProps.subtitle}
+                    />
+                  )}
+                />
+              ))
             ) : (
               <div style={{ marginBottom: "4rem" }}>
                 Nenhum artigo encontrado.
