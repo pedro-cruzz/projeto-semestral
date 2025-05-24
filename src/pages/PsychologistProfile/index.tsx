@@ -307,7 +307,7 @@ export function PsychologistProfile() {
                 </PaginationWrapper>
               </>
             ) : (
-              <div style={{ marginBottom: "4rem" }}>
+              <div style={{ marginBottom: "4rem", alignSelf: "center" }}>
                 Nenhum artigo encontrado.
               </div>
             )}

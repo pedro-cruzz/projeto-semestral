@@ -14,8 +14,9 @@ export const CardContainer = styled.div`
 
 export const Img = styled.img`
   width: 100%;
-  height: 180px;
+  height: 250px;
   object-fit: cover;
+  object-position: top;
 `;
 
 export const Content = styled.div`

@@ -41,19 +41,139 @@
       "password": "12345678"
     },
     {
-      "id": "f1c5",
-      "email": "luiz@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "4769",
-      "email": "joao@gmail.com",
-      "password": "12345678"
-    },
-    {
       "id": "0f99",
       "email": "higor@gmail.com",
       "password": "12345678"
+    },
+    {
+      "id": "u101",
+      "email": "mariana.pires@psico.com",
+      "password": "Pires2023!"
+    },
+    {
+      "id": "u102",
+      "email": "fabio.oliveira@psico.com",
+      "password": "Oliveira2023!"
+    },
+    {
+      "id": "u103",
+      "email": "camila.santos@psico.com",
+      "password": "Santos2023!"
+    },
+    {
+      "id": "u104",
+      "email": "diego.ferreira@psico.com",
+      "password": "Ferreira2023!"
+    },
+    {
+      "id": "u105",
+      "email": "patricia.lima@psico.com",
+      "password": "Lima2023!"
+    },
+    {
+      "id": "u106",
+      "email": "carlos.mendes@psico.com",
+      "password": "Mendes2023!"
+    },
+    {
+      "id": "u107",
+      "email": "juliana.costa@psico.com",
+      "password": "Costa2023!"
+    },
+    {
+      "id": "u108",
+      "email": "rafael.barbosa@psico.com",
+      "password": "Barbosa2023!"
+    },
+    {
+      "id": "u109",
+      "email": "daniela.rocha@psico.com",
+      "password": "Rocha2023!"
+    },
+    {
+      "id": "u110",
+      "email": "marcos.tavares@psico.com",
+      "password": "Tavares2023!"
+    },
+    {
+      "id": "u111",
+      "email": "bianca.figueiredo@psico.com",
+      "password": "Figueiredo2023!"
+    },
+    {
+      "id": "u112",
+      "email": "bruno.almeida@psico.com",
+      "password": "Almeida2023!"
+    },
+    {
+      "id": "u113",
+      "email": "larissa.martins@psico.com",
+      "password": "Martins2023!"
+    },
+    {
+      "id": "u114",
+      "email": "gustavo.ribeiro@psico.com",
+      "password": "Ribeiro2023!"
+    },
+    {
+      "id": "u115",
+      "email": "renata.carvalho@psico.com",
+      "password": "Carvalho2023!"
+    },
+    {
+      "id": "u116",
+      "email": "felipe.costa@psico.com",
+      "password": "Costa2023!"
+    },
+    {
+      "id": "u117",
+      "email": "vanessa.gomes@psico.com",
+      "password": "Gomes2023!"
+    },
+    {
+      "id": "u118",
+      "email": "rodrigo.santos@psico.com",
+      "password": "Santos2023!"
+    },
+    {
+      "id": "u119",
+      "email": "elaine.ribeiro@psico.com",
+      "password": "Ribeiro2023!"
+    },
+    {
+      "id": "u120",
+      "email": "marcelo.almeida@psico.com",
+      "password": "Almeida2023!"
+    },
+    {
+      "id": "u201",
+      "email": "ana.souza@gmail.com",
+      "password": "Souza2023!"
+    },
+    {
+      "id": "u202",
+      "email": "joao.silva@gmail.com",
+      "password": "Silva2023!"
+    },
+    {
+      "id": "u203",
+      "email": "marcela.lopes@gmail.com",
+      "password": "Lopes2023!"
+    },
+    {
+      "id": "u204",
+      "email": "ricardo.fernandes@gmail.com",
+      "password": "Fernandes2023!"
+    },
+    {
+      "id": "u205",
+      "email": "patricia.moura@gmail.com",
+      "password": "Moura2023!"
+    },
+    {
+      "id": "u206",
+      "email": "rodrigo.alves@gmail.com",
+      "password": "Alves2023!"
     }
   ],
   "psychologists": [
@@ -131,6 +251,298 @@
         "Saúde Mental no Trabalho",
         "Mindfulness e Redução de Estresse"
       ]
+    },
+    {
+      "id": "e101",
+      "userId": "u101",
+      "name": "Mariana Pires",
+      "crp": "RJ/11223",
+      "birthDate": "1988-03-15",
+      "activitiesStartDate": "2012-08-01",
+      "about": "Tenho 5 anos de experiência em terapia familiar e de casal, ajudando famílias a restabelecerem a comunicação e a confiança mútua.",
+      "image": "https://i.pinimg.com/736x/d8/01/07/d80107ba52d5c88716ac24e3397621a2.jpg",
+      "specialization": [
+        "Terapia Familiar",
+        "Terapia de Casal",
+        "Mediação de Conflitos"
+      ]
+    },
+    {
+      "id": "e102",
+      "userId": "u102",
+      "name": "Fábio Oliveira",
+      "crp": "SP/33445",
+      "birthDate": "1992-11-22",
+      "activitiesStartDate": "2017-03-10",
+      "about": "Atuo com adolescentes em contexto escolar, focando em desenvolvimento socioemocional e prevenção de bullying.",
+      "image": "https://i.pinimg.com/736x/7f/c2/7f/7fc27fb7691e7a65f659ead6f10da70b.jpg",
+      "specialization": [
+        "Psicologia Escolar",
+        "Bullying",
+        "Desenvolvimento Adolescente"
+      ]
+    },
+    {
+      "id": "e103",
+      "userId": "u103",
+      "name": "Camila Santos",
+      "crp": "MG/55667",
+      "birthDate": "1985-07-05",
+      "activitiesStartDate": "2011-01-15",
+      "about": "Especialista em transtornos de ansiedade, utilizo abordagens de terapia cognitivo-comportamental e mindfulness.",
+      "image": "https://i.pinimg.com/736x/39/f3/e3/39f3e32419a90a7ecca5500a1447dc11.jpg",
+      "specialization": [
+        "Ansiedade",
+        "Terapia Cognitivo-Comportamental",
+        "Mindfulness"
+      ]
+    },
+    {
+      "id": "e104",
+      "userId": "u104",
+      "name": "Diego Ferreira",
+      "crp": "PR/77889",
+      "birthDate": "1979-12-10",
+      "activitiesStartDate": "2005-05-20",
+      "about": "Com mais de 15 anos de atuação em psicologia organizacional, desenvolvo programas de bem-estar no trabalho.",
+      "image": "https://i.pinimg.com/736x/44/3f/b1/443fb14418f340af0e175f3b3d4eb376.jpg",
+      "specialization": [
+        "Psicologia Organizacional",
+        "Burnout",
+        "Clima Organizacional"
+      ]
+    },
+    {
+      "id": "e105",
+      "userId": "u105",
+      "name": "Patrícia Lima",
+      "crp": "RS/99001",
+      "birthDate": "1990-04-18",
+      "activitiesStartDate": "2014-09-01",
+      "about": "Atendo crianças com transtorno do espectro autista utilizando métodos lúdicos e estrutura visual.",
+      "image": "https://i.pinimg.com/736x/b0/55/f5/b055f5a28e409c6d8635a59364ca5fb8.jpg",
+      "specialization": [
+        "Neuropsicologia",
+        "Autismo Infantil",
+        "Intervenções Cognitivas"
+      ]
+    },
+    {
+      "id": "e106",
+      "userId": "u106",
+      "name": "Carlos Mendes",
+      "crp": "BA/22334",
+      "birthDate": "1983-09-30",
+      "activitiesStartDate": "2008-11-12",
+      "about": "Psicólogo clínico com ênfase em depressão e transtornos de humor, trabalho com terapia analítico-comportamental.",
+      "image": "https://i.pinimg.com/736x/2b/62/9a/2b629af7b75f53a7547f3b7cf2bf5941.jpg",
+      "specialization": [
+        "Depressão",
+        "Terapia Analítico-Comportamental",
+        "Transtornos de Humor"
+      ]
+    },
+    {
+      "id": "e107",
+      "userId": "u107",
+      "name": "Juliana Costa",
+      "crp": "CE/44556",
+      "birthDate": "1995-02-27",
+      "activitiesStartDate": "2020-02-15",
+      "about": "Iniciei na área de psicologia do esporte, auxiliando atletas a gerenciarem ansiedade de performance e foco.",
+      "image": "https://i.pinimg.com/736x/e1/e8/50/e1e850249d114f2a9b1e7aa26a2b00b8.jpg",
+      "specialization": [
+        "Psicologia do Esporte",
+        "Ansiedade de Performance",
+        "Foco e Concentração"
+      ]
+    },
+    {
+      "id": "e108",
+      "userId": "u108",
+      "name": "Rafael Barbosa",
+      "crp": "SC/66778",
+      "birthDate": "1987-08-14",
+      "activitiesStartDate": "2013-06-30",
+      "about": "Atuo com adultos em transições de carreira e coaching comportamental, promovendo autoconhecimento e motivação.",
+      "image": "https://i.pinimg.com/736x/f8/4d/6a/f84d6aea756fa15b26e32c4869699ee8.jpg",
+      "specialization": [
+        "Coaching",
+        "Transição de Carreira",
+        "Psicologia Positiva"
+      ]
+    },
+    {
+      "id": "e109",
+      "userId": "u109",
+      "name": "Daniela Rocha",
+      "crp": "PE/88990",
+      "birthDate": "1991-05-09",
+      "activitiesStartDate": "2016-04-01",
+      "about": "Foco em psicologia perinatal e suporte emocional a gestantes e mães no pós-parto.",
+      "image": "https://i.pinimg.com/736x/f7/bc/5c/f7bc5cbdc8634e475fc233b6d297a69f.jpg",
+      "specialization": ["Psicologia Perinatal", "Pós-Parto", "Saúde Materna"]
+    },
+    {
+      "id": "e110",
+      "userId": "u110",
+      "name": "Marcos Tavares",
+      "crp": "GO/11002",
+      "birthDate": "1992-01-21",
+      "activitiesStartDate": "2007-10-20",
+      "about": "Destaco-me em intervenções de psicologia humanista e terapia de aceitação e compromisso.",
+      "image": "https://i.pinimg.com/736x/68/13/35/681335875265b7a3e62859634d2dcae2.jpg",
+      "specialization": [
+        "Psicologia Humanista",
+        "Terapia de Aceitação e Compromisso",
+        "Mindfulness"
+      ]
+    },
+    {
+      "id": "e111",
+      "userId": "u111",
+      "name": "Bianca Figueiredo",
+      "crp": "PB/33221",
+      "birthDate": "1989-10-11",
+      "activitiesStartDate": "2019-07-05",
+      "about": "Especialista em transtornos alimentares, trabalho com recuperação de imagem corporal e autoestima.",
+      "image": "https://i.pinimg.com/736x/05/e7/df/05e7df594b1397289b1af6805f0ce133.jpg",
+      "specialization": [
+        "Transtornos Alimentares",
+        "Imagem Corporal",
+        "Autoestima"
+      ]
+    },
+    {
+      "id": "e112",
+      "userId": "u112",
+      "name": "Bruno Almeida",
+      "crp": "AL/55443",
+      "birthDate": "1989-06-25",
+      "activitiesStartDate": "2014-05-22",
+      "about": "Atuo com veteranos militares e primeiros socorristas, focando em TEPT e reintegração social.",
+      "image": "https://i.pinimg.com/736x/e0/3f/56/e03f56a7247f1b04d2cd3a3c396db25d.jpg",
+      "specialization": [
+        "TEPT",
+        "Psicologia de Emergência",
+        "Reintegração Social"
+      ]
+    },
+    {
+      "id": "e113",
+      "userId": "u113",
+      "name": "Larissa Martins",
+      "crp": "DF/77665",
+      "birthDate": "1993-12-02",
+      "activitiesStartDate": "2018-09-10",
+      "about": "Especialista em psicologia comunitária, desenvolvo projetos de saúde mental em populações vulneráveis.",
+      "image": "https://i.pinimg.com/736x/a7/2f/5b/a72f5b074581fcd04b729bc4943aa5da.jpg",
+      "specialization": [
+        "Psicologia Comunitária",
+        "Saúde Mental Coletiva",
+        "Projetos Sociais"
+      ]
+    },
+    {
+      "id": "e114",
+      "userId": "u114",
+      "name": "Gustavo Ribeiro",
+      "crp": "ES/99887",
+      "birthDate": "1986-07-30",
+      "activitiesStartDate": "2011-02-14",
+      "about": "Psicólogo organizacional com expertise em liderança e coaching executivo.",
+      "image": "https://i.pinimg.com/736x/6e/a9/d3/6ea9d3a86db7a28dce962115aaf815db.jpg",
+      "specialization": ["Liderança", "Coaching Executivo", "Gestão de Pessoas"]
+    },
+    {
+      "id": "e115",
+      "userId": "u115",
+      "name": "Renata Carvalho",
+      "crp": "MT/22331",
+      "birthDate": "1990-09-17",
+      "activitiesStartDate": "2015-11-20",
+      "about": "Tenho foco em psicologia do desenvolvimento infantil e orientação a pais.",
+      "image": "https://i.pinimg.com/736x/0e/e3/e0/0ee3e0f517ddc11754801524cebd5a0a.jpg",
+      "specialization": [
+        "Desenvolvimento Infantil",
+        "Orientação Parental",
+        "Avaliação Psicológica"
+      ]
+    },
+    {
+      "id": "e116",
+      "userId": "u116",
+      "name": "Felipe Costa",
+      "crp": "PA/44554",
+      "birthDate": "1994-02-08",
+      "activitiesStartDate": "2009-04-18",
+      "about": "Atuo com psicoterapia breve e intervenções de crise, atendendo emergências emocionais.",
+      "image": "https://i.pinimg.com/736x/09/02/02/09020206043dda725bcad3a7845a6f50.jpg",
+      "specialization": [
+        "Psicoterapia Breve",
+        "Intervenções de Crise",
+        "Emergências Emocionais"
+      ]
+    },
+    {
+      "id": "e117",
+      "userId": "u117",
+      "name": "Vanessa Gomes",
+      "crp": "RN/66776",
+      "birthDate": "1991-03-29",
+      "activitiesStartDate": "2016-01-05",
+      "about": "Especialista em luto e perdas, ajudo na elaboração e no processo de ressignificação.",
+      "image": "https://i.pinimg.com/736x/a5/7d/7c/a57d7c26a934c89ae499223018cdfe10.jpg",
+      "specialization": [
+        "Luto e Perdas",
+        "Processo de Ressignificação",
+        "Apoio Emocional"
+      ]
+    },
+    {
+      "id": "e118",
+      "userId": "u118",
+      "name": "Rodrigo Santos",
+      "crp": "PB/88900",
+      "birthDate": "1987-05-12",
+      "activitiesStartDate": "2012-06-25",
+      "about": "Atuo com psicoterapia online há 8 anos, atendendo clientes de todo o Brasil em diversas demandas.",
+      "image": "https://i.pinimg.com/736x/fe/b4/df/feb4df6983b54c0e08c651d669dfb477.jpg",
+      "specialization": [
+        "Psicoterapia Online",
+        "Atendimentos Remotos",
+        "Saúde Mental"
+      ]
+    },
+    {
+      "id": "e119",
+      "userId": "u119",
+      "name": "Elaine Ribeiro",
+      "crp": "SC/11009",
+      "birthDate": "1992-10-03",
+      "activitiesStartDate": "2017-12-12",
+      "about": "Focada em adolescentes e jovens adultos, trabalho com orientação vocacional e ansiedade de escolha.",
+      "image": "https://i.pinimg.com/736x/1a/b7/a1/1ab7a1d5d66ba585a7795de4de9b529e.jpg",
+      "specialization": [
+        "Orientação Vocacional",
+        "Ansiedade de Escolha",
+        "Carreira"
+      ]
+    },
+    {
+      "id": "e120",
+      "userId": "u120",
+      "name": "Marcelo Almeida",
+      "crp": "AM/33212",
+      "birthDate": "1981-06-07",
+      "activitiesStartDate": "2006-09-30",
+      "about": "Especialista em psicologia hospitalar, atuo com pacientes crônicos e suporte familiar.",
+      "image": "https://i.pinimg.com/736x/71/98/7b/71987b210b6b81a3432fb7338ddff38a.jpg",
+      "specialization": [
+        "Psicologia Hospitalar",
+        "Suporte Familiar",
+        "Pacientes Crônicos"
+      ]
     }
   ],
   "patients": [
@@ -151,28 +563,60 @@
       "about": "Olá, meu nome é Joana. Estou no primeiro ano do ensino médio e adoro esportes coletivos. Quero melhorar minha comunicação com os colegas e superar a timidez em atividades em grupo."
     },
     {
-      "id": "037a",
-      "name": "Luiz",
-      "birthDate": "2002-02-04",
-      "image": "",
-      "about": "",
-      "userId": "f1c5"
-    },
-    {
-      "id": "dfe6",
-      "name": "Joao",
-      "birthDate": "2000-02-02",
-      "image": "",
-      "about": "safdsgnsraetgfhnfdfhheghdfgfagsdzbgsffdgsf",
-      "userId": "4769"
-    },
-    {
       "id": "b93f",
       "name": "Higor Batista",
       "birthDate": "2000-02-02",
       "image": "https://images.wondershare.com.br/filmora/author/br-author-joaopedro.png",
-      "about": "eshofsdkjdsl~jsfçdlsdflçksdlçfkds~çlfskdlçfd~ksçlfkdslçfdskçfdslfdsçlkfdsklçfdsklçdfsklçfsdçlk",
+      "about": "",
       "userId": "0f99"
+    },
+    {
+      "id": "a1b2",
+      "name": "Ana Beatriz Souza",
+      "birthDate": "2004-05-17",
+      "userId": "u201",
+      "image": "https://i.pinimg.com/736x/d8/40/55/d8405535b2e2eb9575b2f20fc0de63fc.jpg",
+      "about": "Olá! Sou Ana, estudante de arquitetura. Tenho buscado ajuda para lidar com minha ansiedade e melhorar meu foco nos estudos."
+    },
+    {
+      "id": "c2d3",
+      "name": "João Pedro da Silva",
+      "birthDate": "2002-09-11",
+      "userId": "u202",
+      "image": "https://i.pinimg.com/736x/16/05/21/160521af690c95e625a8661d52a45cbb.jpg",
+      "about": "Gosto de tecnologia e games. Procuro desenvolver mais resiliência emocional e controlar minha impulsividade."
+    },
+    {
+      "id": "e3f4",
+      "name": "Marcela Lopes Ferreira",
+      "birthDate": "2006-03-08",
+      "userId": "u203",
+      "image": "https://i.pinimg.com/736x/2c/d7/56/2cd756a75ec2cf74b7df3ce269cb8732.jpg",
+      "about": "Sou Marcela, apaixonada por animais e leitura. Quero aprender a lidar com minha insegurança e melhorar minha autoestima."
+    },
+    {
+      "id": "g4h5",
+      "name": "Ricardo Fernandes Lima",
+      "birthDate": "2001-07-22",
+      "userId": "u204",
+      "image": "https://i.pinimg.com/736x/45/07/5c/45075c042271e2a6275a4cbe595fcc05.jpg",
+      "about": "Busco apoio psicológico para aprender a gerir o estresse do trabalho e da vida pessoal."
+    },
+    {
+      "id": "i5j6",
+      "name": "Patrícia Moura Carvalho",
+      "birthDate": "2005-01-30",
+      "userId": "u205",
+      "image": "https://i.pinimg.com/736x/89/18/18/8918188fcaa3bcd1a5b086d237d1a6ff.jpg",
+      "about": "Sou Patrícia, adoro dançar e praticar esportes. Estou em busca de melhorar meu controle emocional em situações de pressão."
+    },
+    {
+      "id": "k6l7",
+      "name": "Rodrigo Alves Costa",
+      "birthDate": "2003-11-05",
+      "userId": "u206",
+      "image": "https://i.pinimg.com/736x/41/ea/1d/41ea1d39d865ea02ada1ffc93518c62b.jpg",
+      "about": "Me interesso por música e fotografia. Quero desenvolver minha comunicação e superar minha timidez."
     }
   ],
   "articles": [
@@ -195,139 +639,165 @@
     },
     {
       "id": "a3",
-      "psychologistId": "77f8",
-      "title": "2Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "https://wallpapers.com/images/hd/pc-background-wm7b2iiqsypig1us.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
-      "createdAt": "2025-05-02T10:30:00Z"
+      "psychologistId": "1",
+      "title": "Como a Terapia Cognitivo-Comportamental Auxilia no Controle da Ansiedade",
+      "subtitle": "Estratégias práticas para gerenciar pensamentos e emoções",
+      "image": "https://images.pexels.com/photos/4145165/pexels-photo-4145165.jpeg",
+      "content": "A ansiedade muitas vezes se manifesta como um ciclo de pensamentos catastróficos que alimentam sensações de apreensão e medo. Na Terapia Cognitivo-Comportamental (TCC), trabalhamos para identificar esses pensamentos automáticos e substituí-los por interpretações mais realistas. Neste artigo, veremos três etapas fundamentais:\n\n1. Registro de Pensamentos: Aprenda a anotar situações que disparam ansiedade e os pensamentos associados.\n2. Questionamento Socrático: Desenvolva o hábito de questionar evidências a favor e contra essas ideias.\n3. Técnicas de Relaxamento: Integre exercícios de respiração e relaxamento muscular para reduzir a ativação fisiológica.\n\nCom a prática diária dessas estratégias, você ganhará maior percepção sobre seus padrões mentais e fortalecerá sua capacidade de enfrentar desafios sem se deixar dominar pelo medo.",
+      "createdAt": "2025-03-15T09:00:00Z"
     },
     {
       "id": "a4",
-      "psychologistId": "77f8",
-      "title": "3Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
-      "createdAt": "2025-05-02T10:30:00Z"
+      "psychologistId": "1",
+      "title": "Fortalecendo a Saúde Mental na Infância",
+      "subtitle": "Prevenção de transtornos e promoção de habilidades socioemocionais",
+      "image": "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg",
+      "content": "Crianças enfrentam hoje pressões acadêmicas e sociais cada vez mais cedo. Investir na saúde mental desde os primeiros anos é essencial para prevenir quadros de ansiedade e depressão. Vamos explorar quatro pilares fundamentais:\n\n- Autoconhecimento: brincadeiras que estimulem a expressão de emoções.\n- Habilidades Sociais: práticas de compartilhamento e solução de conflitos.\n- Rotina Estruturada: estabelecimento de horários para estudo, lazer e sono.\n- Rede de Apoio: envolvimento de pais e professores em campanhas de bem-estar.\n\nAo combinar essas estratégias, oferecemos à criança uma base sólida para lidar com desafios e desenvolver resiliência ao longo da vida.",
+      "createdAt": "2025-04-22T14:20:00Z"
     },
     {
       "id": "a5",
       "psychologistId": "77f8",
-      "title": "4Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
-      "createdAt": "2025-05-02T10:30:00Z"
+      "title": "Mindfulness para Equilíbrio Emocional",
+      "subtitle": "Como incorporar práticas de atenção plena na rotina",
+      "image": "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg",
+      "content": "A prática de Mindfulness, ou atenção plena, convida você a estar totalmente presente no momento, sem julgamentos. Benefícios: redução de estresse, melhora do foco e regulação emocional. Passo a passo:\n\n1. Escolha um momento calmo do dia (5 minutos no início ou fim).\n2. Sente-se confortavelmente e observe a respiração.\n3. Ao perceber distrações, retorne suavemente ao foco na respiração.\n4. Aumente gradualmente a duração à medida que se sentir confortável.\n\nCom consistência, a atenção plena se estende para tarefas do dia a dia, como comer ou caminhar, promovendo maior consciência e bem-estar geral.",
+      "createdAt": "2025-02-10T11:45:00Z"
     },
     {
       "id": "a6",
       "psychologistId": "77f8",
-      "title": "5Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
-      "createdAt": "2025-05-02T10:30:00Z"
+      "title": "Jogos Terapêuticos na Psicologia Infantil",
+      "subtitle": "Brincadeiras que promovem autoconhecimento e expressão emocional",
+      "image": "https://images.pexels.com/photos/3662622/pexels-photo-3662622.jpeg",
+      "content": "O brincar é a principal linguagem da criança. Utilizar jogos terapêuticos permite acessar medos, desejos e conflitos de forma lúdica. Exemplos:\n\n- Jogo da Família: simula dinâmicas familiares e ajuda a revelar papéis internos.\n- Bonecos de Argila: expressão de sentimentos por meio de formas e cores.\n- Cartas de Emoções: identificação e discussão de diferentes estados emocionais.\n\nEssas atividades incentivam a comunicação não verbal e promovem insights importantes para o processo terapêutico infantil.",
+      "createdAt": "2025-03-28T16:00:00Z"
     },
     {
       "id": "a7",
       "psychologistId": "77f8",
-      "title": "6Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
-      "createdAt": "2025-05-02T10:30:00Z"
+      "title": "Adaptações da TCC para o Ambiente Escolar",
+      "subtitle": "Estratégias para professores e psicólogos em sala de aula",
+      "image": "https://images.pexels.com/photos/4145192/pexels-photo-4145192.jpeg",
+      "content": "A aplicação de princípios da TCC no contexto escolar pode ajudar alunos a desenvolverem habilidades de autorregulação e resolução de problemas. Sugestões:\n\n- Reestruturação Cognitiva Simplificada: exercícios breves para identificar pensamentos negativos.\n- Contratos de Comportamento: metas claras com reforço positivo.\n- Role-plays: simulação de situações de conflito e construção de respostas adequadas.\n\nEssas intervenções colaboram para um clima escolar mais saudável e alunos mais engajados no processo de aprendizagem.",
+      "createdAt": "2025-04-05T08:30:00Z"
     },
     {
       "id": "a8",
-      "psychologistId": "77f8",
-      "title": "7Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
-      "createdAt": "2025-05-02T10:30:00Z"
+      "psychologistId": "cbc1",
+      "title": "Entendendo o Desenvolvimento Cognitivo Infantil",
+      "subtitle": "Avaliação neuropsicológica como ferramenta preventiva",
+      "image": "https://images.pexels.com/photos/4145191/pexels-photo-4145191.jpeg",
+      "content": "A neuropsicologia infantil avalia funções como atenção, memória e linguagem. Identificar precocemente desvios permite intervenções mais eficazes. Neste artigo, veremos:\n\n- Principais instrumentos de avaliação.\n- Sinais de alerta em diferentes faixas etárias.\n- Como envolver família e escola no processo.\n\nAo mapear o perfil cognitivo da criança, podemos planejar atividades específicas para potenciar suas habilidades e minimizar dificuldades.",
+      "createdAt": "2025-05-10T12:15:00Z"
     },
     {
       "id": "a9",
-      "psychologistId": "77f8",
-      "title": "8Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
+      "psychologistId": "cbc1",
+      "title": "Jogos e Atividades para Estimulação Cognitiva",
+      "subtitle": "Ferramentas lúdicas para fortalecer memória e atenção",
+      "image": "https://images.pexels.com/photos/4145202/pexels-photo-4145202.jpeg",
+      "content": "Intervenções cognitivas envolvem exercícios que desafiam o cérebro de forma divertida. Sugestões:\n\n- Quebra-cabeças adaptados à idade.\n- Jogos de memória com cartas personalizadas.\n- Atividades de localização de objetos em mapas simples.\n\nEssas práticas, aplicadas de forma estruturada, melhoram o desempenho escolar e promovem confiança na criança.",
       "createdAt": "2025-05-02T10:30:00Z"
     },
     {
       "id": "a10",
-      "psychologistId": "77f8",
-      "title": "9Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
-      "createdAt": "2025-05-02T10:30:00Z"
+      "psychologistId": "a396",
+      "title": "Resiliência em Adolescentes em Contextos Vulneráveis",
+      "subtitle": "Estratégias para desenvolver força interior e esperança",
+      "image": "https://images.pexels.com/photos/4145210/pexels-photo-4145210.jpeg",
+      "content": "Adolescentes em situação de vulnerabilidade enfrentam múltiplos desafios: violência, falta de recursos e desestruturação familiar. Para fomentar resiliência:\n\n1. Histórias de Superação: compartilhar narrativas que inspirem novas perspectivas.\n2. Grupos de Apoio: criar espaços de escuta e troca de experiências.\n3. Oficinas Socioemocionais: atividades que desenvolvam autoconhecimento e empatia.\n\nO trabalho focado na promoção de competências socioemocionais ajuda esses jovens a vislumbrar um futuro mais positivo e a manter a motivação mesmo diante de adversidades.",
+      "createdAt": "2025-05-15T17:40:00Z"
     },
     {
       "id": "a11",
-      "psychologistId": "77f8",
-      "title": "10Técnicas de Relaxamento",
-      "subtitle": "Melhore sua qualidade de vida com práticas de relaxamento",
-      "image": "path/to/another-image.jpg",
-      "content": "Neste artigo, discutiremos diversas técnicas que auxiliam no relaxamento e na diminuição do estresse diário...",
-      "createdAt": "2025-05-02T10:30:00Z"
+      "psychologistId": "dd5b",
+      "title": "Prevenção do Burnout: Práticas de Mindfulness no Ambiente Corporativo",
+      "subtitle": "Como pequenas pausas conscientes podem transformar seu dia de trabalho",
+      "image": "https://images.pexels.com/photos/4050294/pexels-photo-4050294.jpeg",
+      "content": "O burnout afeta profissionais de todas as áreas, manifestando-se em exaustão física e mental. A prática de Mindfulness no trabalho ajuda a interromper ciclos de estresse contínuo. Neste artigo, exploraremos:\n\n- Exercícios de respiração de 1 minuto entre reuniões.\n- Pausas de atenção plena ao longo do expediente.\n- Técnicas para criar um “bookmark” mental antes e depois de tarefas desafiadoras.\n\nCom essas estratégias, você melhora a clareza mental e reduz sintomas de esgotamento, promovendo saúde ocupacional.",
+      "createdAt": "2025-03-12T09:30:00Z"
     },
     {
-      "id": "4db1",
-      "psychologistId": "",
-      "title": "teste",
-      "subtitle": "fsduihfpdskfhsdfoifpi",
-      "image": "https://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpg",
-      "content": "feóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\jfeóhisdfnisaf\\jsf\\lszfj\\jl\\zfs\\zjfljsf\\jsf\\j",
-      "createdAt": "2025-05-21T22:31:42.461Z"
+      "id": "a12",
+      "psychologistId": "e101",
+      "title": "Fortalecendo Laços Familiares: Abordagens em Terapia de Casal",
+      "subtitle": "Comunicação assertiva e empatia para resolver conflitos",
+      "image": "https://images.pexels.com/photos/5212341/pexels-photo-5212341.jpeg",
+      "content": "Conflitos são naturais em relacionamentos, mas a forma como os casais se comunicam faz toda a diferença. Na terapia de casal, trabalhamos:\n\n1. Escuta Ativa: praticar repetir o que o outro disse antes de responder.\n2. Linguagem Não Violenta: expressar sentimentos sem acusações.\n3. Exercícios de Reconexão: atividades semanais de gratidão mútua.\n\nEssas ferramentas promovem alinhamento de expectativas e fortalecem a confiança mútua.",
+      "createdAt": "2025-04-18T15:10:00Z"
     },
     {
-      "id": "8f11",
-      "psychologistId": "a396",
-      "title": "testgsdfgsdfgf",
-      "subtitle": "thgfhfg",
-      "description": "Melhore sua qualidade de vida com práticas de relaxamento. Aprenda a meditar e a respirar corretamente. Conhecendo as práticas de meditação e respiração. Aprenda a meditar e a respirar corretamente.",
-      "image": "https://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpg",
-      "content": "https://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpghttps://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpghttps://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpghttps://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpghttps://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpghttps://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpghttps://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpghttps://wallpapers.com/images/hd/pc-background-icblvzjtn3i7m291.jpgsdasdas\n\n\noi 😀",
-      "createdAt": "2025-05-21T22:37:42.583Z"
+      "id": "a13",
+      "psychologistId": "e102",
+      "title": "Estratégias de Prevenção ao Bullying no Ambiente Escolar",
+      "subtitle": "Intervenções para promover um clima de respeito e solidariedade",
+      "image": "https://images.pexels.com/photos/4145201/pexels-photo-4145201.jpeg",
+      "content": "O bullying prejudica o desenvolvimento emocional de adolescentes e pode gerar consequências a longo prazo. Neste artigo, apresento:\n\n- Programas de mentoria entre colegas.\n- Oficinas de empatia e resolução de conflitos.\n- Como envolver pais e professores em campanhas anti-bullying.\n\nA ação conjunta de toda a comunidade escolar é vital para prevenir comportamentos agressivos e fortalecer laços de solidariedade.",
+      "createdAt": "2025-02-25T10:00:00Z"
     },
     {
-      "id": "b7f6",
-      "psychologistId": "a396",
-      "title": "Irrifdnskfhsdk",
-      "subtitle": "dsnifhkdlsfahdskflhkasdhfkas. gkkhgugjkbjhbhjkjhghjkjh",
-      "image": "https://randomuser.me/api/portraits/women/47.jpg",
-      "content": "asadfdsdfdsadsfasadfdsdfdsadsfasadfdsdfdsadsfasadfdsdfdsadsfasadfdsdfdsadsf.\n\n\nasadfdsdfdsadsfasadfdsdfdsadsfasadfdsdfdsadsfasadfdsdfdsadsf\n\nasadfdsdfdsadsfasadfdsdfdsadsfasadfdsdfdsadsf",
-      "createdAt": "2025-05-22T21:13:15.366Z"
+      "id": "a14",
+      "psychologistId": "e103",
+      "title": "Mindfulness e Técnicas de TCC para Transtornos de Ansiedade",
+      "subtitle": "Integração de práticas contemplativas e cognitivas no tratamento",
+      "image": "https://images.pexels.com/photos/3822623/pexels-photo-3822623.jpeg",
+      "content": "Combinar TCC com Mindfulness potencializa o tratamento de ansiedade. Você aprenderá:\n\n- Exercícios de atenção plena para observar pensamentos sem reação.\n- Reestruturação de crenças disfuncionais passo a passo.\n- Planos de autocuidado personalizados com meditação breve.\n\nEssa abordagem híbrida aumenta a resiliência emocional e reduz recaídas.",
+      "createdAt": "2025-03-30T13:20:00Z"
     },
     {
-      "id": "0b57",
-      "psychologistId": "a396",
-      "title": "fsdfsdfds",
-      "subtitle": "fsdfsd",
-      "image": "https://i.pinimg.com/736x/12/cc/75/12cc75e794e10fbb88ab4908a6cbfe8b.jpg",
-      "content": "sdffasdf",
-      "createdAt": "2025-05-22T22:11:41.733Z"
+      "id": "a15",
+      "psychologistId": "e104",
+      "title": "Clima Organizacional Saudável: Indicadores e Intervenções",
+      "subtitle": "Ferramentas para avaliar e melhorar o ambiente de trabalho",
+      "image": "https://images.pexels.com/photos/5395205/pexels-photo-5395205.jpeg",
+      "content": "Um bom clima organizacional reflete em produtividade e satisfação. Neste artigo, discutimos:\n\n- Questionários de percepção de liderança e colaboração.\n- Workshops de team building focados em confiança.\n- Planos de ação para correção de pontos críticos.\n\nCom dados qualitativos e quantitativos, é possível traçar metas claras para um ambiente mais harmonioso.",
+      "createdAt": "2025-01-20T11:50:00Z"
     },
     {
-      "id": "d26f",
-      "psychologistId": "a396",
-      "title": "ewafaesdfWE",
-      "subtitle": "FASFCSSDAS \\",
-      "image": "https://randomuser.me/api/portraits/women/47.jpg",
-      "content": "FASffasdsfasfsadfsadfsafasfsafsssfas",
-      "createdAt": "2025-05-23T00:39:26.458Z"
+      "id": "a16",
+      "psychologistId": "e105",
+      "title": "Intervenções Cognitivas no Autismo Infantil",
+      "subtitle": "Metodologias lúdicas para promover interação e aprendizado",
+      "image": "https://images.pexels.com/photos/4145212/pexels-photo-4145212.jpeg",
+      "content": "Crianças com TEA beneficiam-se de abordagens estruturadas e visuais. Vejamos:\n\n- Uso de cartões de comunicação visual para rotinas.\n- Jogos de associação para estímulo cognitivo.\n- Atividades sensoriais adaptadas para autorregulação.\n\nEssas estratégias aumentam a autonomia e melhoram a comunicação não verbal.",
+      "createdAt": "2025-04-05T09:15:00Z"
     },
     {
-      "id": "73fb",
-      "psychologistId": "a396",
-      "title": "FGSDCVZ",
-      "subtitle": "VXZCVCXZ",
-      "image": "VCXZC",
-      "content": "VCXZX",
-      "createdAt": "2025-05-23T00:40:14.722Z"
+      "id": "a17",
+      "psychologistId": "e106",
+      "title": "Terapia Analítico-Comportamental em Depressão",
+      "subtitle": "Como identificar padrões de evitação e promover engajamento",
+      "image": "https://images.pexels.com/photos/4145170/pexels-photo-4145170.jpeg",
+      "content": "Na TAC, a depressão é vista como redução de contato com reforçadores positivos. Neste artigo:\n\n- Avaliamos atividades que trazem prazer e significado.\n- Estabelecemos rotinas de pequenas metas diárias.\n- Monitoramos engajamento e ajustamos reforçadores.\n\nAumentando gradualmente a participação em atividades gratificantes, promovemos melhora do humor e da motivação.",
+      "createdAt": "2025-03-08T14:05:00Z"
+    },
+    {
+      "id": "a18",
+      "psychologistId": "e107",
+      "title": "Gerenciando Ansiedade de Performance em Atletas",
+      "subtitle": "Técnicas psicológicas para maximizar o rendimento esportivo",
+      "image": "https://images.pexels.com/photos/4164266/pexels-photo-4164266.jpeg",
+      "content": "A ansiedade de performance pode prejudicar resultados. Aplicamos:\n\n- Imagética Motora: ensaio mental de situações de jogo.\n- Técnicas de ancoragem: uso de gestos e palavras de poder.\n- Treinos de respiração para estabilizar o estado arousal.\n\nCombinadas a treinamentos físicos, essas práticas trazem consistência ao desempenho.",
+      "createdAt": "2025-04-12T18:25:00Z"
+    },
+    {
+      "id": "a19",
+      "psychologistId": "e108",
+      "title": "Transição de Carreira: Planejamento e Autoconhecimento",
+      "subtitle": "Como redesenhar seu percurso profissional com segurança",
+      "image": "https://images.pexels.com/photos/4145193/pexels-photo-4145193.jpeg",
+      "content": "Mudar de carreira requer clareza sobre habilidades e valores. Neste guia:\n\n- Inventários de interesses profissionais.\n- Exercícios de narrativa de carreira para ressignificação.\n- Cronograma de passos práticos: capacitação, networking e provas de conceito.\n\nCom planejamento estruturado, você minimiza riscos e maximiza chances de sucesso.",
+      "createdAt": "2025-02-14T12:40:00Z"
+    },
+    {
+      "id": "a20",
+      "psychologistId": "e109",
+      "title": "Psicologia Perinatal: Apoio Emocional no Pós-parto",
+      "subtitle": "Estratégias para mães que enfrentam desafios emocionais após o nascimento",
+      "image": "https://images.pexels.com/photos/4145189/pexels-photo-4145189.jpeg",
+      "content": "O período pós-parto pode trazer sentimentos de insegurança e tristeza. Neste artigo:\n\n- Identificamos sinais de depressão pós-parto.\n- Propomos grupos de apoio e terapias breves.\n- Técnicas de autorregulação para equilibrar hormônios e emoções.\n\nCom suporte adequado, a mãe recupera confiança e fortalece o vínculo com o bebê.",
+      "createdAt": "2025-03-18T10:55:00Z"
     }
   ],
   "favorites": [
@@ -339,31 +809,6 @@
     {
       "id": "cace",
       "patientId": "c80e",
-      "psychologistId": "cbc1"
-    },
-    {
-      "id": "7835",
-      "patientId": "037a",
-      "psychologistId": "1"
-    },
-    {
-      "id": "3fa4",
-      "patientId": "037a",
-      "psychologistId": "cbc1"
-    },
-    {
-      "id": "4ef7",
-      "patientId": "037a",
-      "psychologistId": "dd5b"
-    },
-    {
-      "id": "5b69",
-      "patientId": "dfe6",
-      "psychologistId": "1"
-    },
-    {
-      "id": "078e",
-      "patientId": "dfe6",
       "psychologistId": "cbc1"
     },
     {
@@ -405,6 +850,241 @@
       "id": "dcaf",
       "patientId": "b93f",
       "psychologistId": "a396"
+    },
+    {
+      "id": "f6fb",
+      "patientId": "a1b2",
+      "psychologistId": "e101"
+    },
+    {
+      "id": "15c4",
+      "patientId": "a1b2",
+      "psychologistId": "e109"
+    },
+    {
+      "id": "39e8",
+      "patientId": "a1b2",
+      "psychologistId": "e113"
+    },
+    {
+      "id": "874f",
+      "patientId": "a1b2",
+      "psychologistId": "e111"
+    },
+    {
+      "id": "3877",
+      "patientId": "a1b2",
+      "psychologistId": "77f8"
+    },
+    {
+      "id": "bc68",
+      "patientId": "a1b2",
+      "psychologistId": "e105"
+    },
+    {
+      "id": "7046",
+      "patientId": "c2d3",
+      "psychologistId": "e112"
+    },
+    {
+      "id": "2f7c",
+      "patientId": "c2d3",
+      "psychologistId": "e102"
+    },
+    {
+      "id": "4291",
+      "patientId": "c2d3",
+      "psychologistId": "e106"
+    },
+    {
+      "id": "de89",
+      "patientId": "c2d3",
+      "psychologistId": "e113"
+    },
+    {
+      "id": "dc5c",
+      "patientId": "c2d3",
+      "psychologistId": "e117"
+    },
+    {
+      "id": "25cf",
+      "patientId": "c2d3",
+      "psychologistId": "e108"
+    },
+    {
+      "id": "ed60",
+      "patientId": "c2d3",
+      "psychologistId": "1"
+    },
+    {
+      "id": "53eb",
+      "patientId": "c2d3",
+      "psychologistId": "e111"
+    },
+    {
+      "id": "9316",
+      "patientId": "e3f4",
+      "psychologistId": "e111"
+    },
+    {
+      "id": "1ded",
+      "patientId": "e3f4",
+      "psychologistId": "e109"
+    },
+    {
+      "id": "9274",
+      "patientId": "e3f4",
+      "psychologistId": "cbc1"
+    },
+    {
+      "id": "59f9",
+      "patientId": "e3f4",
+      "psychologistId": "e113"
+    },
+    {
+      "id": "a610",
+      "patientId": "e3f4",
+      "psychologistId": "e102"
+    },
+    {
+      "id": "fc3a",
+      "patientId": "e3f4",
+      "psychologistId": "77f8"
+    },
+    {
+      "id": "38ea",
+      "patientId": "e3f4",
+      "psychologistId": "e119"
+    },
+    {
+      "id": "149d",
+      "patientId": "e3f4",
+      "psychologistId": "e112"
+    },
+    {
+      "id": "d7e1",
+      "patientId": "g4h5",
+      "psychologistId": "77f8"
+    },
+    {
+      "id": "2077",
+      "patientId": "g4h5",
+      "psychologistId": "e112"
+    },
+    {
+      "id": "baa4",
+      "patientId": "g4h5",
+      "psychologistId": "e110"
+    },
+    {
+      "id": "f359",
+      "patientId": "g4h5",
+      "psychologistId": "cbc1"
+    },
+    {
+      "id": "1b80",
+      "patientId": "g4h5",
+      "psychologistId": "e113"
+    },
+    {
+      "id": "c46e",
+      "patientId": "g4h5",
+      "psychologistId": "e101"
+    },
+    {
+      "id": "2940",
+      "patientId": "g4h5",
+      "psychologistId": "e116"
+    },
+    {
+      "id": "e094",
+      "patientId": "g4h5",
+      "psychologistId": "e111"
+    },
+    {
+      "id": "d441",
+      "patientId": "i5j6",
+      "psychologistId": "77f8"
+    },
+    {
+      "id": "f67c",
+      "patientId": "i5j6",
+      "psychologistId": "a396"
+    },
+    {
+      "id": "28b3",
+      "patientId": "i5j6",
+      "psychologistId": "e113"
+    },
+    {
+      "id": "8be3",
+      "patientId": "i5j6",
+      "psychologistId": "e112"
+    },
+    {
+      "id": "716f",
+      "patientId": "i5j6",
+      "psychologistId": "e103"
+    },
+    {
+      "id": "5a8c",
+      "patientId": "i5j6",
+      "psychologistId": "e106"
+    },
+    {
+      "id": "b3d1",
+      "patientId": "i5j6",
+      "psychologistId": "e119"
+    },
+    {
+      "id": "2bb3",
+      "patientId": "i5j6",
+      "psychologistId": "e111"
+    },
+    {
+      "id": "c1e8",
+      "patientId": "k6l7",
+      "psychologistId": "e112"
+    },
+    {
+      "id": "c805",
+      "patientId": "k6l7",
+      "psychologistId": "e102"
+    },
+    {
+      "id": "3fd9",
+      "patientId": "k6l7",
+      "psychologistId": "e114"
+    },
+    {
+      "id": "55b8",
+      "patientId": "k6l7",
+      "psychologistId": "e118"
+    },
+    {
+      "id": "6dff",
+      "patientId": "k6l7",
+      "psychologistId": "e108"
+    },
+    {
+      "id": "0e68",
+      "patientId": "k6l7",
+      "psychologistId": "e116"
+    },
+    {
+      "id": "43f2",
+      "patientId": "k6l7",
+      "psychologistId": "e104"
+    },
+    {
+      "id": "c135",
+      "patientId": "k6l7",
+      "psychologistId": "77f8"
+    },
+    {
+      "id": "48ab",
+      "patientId": "c2d3",
+      "psychologistId": "77f8"
     }
   ],
   "contacts": [
