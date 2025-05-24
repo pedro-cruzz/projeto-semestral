@@ -78,3 +78,24 @@ export const Loading = styled.div`
   padding: 4rem;
   text-align: center;
 `;
+
+export const PaginationWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 32px 0;
+`;
+
+export const PageButton = styled.button`
+  background-color: ${theme.colors.DARK_GREEN};
+  color: ${theme.colors.WHITE};
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+`;

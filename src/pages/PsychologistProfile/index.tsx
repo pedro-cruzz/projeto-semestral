@@ -36,6 +36,11 @@ import { getContactByPsychologist } from "../../services/contactApi";
 import { AddressResponse } from "../../dtos/adresss";
 import { getAddressByPsychologist } from "../../services/adress";
 import { chunkArray } from "../../utils/chuncks";
+import {
+  Loading,
+  PageButton,
+  PaginationWrapper,
+} from "../PatientProfile/styles";
 
 export function PsychologistProfile() {
   const { userId, signOut } = useContext(AuthContext);
@@ -124,6 +129,8 @@ export function PsychologistProfile() {
     getAddressByPsychologist(psychologist.id).then(setAddress);
   }, [psychologist]);
 
+  const [currentPage, setCurrentPage] = useState(0);
+
   if (loading) {
     return (
       <BaseLayout $variant="secondary">
@@ -175,7 +182,22 @@ export function PsychologistProfile() {
   };
 
   const itemsPerCarousel = 15;
+  const carouselsPerPage = 4;
   const articleChunks = chunkArray(articles, itemsPerCarousel);
+
+  const totalPages = Math.ceil(articleChunks.length / carouselsPerPage);
+
+  const pageChunks = articleChunks.slice(
+    currentPage * carouselsPerPage,
+    currentPage * carouselsPerPage + carouselsPerPage
+  );
+
+  const handlePrevPage = () => {
+    setCurrentPage((p) => Math.max(0, p - 1));
+  };
+  const handleNextPage = () => {
+    setCurrentPage((p) => Math.min(totalPages - 1, p + 1));
+  };
 
   return (
     <BaseLayout $variant="secondary">
@@ -243,47 +265,47 @@ export function PsychologistProfile() {
             )}
           </div>
           <Title>Artigos Recentes</Title>
-          {/* <ContainerCardArticles>
-            {articles.length > 0 ? (
-              <Carousel
-                items={articles}
-                itemsPerPage={3}
-                renderItem={(article) => (
-                  <CardArticle
-                    key={article.id}
-                    id={article.id}
-                    idPsychologist={profileProps.psychologistId}
-                    image={article.image || profileProps.imageArticle}
-                    title={article.title || profileProps.title}
-                    subtitle={article.subtitle || profileProps.subtitle}
-                  />
-                )}
-              />
-            ) : (
-              <div style={{ marginBottom: "4rem" }}>
-                Nenhum artigo encontrado.
-              </div>
-            )}
-          </ContainerCardArticles> */}
           <ContainerCardArticles>
-            {articleChunks.length > 0 ? (
-              articleChunks.map((chunk, idx) => (
-                <Carousel
-                  key={idx}
-                  items={chunk}
-                  itemsPerPage={3}
-                  renderItem={(article) => (
-                    <CardArticle
-                      key={article.id}
-                      id={article.id}
-                      idPsychologist={profileProps.psychologistId}
-                      image={article.image || profileProps.imageArticle}
-                      title={article.title || profileProps.title}
-                      subtitle={article.subtitle || profileProps.subtitle}
-                    />
-                  )}
-                />
-              ))
+            {loading ? (
+              <Loading>Carregando psicólogos...</Loading>
+            ) : articleChunks.length > 0 ? (
+              <>
+                {pageChunks.map((chunk, idx) => (
+                  <Carousel
+                    key={idx}
+                    items={chunk}
+                    itemsPerPage={3}
+                    renderItem={(article) => (
+                      <CardArticle
+                        key={article.id}
+                        id={article.id}
+                        idPsychologist={profileProps.psychologistId}
+                        image={article.image || profileProps.imageArticle}
+                        title={article.title || profileProps.title}
+                        subtitle={article.subtitle || profileProps.subtitle}
+                      />
+                    )}
+                  />
+                ))}
+                {/* Controles de paginação dos Carousels */}
+                <PaginationWrapper>
+                  <PageButton
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 0}
+                  >
+                    ← Página anterior
+                  </PageButton>
+                  <span>
+                    Página {currentPage + 1} de {totalPages}
+                  </span>
+                  <PageButton
+                    onClick={handleNextPage}
+                    disabled={currentPage >= totalPages - 1}
+                  >
+                    Próxima página →
+                  </PageButton>
+                </PaginationWrapper>
+              </>
             ) : (
               <div style={{ marginBottom: "4rem" }}>
                 Nenhum artigo encontrado.

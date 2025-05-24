@@ -15,6 +15,8 @@ import {
   Image,
   Loading,
   NotFoundContainer,
+  PageButton,
+  PaginationWrapper,
   Separator,
   Title,
 } from "./styles";
@@ -90,6 +92,21 @@ export function PatientProfile() {
     }
   };
 
+  const itemsPerCarousel = 5;
+  const carouselsPerPage = 2;
+  const psychologistsChunks = chunkArray(
+    favoritePsychologists,
+    itemsPerCarousel
+  );
+
+  const totalPages = Math.ceil(psychologistsChunks.length / carouselsPerPage);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const pageChunks = psychologistsChunks.slice(
+    currentPage * carouselsPerPage,
+    currentPage * carouselsPerPage + carouselsPerPage
+  );
+
   if (loading) {
     return (
       <BaseLayout $variant="secondary">
@@ -114,11 +131,12 @@ export function PatientProfile() {
     );
   }
 
-  const itemsPerCarousel = 15;
-  const psychologistsChunks = chunkArray(
-    favoritePsychologists,
-    itemsPerCarousel
-  );
+  const handlePrevPage = () => {
+    setCurrentPage((p) => Math.max(0, p - 1));
+  };
+  const handleNextPage = () => {
+    setCurrentPage((p) => Math.min(totalPages - 1, p + 1));
+  };
 
   return (
     <BaseLayout $variant="secondary">
@@ -155,31 +173,51 @@ export function PatientProfile() {
         <Separator />
 
         <Title>Meus psicólogos favoritos</Title>
+
         {loading ? (
-          <Loading>Carregando psicólogos favoritos...</Loading>
-        ) : psychologistsChunks.length > 0 ? (
-          psychologistsChunks.map((psychologists, index) => (
-            <Carousel
-              key={index}
-              items={psychologists}
-              itemsPerPage={3}
-              renderItem={(psy) => (
-                <Link
-                  to={`/psychologist-profile/${psy.psychologist.id}`}
-                  key={psy.id}
-                >
-                  <CardPsychologist
-                    idPsychologist={psy.psychologist.id}
-                    name={psy.psychologist.name}
-                    about={psy.psychologist.about || ""}
-                    image={psy.psychologist.image || ""}
-                  />
-                </Link>
-              )}
-            />
-          ))
-        ) : (
+          <Loading>Carregando psicólogos...</Loading>
+        ) : psychologistsChunks.length === 0 ? (
           <div>Nenhum psicólogo favorito encontrado.</div>
+        ) : (
+          <>
+            {/* Renderiza apenas os carousels desta página */}
+            {pageChunks.map((batch, idx) => (
+              <Carousel
+                key={idx}
+                items={batch}
+                itemsPerPage={3}
+                renderItem={(psy) => (
+                  <Link
+                    to={`/psychologist-profile/${psy.psychologist.id}`}
+                    key={psy.id}
+                  >
+                    <CardPsychologist
+                      idPsychologist={psy.psychologist.id}
+                      name={psy.psychologist.name}
+                      about={psy.psychologist.about || ""}
+                      image={psy.psychologist.image || ""}
+                    />
+                  </Link>
+                )}
+              />
+            ))}
+
+            {/* Controles de paginação dos Carousels */}
+            <PaginationWrapper>
+              <PageButton onClick={handlePrevPage} disabled={currentPage === 0}>
+                ← Página anterior
+              </PageButton>
+              <span>
+                Página {currentPage + 1} de {totalPages}
+              </span>
+              <PageButton
+                onClick={handleNextPage}
+                disabled={currentPage >= totalPages - 1}
+              >
+                Próxima página →
+              </PageButton>
+            </PaginationWrapper>
+          </>
         )}
       </Container>
     </BaseLayout>
