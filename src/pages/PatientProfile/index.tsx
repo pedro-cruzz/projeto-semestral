@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
 import { BaseLayout } from "../../components/BaseLayout";
@@ -30,6 +30,7 @@ import {
 import { CardPsychologist } from "../Psychologists/components/CardPsychologist";
 import { Carousel } from "../../components/Carousel";
 import { chunkArray } from "../../utils/chuncks";
+import { SearchInput } from "../Psychologists";
 
 export function PatientProfile() {
   const { userId, patientId, signOut } = useContext(AuthContext);
@@ -41,6 +42,11 @@ export function PatientProfile() {
   const [loading, setLoading] = useState(true);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  // Filtra por nome (case-insensitive)
+  const filtered = favoritePsychologists.filter((p) =>
+    p.psychologist.name.toLowerCase().includes(searchTerm.trim().toLowerCase())
+  );
 
   const navigate = useNavigate();
 
@@ -94,10 +100,7 @@ export function PatientProfile() {
 
   const itemsPerCarousel = 5;
   const carouselsPerPage = 2;
-  const psychologistsChunks = chunkArray(
-    favoritePsychologists,
-    itemsPerCarousel
-  );
+  const psychologistsChunks = chunkArray(filtered, itemsPerCarousel);
 
   const totalPages = Math.ceil(psychologistsChunks.length / carouselsPerPage);
   const [currentPage, setCurrentPage] = useState(0);
@@ -138,6 +141,10 @@ export function PatientProfile() {
     setCurrentPage((p) => Math.min(totalPages - 1, p + 1));
   };
 
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <BaseLayout $variant="secondary">
       <Container>
@@ -173,6 +180,13 @@ export function PatientProfile() {
         <Separator />
 
         <Title>Meus psicólogos favoritos</Title>
+
+        <SearchInput
+          type="text"
+          placeholder="Buscar pelo nome..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
 
         {loading ? (
           <Loading>Carregando psicólogos...</Loading>

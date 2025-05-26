@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { BaseLayout } from "../../components/BaseLayout";
@@ -41,6 +41,7 @@ import {
   PageButton,
   PaginationWrapper,
 } from "../PatientProfile/styles";
+import { SearchInput } from "../Psychologists";
 
 export function PsychologistProfile() {
   const { userId, signOut } = useContext(AuthContext);
@@ -58,6 +59,11 @@ export function PsychologistProfile() {
   const [modalOpen, setModalOpen] = useState(false);
   const [contact, setContact] = useState<ContactResponse | null>(null);
   const [address, setAddress] = useState<AddressResponse | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  // Filtra por nome (case-insensitive)
+  const filtered = articles.filter((a) =>
+    a.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
+  );
 
   const navigate = useNavigate();
   const handleUpdateProfile = (
@@ -183,7 +189,7 @@ export function PsychologistProfile() {
 
   const itemsPerCarousel = 15;
   const carouselsPerPage = 4;
-  const articleChunks = chunkArray(articles, itemsPerCarousel);
+  const articleChunks = chunkArray(filtered, itemsPerCarousel);
 
   const totalPages = Math.ceil(articleChunks.length / carouselsPerPage);
 
@@ -197,6 +203,10 @@ export function PsychologistProfile() {
   };
   const handleNextPage = () => {
     setCurrentPage((p) => Math.min(totalPages - 1, p + 1));
+  };
+
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -265,6 +275,12 @@ export function PsychologistProfile() {
             )}
           </div>
           <Title>Artigos Recentes</Title>
+          <SearchInput
+            type="text"
+            placeholder="Buscar pelo título..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
           <ContainerCardArticles>
             {loading ? (
               <Loading>Carregando psicólogos...</Loading>

@@ -6,6 +6,7 @@ import {
   CarouselContent,
   LeftArrow,
   RightArrow,
+  ItemWrapper,
 } from "./styles";
 
 export function Carousel<T>({
@@ -13,21 +14,30 @@ export function Carousel<T>({
   renderItem,
   itemsPerPage = 3,
 }: CarouselProps<T>) {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const totalItems = items.length;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // O índice máximo garante que sempre serão exibidos "itemsPerPage" elementos
-  // Avança um item adiante; volta ao início quando chega no fim
+  // Se não há itens suficientes, renderiza fixo
+  if (totalItems <= itemsPerPage) {
+    return (
+      <CarouselWrapper>
+        <CarouselContent style={{ padding: "20px 60px" }}>
+          {items.map((item, idx) => (
+            <ItemWrapper key={idx}>{renderItem(item, idx)}</ItemWrapper>
+          ))}
+        </CarouselContent>
+      </CarouselWrapper>
+    );
+  }
+
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % totalItems);
   };
 
-  // Volta um item; vai para o último quando está no primeiro
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + totalItems) % totalItems);
   };
 
-  // Seleciona itemsPerPage elementos de forma circular
   const currentItems = Array.from({ length: itemsPerPage }).map((_, i) => {
     const idx = (currentIndex + i) % totalItems;
     return items[idx];
@@ -38,11 +48,14 @@ export function Carousel<T>({
       <LeftArrow onClick={handlePrev}>{"<"}</LeftArrow>
       <RightArrow onClick={handleNext}>{">"}</RightArrow>
       <CarouselContent style={{ padding: "20px 60px" }}>
-        {currentItems.map((item, index) => (
-          <div key={index}>
-            {renderItem(item, (currentIndex + index) % totalItems)}
-          </div>
-        ))}
+        {currentItems.map((item, index) => {
+          const realIndex = (currentIndex + index) % totalItems;
+          return (
+            <ItemWrapper key={realIndex}>
+              {renderItem(item, realIndex)}
+            </ItemWrapper>
+          );
+        })}
       </CarouselContent>
     </CarouselWrapper>
   );

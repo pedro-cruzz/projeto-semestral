@@ -1,5 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { theme } from "../../styles/theme";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const CarouselWrapper = styled.div`
   position: relative;
@@ -10,16 +21,20 @@ export const CarouselWrapper = styled.div`
 
 export const CarouselContent = styled.div`
   display: flex;
-  justify-content: center; /* centraliza os cards */
+  justify-content: center;
   align-items: center;
   gap: 16px;
   transition: transform 0.3s ease-in-out;
-
-  /* ocupa toda a área entre as setas */
-  width: 100%; /* ocupa todo o espaço interno do wrapper */
-  padding: 0 60px; /* mantém o espaçamento interno para as setas */
+  width: 100%;
+  padding: 0 60px;
   box-sizing: border-box;
 `;
+
+// anima cada item ao entrar na viewport
+export const ItemWrapper = styled.div`
+  animation: ${fadeIn} 0.5s ease-in-out;
+`;
+
 export const ArrowButton = styled.button`
   position: absolute;
   top: 50%;
