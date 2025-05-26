@@ -1,5 +1,5 @@
 // pages/Psicologos/index.tsx
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { BaseLayout } from "../../components/BaseLayout";
 import { Carousel } from "../../components/Carousel";
 import { getAllPsychologists } from "../../services/getAllPsychologists";
@@ -9,6 +9,8 @@ import styled from "styled-components";
 import { theme } from "../../styles/theme";
 import { chunkArray } from "../../utils/chuncks";
 import { PageButton, PaginationWrapper } from "../PatientProfile/styles";
+import { shuffleArray } from "../../utils/shuffle";
+import { CheckboxWithLabel } from "../../components/Forms/fields/CheckBoxField";
 
 const Container = styled.div`
   display: flex;
@@ -32,22 +34,35 @@ const Loading = styled.div`
 `;
 
 export const SearchInput = styled.input`
-  width: 60%;
-  max-width: 400px;
+  width: 400px;
+
   padding: 8px 12px;
   border: 1px solid ${theme.colors.GRAY};
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 1rem;
 
-  &:focus {
-    outline: none;
-    border-color: ${theme.colors.DARK_GREEN};
-  }
-
+  &:focus,
   &:focus-visible {
     outline: none;
     border-color: ${theme.colors.DARK_GREEN};
+  }
+`;
+
+export const Controls = styled.div`
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+  margin-bottom: 1rem;
+
+  label {
+    font-size: 14px;
+    color: ${theme.colors.DARK_GREEN};
+    input {
+      margin-right: 0.25rem;
+    }
   }
 `;
 
@@ -57,10 +72,7 @@ export default function Psicologos() {
   );
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  // Filtra por nome (case-insensitive)
-  const filtered = psychologists.filter((p) =>
-    p.name.toLowerCase().includes(searchTerm.trim().toLowerCase())
-  );
+  const [randomize, setRandomize] = useState(false);
 
   useEffect(() => {
     getAllPsychologists()
@@ -69,57 +81,74 @@ export default function Psicologos() {
       .finally(() => setLoading(false));
   }, []);
 
+  // Combina filtro e aleatorização de forma memoizada
+  const processed = useMemo(() => {
+    let arr = [...psychologists];
+
+    if (searchTerm.trim()) {
+      const term = searchTerm.trim().toLowerCase();
+      arr = arr.filter((p) => p.name.toLowerCase().includes(term));
+    }
+
+    if (randomize) {
+      arr = shuffleArray(arr);
+    }
+
+    return arr;
+  }, [psychologists, searchTerm, randomize]);
+
   const itemsPerCarousel = 15;
   const carouselsPerPage = 4;
-  const psychologistsChunks = chunkArray(filtered, itemsPerCarousel);
 
+  const psychologistsChunks = chunkArray(processed, itemsPerCarousel);
   const totalPages = Math.ceil(psychologistsChunks.length / carouselsPerPage);
   const [currentPage, setCurrentPage] = useState(0);
+
+  // Reseta para página 0 sempre que o conjunto for recalculado
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [processed]);
 
   const pageChunks = psychologistsChunks.slice(
     currentPage * carouselsPerPage,
     currentPage * carouselsPerPage + carouselsPerPage
   );
 
-  if (loading) {
-    return (
-      <BaseLayout $variant="secondary">
-        <div>Carregando...</div>
-      </BaseLayout>
-    );
-  }
-
-  const handlePrevPage = () => {
-    setCurrentPage((p) => Math.max(0, p - 1));
-  };
-  const handleNextPage = () => {
+  const handlePrevPage = () => setCurrentPage((p) => Math.max(0, p - 1));
+  const handleNextPage = () =>
     setCurrentPage((p) => Math.min(totalPages - 1, p + 1));
-  };
 
-  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchTerm(e.target.value);
-  };
 
   return (
     <BaseLayout $variant="secondary">
       <Container>
         <Title>Psicólogos</Title>
 
-        <SearchInput
-          type="text"
-          placeholder="Buscar pelo nome..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
+        <Controls>
+          <SearchInput
+            type="text"
+            placeholder="Buscar pelo nome..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+
+          <CheckboxWithLabel
+            label="Ordem aleatória"
+            checked={randomize}
+            onChange={() => setRandomize((r) => !r)}
+          />
+        </Controls>
 
         {loading ? (
           <Loading>Carregando psicólogos...</Loading>
-        ) : psychologistsChunks.length > 0 ? (
+        ) : processed.length > 0 ? (
           <>
-            {pageChunks.map((psychologists, index) => (
+            {pageChunks.map((batch, idx) => (
               <Carousel
-                key={index}
-                items={psychologists}
+                key={idx}
+                items={batch}
                 itemsPerPage={3}
                 renderItem={(psych) => (
                   <CardPsychologist
