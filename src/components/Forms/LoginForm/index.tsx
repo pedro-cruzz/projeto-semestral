@@ -1,6 +1,5 @@
-// src/pages/Login.tsx (ou LoginForm.tsx, conforme sua organização)
-import { useState, useContext } from "react";
-
+// src/pages/Login.tsx (ou LoginForm.tsx)
+import { useState, useContext, useEffect } from "react";
 import {
   ForgotPassword,
   Inputs,
@@ -22,6 +21,20 @@ export const LoginForm = () => {
 
   const [emailError, setEmailError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
+
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  // 1) Ao montar, tenta carregar credenciais salvas
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberEmail");
+    const savedSenha = localStorage.getItem("rememberSenha");
+    if (savedEmail && savedSenha) {
+      setEmail(savedEmail);
+      setSenha(savedSenha);
+      setLembrar(true);
+    }
+  }, []);
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -45,7 +58,7 @@ export const LoginForm = () => {
       setPasswordError(null);
     }
 
-    if (!validateEmail(email)) {
+    if (email && !validateEmail(email)) {
       setEmailError("Email inválido");
       isValid = false;
     }
@@ -58,6 +71,16 @@ export const LoginForm = () => {
 
     try {
       await signIn(email, senha);
+
+      // 2) Lógica de lembrar senha
+      if (lembrar) {
+        localStorage.setItem("rememberEmail", email);
+        localStorage.setItem("rememberSenha", senha);
+      } else {
+        localStorage.removeItem("rememberEmail");
+        localStorage.removeItem("rememberSenha");
+      }
+
       navigate("/dashboard");
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
@@ -65,12 +88,9 @@ export const LoginForm = () => {
     }
   };
 
-  const { signIn } = useContext(AuthContext);
-  const navigate = useNavigate();
-
   return (
     <AuthFormLayout
-      title={"Olá, seja bem-vindo de volta!"}
+      title="Olá, seja bem-vindo de volta!"
       subtitle="É muito bom ter você conosco novamente"
       buttonLabel="Entrar"
       onSubmit={(e) => {
@@ -91,7 +111,7 @@ export const LoginForm = () => {
           <RegisterParagraphContainer>
             <RegisterParagraph>Não tem uma conta?</RegisterParagraph>
             <Link
-              to={"/choose-register"}
+              to="/choose-register"
               style={{ fontWeight: "bold", textDecoration: "underline" }}
             >
               Cadastre-se já!

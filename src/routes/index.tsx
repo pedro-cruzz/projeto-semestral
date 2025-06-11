@@ -18,7 +18,7 @@ export function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/blog" element={<Blog />} />
+
       <Route path="/login" element={<Login />} />
       <Route path="/choose-register" element={<ChooseRegister />} />
       <Route path="/register" element={<Register />} />
@@ -28,6 +28,7 @@ export function AppRoutes() {
       <Route path="/psychologists" element={<Psicologos />} />
       {/* Rotas protegidas: Apenas usuários logados podem acessar */}
       <Route element={<PrivateRoute />}>
+        <Route path="/blog" element={<Blog />} />
         <Route
           path="/psychologist-profile/:psychologistId"
           element={<PsychologistProfile />}

@@ -18,9 +18,6 @@ import login from "./../../assets/svg/login.svg";
 import loginWhite from "./../../assets/png/login-white.png";
 import logout from "./../../assets/png/logout.png";
 import logoutWhite from "./../../assets/png/logout-white.png";
-// Adicione os novos imports
-
-import Tooltip from "@mui/material/Tooltip";
 import { IHeaderProps } from "./types";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ConfirmLogoutModal } from "./components/ConfirmLogoutModal";
@@ -98,17 +95,9 @@ export function Header({ $variant = "primary" }: IHeaderProps) {
               </IconItem>
             )}
 
-            <Tooltip title="Em breve">
-              <span style={{ opacity: 0.6 }}>
-                <NavItemLink
-                  to=""
-                  $variant={$variant}
-                  style={{ cursor: "default", pointerEvents: "none" }}
-                >
-                  Blog
-                </NavItemLink>
-              </span>
-            </Tooltip>
+            <NavItemLink to="/blog" $variant={$variant}>
+              Blog
+            </NavItemLink>
 
             <NavItemLink to="/psychologists" $variant={$variant}>
               Psicólogos
